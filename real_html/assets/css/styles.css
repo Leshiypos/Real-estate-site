@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box; }
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul,
+li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+body {
+  background-color: black; }
+
+.btn {
+  font-weight: 500;
+  font-size: clamp(7px, calc( 7px + (14 - 7) * ((100vw - 1000px) / (1920 - 1000)) ), 14px);
+  letter-spacing: -0.03em;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+  border-radius: 10000px;
+  height: 40px;
+  width: 176px;
+  transition: background-color 0.3s ease; }
+  @media screen and (min-width: 1001px) and (max-width: 1920px) {
+    .btn {
+      height: calc(100vw * (40 / 1920)); } }
+  @media screen and (max-width: 1000px) {
+    .btn {
+      height: 40px; } }
+  @media screen and (min-width: 1001px) and (max-width: 1920px) {
+    .btn {
+      width: calc(100vw * (176 / 1920)); } }
+  @media screen and (max-width: 1000px) {
+    .btn {
+      width: 176px; } }
+  .btn .btn_wrap {
+    width: fit-content; }
+  .btn.accent {
+    background-color: #00b0ae;
+    color: white; }
+    .btn.accent:hover {
+      background-color: #03807e; }
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center; }
+  header .wrap_header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    color: white;
+    height: 106px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      header .wrap_header {
+        height: calc(100vw * (106 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      header .wrap_header {
+        height: 106px; } }
+  header .logo {
+    width: 199px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      header .logo {
+        width: calc(100vw * (199 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      header .logo {
+        width: 199px; } }
+    header .logo img {
+      width: 100%; }
+  header .main_menu ul {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 65px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      header .main_menu ul {
+        gap: calc(100vw * (65 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      header .main_menu ul {
+        gap: 65px; } }
+    header .main_menu ul li a {
+      font-weight: 700;
+      font-size: 13px;
+      font-size: clamp(7px, calc( 7px + (13 - 7) * ((100vw - 1000px) / (1920 - 1000)) ), 13px);
+      line-height: 108%;
+      color: #fff;
+      text-transform: uppercase;
+      transition: color 0.3s ease; }
+      header .main_menu ul li a:hover {
+        color: #00b0ae; }
+
+div,
+p,
+a,
+ul,
+li,
+section {
+  font-family: "HelveticaNeueCyr", Arial, sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Ivy Mode", Arial, sans-serif; }
+
+/*# sourceMappingURL=styles.css.map */

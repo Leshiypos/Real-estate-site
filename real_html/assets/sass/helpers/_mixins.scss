@@ -1,0 +1,81 @@
+// $min-size / $max-size — любые одинаковые единицы (px, rem, em)
+// $min-vw / $max-vw — диапазон экрана, где идёт рост (по умолчанию 375–1440px)
+@mixin fluid-font(
+  $min-size,
+  $max-size,
+  $min-vw: $screen-medium,
+  $max-vw: $screen-container
+) {
+  font-size: clamp(
+    #{$min-size}px,
+    calc(
+      #{$min-size}px + (#{$max-size} - #{$min-size}) *
+        ((100vw - #{$min-vw}px) / (#{$max-vw} - #{$min-vw}))
+    ),
+    #{$max-size}px
+  );
+}
+
+// медиазапросы
+
+@mixin desktop($max: $screen-larger) {
+  @media screen and (min-width: (#{$screen-medium}px)) and (max-width: #{$max}px) {
+    @content;
+  }
+}
+
+@mixin tablet($max: $screen-medium) {
+  @media screen and (max-width: #{$max}px) {
+    @content;
+  }
+}
+
+@mixin mobile($max: $screen-small) {
+  @media screen and (max-width: #{$max}px) {
+    @content;
+  }
+}
+
+@mixin tablet-range($min: $screen-medium, $max: $screen-larger) {
+  @media screen and (min-width: (#{$min}px)) and (max-width: #{$max}px) {
+    @content;
+  }
+}
+
+// Расыты высоты от ширины
+@mixin fluid($prop, $val, $val-mob: $val) {
+  #{$prop}: #{$val}px;
+  @media screen and (min-width: #{$screen-medium+1}px) and (max-width: #{$screen-container}px) {
+    #{$prop}: calc(100vw * (#{$val} / #{$screen-container}));
+  }
+  @media screen and (max-width: #{$screen-medium}px) {
+    #{$prop}: #{$val-mob}px;
+  }
+}
+
+@mixin setupWrapSection {
+  width: 100%;
+  @include fluid("max-width", $screen-container); //   max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin setupPaddingSection {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@mixin standartTransitional {
+  transition: all 0.3s ease;
+}
+
+// MARK: Fonts
+@mixin font($size) {
+  @include fluid-font(#{$size} * 0.5, #{$size});
+}
+@mixin fz_14 {
+  @include fluid-font(7, 14);
+}
+@mixin fz_13 {
+  @include fluid-font(7, 13);
+}
