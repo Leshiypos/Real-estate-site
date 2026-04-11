@@ -15,3 +15,116 @@ h4,
 h5 {
   font-family: "Ivy Mode", Arial, sans-serif;
 }
+
+// liquid glasss
+.liquid-glass {
+  border-radius: 32px;
+  backdrop-filter: url(#liquid-glass-filter);
+  -webkit-backdrop-filter: url(#liquid-glass-filter);
+}
+
+.liquid-glass-fallback {
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(22px) !important;
+  -webkit-backdrop-filter: blur(22px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    inset 0 0 10px 0 rgba(0, 0, 0, 0.39215686274509803),
+    0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+@supports (backdrop-filter: url(#liquid-glass-filter)) {
+  .liquid-glass-auto {
+    border-radius: 32px;
+    backdrop-filter: url(#liquid-glass-filter);
+    -webkit-backdrop-filter: url(#liquid-glass-filter);
+  }
+}
+
+@supports not (backdrop-filter: url(#liquid-glass-filter)) {
+  .liquid-glass-auto {
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(22px) !important;
+    -webkit-backdrop-filter: blur(22px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      inset 0 0 10px 0 rgba(0, 0, 0, 0.39215686274509803),
+      0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// COMMON STYLE
+.video_background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Hero section
+.hero_section {
+  height: 100vh;
+  overflow: clip;
+  .wrap_section {
+    height: 100%;
+    position: relative;
+  }
+  .logo_block {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-weight: 500;
+    @include fz_25;
+    color: #fff;
+    gap: 35px;
+    img {
+      @include fluid("width", 597);
+    }
+  }
+  .content_block {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    .wrap_content_block {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+
+      @include fluid("margin-bottom", 35);
+      @include fluid("margin-left", 40);
+      @include fluid("margin-right", 20);
+
+      .btn_block {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        gap: 20px;
+        @include fluid("gap", 20);
+      }
+      .qr_block {
+        img {
+          @include fluid("width", 112);
+          @include fluid("height", 112);
+        }
+      }
+    }
+  }
+  .glass_line {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(30deg);
+    @include fluid("right", 200);
+    @include fluid("width", 549);
+    @include fluid("height", 1871);
+  }
+}

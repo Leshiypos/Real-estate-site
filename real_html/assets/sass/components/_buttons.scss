@@ -1,17 +1,15 @@
 .btn {
   font-weight: 500;
-  @include fz_14;
+  @include fz_16;
   letter-spacing: -0.03em;
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 20px;
-  padding-right: 20px;
   background-color: white;
   border-radius: 10000px;
-  @include fluid("height", 40);
-  @include fluid("width", 176);
+  @include fluid("height", 53);
+  @include fluid("width", 246);
   transition: background-color 0.3s ease;
 
   .btn_wrap {
@@ -22,6 +20,55 @@
     color: white;
     &:hover {
       background-color: $accent_color_hover;
+    }
+  }
+  &.glass {
+    color: white;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+      0 8px 24px rgba(0, 0, 0, 0.16);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.03) 35%,
+        rgba(255, 255, 255, 0.01) 100%
+      );
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.24);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+        0 10px 28px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  //   co стрелкой
+  &.whith_arrow {
+    justify-content: flex-end;
+    @include fluid("padding-right", 8);
+    img {
+      @include fluid("width", 39);
+      @include fluid("height", 39);
+    }
+
+    p {
+      width: 100%;
+      text-align: center;
     }
   }
 }

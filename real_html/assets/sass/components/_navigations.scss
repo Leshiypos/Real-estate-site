@@ -1,5 +1,6 @@
 header {
   position: absolute;
+  z-index: 5;
   top: 0;
   left: 0;
   right: 0;
@@ -23,6 +24,11 @@ header {
       width: 100%;
     }
   }
+  .btn {
+    @include fluid("height", 40);
+    @include fluid("width", 176);
+    @include fz_14;
+  }
 
   .main_menu {
     ul {
@@ -34,7 +40,6 @@ header {
       li {
         a {
           font-weight: 700;
-          font-size: 13px;
           @include fz_13;
           line-height: 108%;
           color: #fff;
