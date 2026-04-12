@@ -61,6 +61,7 @@
   &.whith_arrow {
     justify-content: flex-end;
     @include fluid("padding-right", 8);
+    @include fluid("padding-left", 40);
     img {
       @include fluid("width", 39);
       @include fluid("height", 39);

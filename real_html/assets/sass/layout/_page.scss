@@ -62,6 +62,18 @@ h5 {
   object-fit: cover;
 }
 
+.desktop {
+  @include tablet {
+    display: none;
+  }
+}
+.mobile {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}
+
 // Hero section
 .hero_section {
   height: 100vh;
@@ -123,8 +135,188 @@ h5 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%) rotate(30deg);
-    @include fluid("right", 200);
+    @include fluid("right", 130);
     @include fluid("width", 549);
     @include fluid("height", 1871);
+  }
+}
+
+// MARK: ABOUT SECTION
+.about_section {
+  @include fluid("margin-top", 167);
+  .wrap_section {
+    padding: 0;
+    @include fluid("padding-left", 75);
+    @include fluid("padding-right", 75);
+  }
+
+  .header_block {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include fluid("gap", 150);
+    .col {
+      &.col_title {
+        @include fluid("width", 920);
+        flex-shrink: 0;
+      }
+
+      &.col_post-title {
+        font-family: var(--font-family);
+        font-weight: 500;
+        @include fz_14;
+        line-height: 179%;
+        color: rgba(43, 44, 51, 0.6);
+        p {
+          @include fluid("width", 550);
+          @include fluid("margin-top", 30);
+        }
+      }
+    }
+    h2 {
+      font-family: var(--second-family);
+      font-weight: 300;
+      @include fz_145;
+      color: #2b2c33;
+      white-space: nowrap;
+    }
+  }
+
+  .content_block {
+    display: flex;
+    flex-flow: row nowrap;
+    @include fluid("margin-top", 83);
+    @include fluid("gap", 165);
+    .col {
+      &.col_gallery {
+        @include fluid("width", 920);
+        .swiper {
+          width: 100%;
+          &.gallery {
+            @include fluid("height", 500);
+            @include fluid("margin-bottom", 22);
+            .btn_block_navigation {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              right: 0;
+              z-index: 5;
+              flex-flow: row nowrap;
+              justify-content: space-between;
+              @include fluid("padding-left", 14);
+              @include fluid("padding-right", 14);
+              transform: translateY(-50%);
+              display: none;
+              & > div {
+                cursor: pointer;
+              }
+              @include tablet {
+                display: flex;
+              }
+            }
+          }
+          &.thumb_slider {
+            @include fluid("height", 190);
+          }
+          .swiper-slide {
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+      &.col_description {
+        display: flex;
+        justify-content: flex-end;
+        flex-flow: column nowrap;
+        width: 100%;
+        @include fluid("gap", 65);
+        ul {
+          display: flex;
+          flex-flow: column nowrap;
+          li {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-between;
+            @include fluid("height", 73px);
+            font-family: var(--second-family);
+            font-weight: 300;
+            @include fz_30;
+            line-height: 230%;
+            color: #2b2c33;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            &:last-child {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// MARK: GALERRY SECTION
+.gallery_section {
+  margin-top: 285px;
+  .header_block {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    h2 {
+      font-family: var(--second-family);
+      font-weight: 300;
+      font-size: 250px;
+      color: #2b2c33;
+    }
+
+    .col {
+      &.col_description {
+        width: 300px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 20px;
+        margin-top: 80px;
+        h3 {
+          font-family: var(--second-family);
+          font-weight: 400;
+          font-size: 50px;
+          line-height: 84%;
+          color: #2b2c33;
+        }
+        p {
+          font-family: var(--font-family);
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 143%;
+          color: #2b2c33;
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  .gallery_block {
+    margin-top: 40px;
+    .gallery_section_slider {
+      width: 100%;
+      height: 891px;
+      .swiper-slide {
+        border-radius: 15px;
+        overflow: clip;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
   }
 }

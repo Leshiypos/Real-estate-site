@@ -1,6 +1,11 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
   // Инициализация портфолио слайдеров
   //   initialportfolioSwiper();
+
+  initializationGallery();
+
+  //   Initialization Galerry section slider
+  initializationGalleryTwo();
 });
 
 function initialportfolioSwiper() {
@@ -13,7 +18,6 @@ function initialportfolioSwiper() {
       ?.querySelector(".wrap_content");
     const offsetPxMob = 20;
     const offsetPx = (window.innerWidth - contentBlock.offsetWidth) / 2;
-    console.log(offsetPx);
     const offset = offsetPx == 0 ? offsetPxMob : offsetPx;
     const swiper = new Swiper(slider, {
       loop: false,
@@ -36,5 +40,38 @@ function initialportfolioSwiper() {
         prevEl: ".swiper-button-prev",
       },
     });
+  });
+}
+
+function initializationGallery() {
+  var swiper = new Swiper(".thumb_slider", {
+    spaceBetween: 10,
+    slidesPerView: 3,
+    freeMode: true,
+    watchSlidesProgress: true,
+  });
+  var swiper2 = new Swiper(".gallery", {
+    spaceBetween: 6,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+      swiper: swiper,
+    },
+  });
+}
+
+function initializationGalleryTwo() {
+  var gallery = new Swiper(".gallery_section_slider", {
+    spaceBetween: 19,
+    slidesPerView: 1.08,
+    slidesOffsetBefore: 50,
+    slidesOffsetAfter: 50,
+    navigation: {
+      nextEl: ".swiper-button-gallery-next",
+      prevEl: ".swiper-button-gallery-prev",
+    },
   });
 }

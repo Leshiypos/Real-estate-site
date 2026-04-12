@@ -73,6 +73,12 @@
 @mixin font($size) {
   @include fluid-font(#{$size} * 0.5, #{$size});
 }
+@mixin fz_145 {
+  @include fluid-font(145 / 2, 145);
+}
+@mixin fz_30 {
+  @include fluid-font(15, 30);
+}
 @mixin fz_25 {
   @include fluid-font(13, 25);
 }

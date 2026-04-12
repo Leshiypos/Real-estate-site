@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  liquidGlassEffect();
+  //   liquidGlassEffect();
 });
 
 function liquidGlassEffect() {
