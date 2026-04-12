@@ -262,7 +262,7 @@ h5 {
 
 // MARK: GALERRY SECTION
 .gallery_section {
-  margin-top: 285px;
+  @include fluid("margin-top", 285);
   .header_block {
     width: 92%;
     margin-left: auto;
@@ -274,27 +274,28 @@ h5 {
       font-family: var(--second-family);
       font-weight: 300;
       font-size: 250px;
+      @include fz_250;
       color: #2b2c33;
     }
 
     .col {
       &.col_description {
-        width: 300px;
+        @include fluid("width", 300);
         display: flex;
         flex-flow: column nowrap;
-        gap: 20px;
-        margin-top: 80px;
+        @include fluid("gap", 20);
+        @include fluid("margin-top", 80);
         h3 {
           font-family: var(--second-family);
           font-weight: 400;
-          font-size: 50px;
+          @include fz_50;
           line-height: 84%;
           color: #2b2c33;
         }
         p {
           font-family: var(--font-family);
           font-weight: 500;
-          font-size: 14px;
+          @include fz_14;
           line-height: 143%;
           color: #2b2c33;
           width: 80%;
@@ -304,17 +305,38 @@ h5 {
   }
 
   .gallery_block {
-    margin-top: 40px;
+    @include fluid("margin-top", 40);
     .gallery_section_slider {
       width: 100%;
-      height: 891px;
+      @include fluid("height", 891);
       .swiper-slide {
-        border-radius: 15px;
+        @include fluid("border-radius", 15);
         overflow: clip;
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+        }
+      }
+      .btn_block_navigation {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        @include fluid("padding-left", 78);
+        @include fluid("padding-right", 95);
+        transform: translateY(-50%);
+        img {
+          @include fluid("width", 122);
+          @include fluid("height", 122);
+        }
+        & > div {
+          cursor: pointer;
         }
       }
     }

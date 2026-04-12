@@ -64,14 +64,27 @@ function initializationGallery() {
 }
 
 function initializationGalleryTwo() {
+  function getOffset() {
+    const standartOffset = 50;
+    const standartViewport = 1920;
+    const viewportWidth = window.innerWidth;
+    return (viewportWidth / standartViewport) * standartOffset;
+  }
   var gallery = new Swiper(".gallery_section_slider", {
     spaceBetween: 19,
-    slidesPerView: 1.08,
+    slidesPerView: 1.06,
     slidesOffsetBefore: 50,
     slidesOffsetAfter: 50,
     navigation: {
       nextEl: ".swiper-button-gallery-next",
       prevEl: ".swiper-button-gallery-prev",
     },
+  });
+
+  window.addEventListener("resize", () => {
+    const offset = getOffset();
+    gallery.params.slidesOffsetBefore = offset;
+    gallery.params.slidesOffsetAfter = offset;
+    gallery.update();
   });
 }
