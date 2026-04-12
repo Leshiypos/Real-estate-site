@@ -342,3 +342,175 @@ h5 {
     }
   }
 }
+
+// MARK: FLOOR PLANS SECTION
+
+.floor-plans_section {
+  @include fluid("margin-top", 158);
+
+  .header_block {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    h2 {
+      font-family: var(--second-family);
+      font-weight: 300;
+      @include fz_120;
+      line-height: 72%;
+      color: #2b2c33;
+    }
+    .col {
+      &.col_filter-btns {
+        ul {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: flex-end;
+          @include fluid("gap", 10);
+        }
+        button {
+          background-color: transparent;
+          border: 1px solid #2b2c33;
+          border-radius: 10000px;
+
+          font-family: var(--font-family);
+          font-weight: 500;
+          @include fz_14;
+          color: #2b2c33;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          @include fluid("padding-top", 10);
+          @include fluid("padding-bottom", 10);
+          @include fluid("padding-right", 27);
+          @include fluid("padding-left", 27);
+
+          &:hover {
+            background: $accent_color;
+            color: white;
+            border-color: $accent_color;
+          }
+          &.active_btn {
+            background: $accent_color;
+            font-family: var(--font-family);
+            font-weight: 700;
+            @include fz_14;
+            color: #fff;
+            border: none;
+
+            &:hover {
+              background: $accent_color_hover;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content_block {
+    @include fluid("margin-top", 55);
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    @include fluid("gap", 36);
+
+    .content_card {
+      @include fluid("border-radius", 15);
+      border: 1px solid rgba(29, 29, 29, 0.1);
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      .col {
+        &.col_description {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0;
+          @include fluid("padding-top", 40);
+          @include fluid("padding-bottom", 40);
+          @include fluid("padding-left", 58);
+          width: 100%;
+          .wrap_img {
+            @include fluid("width", 427);
+            @include fluid("height", 289);
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .info_block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            .wrap_info_block {
+              @include fluid("width", 390);
+              display: flex;
+              flex-direction: column;
+              @include fluid("gap", 22);
+            }
+            h3 {
+              font-family: var(--second-family);
+              font-weight: 300;
+              @include fz_50;
+              color: #2b2c33;
+              @include fluid("margin-left", -8);
+            }
+            .post_title {
+              font-family: var(--font-family);
+              font-weight: 500;
+              @include fz_18;
+              color: #2b2c33;
+            }
+            .descr {
+              font-family: var(--font-family);
+              font-weight: 500;
+              @include fz_14;
+              line-height: 157%;
+              color: rgba(43, 44, 51, 0.35);
+              @include fluid("margin-top", 10);
+            }
+          }
+        }
+
+        &.col_price {
+          @include fluid("width", 424);
+          border-left: 1px solid rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          .wrap_col_price {
+            display: flex;
+            flex-direction: column;
+            @include fluid("gap", 20);
+            @include fluid("width", 260);
+            .price {
+              font-family: var(--second-family);
+              font-weight: 300;
+              font-size: 40px;
+              @include fz_40;
+              color: #2b2c33;
+            }
+            .post_title {
+              font-family: var(--font-family);
+              font-weight: 500;
+              @include fz_18;
+              color: #2b2c33;
+            }
+            .btn_block {
+              @include fluid("margin-top", 20);
+            }
+          }
+        }
+      }
+    }
+  }
+}
