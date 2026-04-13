@@ -1,6 +1,9 @@
 :root {
-  --font-family: "HelveticaNeueCyr", Arial, sans-serif;
-  --second-family: "Ivy Mode", Arial, sans-serif;
+  :root {
+    --font-family: "Helvetica Neue", sans-serif;
+    --second-family: "Ivy Mode", sans-serif;
+    --third-family: "Herr Von Muellerhoff", sans-serif;
+  }
 }
 
 $accent_color: rgba(0, 176, 174, 1);

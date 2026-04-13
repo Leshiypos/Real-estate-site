@@ -80,20 +80,35 @@
 @mixin fz_145 {
   @include fluid-font(145 / 2, 145);
 }
+@mixin fz_140 {
+  @include fluid-font(70, 140);
+}
 @mixin fz_120 {
   @include fluid-font(60, 120);
+}
+@mixin fz_75 {
+  @include fluid-font(38, 75);
 }
 @mixin fz_50 {
   @include fluid-font(25, 50);
 }
+@mixin fz_45 {
+  @include fluid-font(23, 45);
+}
 @mixin fz_40 {
   @include fluid-font(20, 40);
+}
+@mixin fz_35 {
+  @include fluid-font(18, 35);
 }
 @mixin fz_30 {
   @include fluid-font(15, 30);
 }
 @mixin fz_25 {
   @include fluid-font(13, 25);
+}
+@mixin fz_20 {
+  @include fluid-font(10, 20);
 }
 @mixin fz_18 {
   @include fluid-font(9, 18);

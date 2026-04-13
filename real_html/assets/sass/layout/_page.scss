@@ -610,3 +610,286 @@ h5 {
     }
   }
 }
+
+//  MARK: 3D plan section
+
+.virtual_tour_section {
+  @include fluid("margin-top", 19);
+  @include fluid("height", 840);
+
+  .wrap_section {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    @include fluid("border-radius", 15);
+    overflow: clip;
+  }
+  .col {
+    &.col_title {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-end;
+      width: 43%;
+      background-color: $accent_color;
+      color: white;
+      @include fluid("padding-left", 54);
+      @include fluid("padding-bottom", 73);
+      @include fluid("padding-right", 30);
+      @include fluid("gap", 30);
+      .pre_title {
+        font-family: var(--second-family);
+        font-weight: 300;
+        @include fz_45;
+        color: #fff;
+        @include fluid("margin-bottom", -25);
+      }
+      h2 {
+        font-family: var(--second-family);
+        font-weight: 300;
+        @include fz_140;
+        color: #fff;
+      }
+      .post_title {
+        font-family: var(--font-family);
+        font-weight: 500;
+        @include fz_14;
+        line-height: 143%;
+        color: #fff;
+        @include fluid("width", 340);
+        @include fluid("margin-left", 19);
+      }
+      .btn_block {
+        @include fluid("margin-left", 19);
+        a {
+          font-family: var(--font-family);
+          font-weight: 700;
+          @include fz_16;
+          color: #00b0ae;
+        }
+      }
+    }
+    &.col_image {
+      width: 57%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// MARK: MAP SECTION
+
+.map_section {
+  @include fluid("margin-top", 85);
+  .wrap_section {
+    width: 97%;
+    border-radius: 15px;
+    overflow: clip;
+    margin-left: auto;
+    margin-right: auto;
+    @include fluid("height", 726);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// MARK: FOOTER
+
+footer {
+  .wrap_footer {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    @include fluid("border-top-left-radius", 20);
+    @include fluid("border-top-right-radius", 20);
+    @include fluid("padding-top", 50);
+    @include fluid("padding-bottom", 50);
+    @include fluid("padding-left", 66);
+    @include fluid("padding-right", 66);
+  }
+
+  .privacy_block {
+    display: flex;
+    flex-flow: row nowrap;
+    @include fluid("gap", 30);
+    margin-left: auto;
+    width: fit-content;
+    align-items: center;
+    .yer {
+      font-family: var(--font-family);
+      font-weight: 400;
+      @include fz_20;
+      color: #000;
+      @include fluid("padding-bottom", 5);
+    }
+    a {
+      font-family: var(--font-family);
+      font-weight: 400;
+      @include fz_16;
+      color: #acacac;
+      @include fluid("padding-bottom", 8);
+      border-bottom: 1px solid #acacac;
+      &:hover {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+
+  .header_block {
+    @include fluid("margin-top", 45);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    @include fluid("padding-bottom", 155);
+    border-bottom: 1px solid #000;
+    h2 {
+      font-family: var(--font-family);
+      font-weight: 400;
+      @include fz_75;
+      line-height: 100%;
+      color: #141414;
+      @include fluid("width", 280);
+    }
+    .btn_block {
+      img {
+        @include fluid("width", 61);
+      }
+    }
+  }
+
+  .contact_block {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    @include fluid("margin-top", 39);
+  }
+  .col {
+    &.col_btn {
+      a {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        @include fluid("gap", 12);
+        font-weight: 500;
+        @include fz_25;
+        line-height: 64%;
+        color: #141414;
+        &:hover {
+          text-decoration: underline;
+        }
+        img {
+          @include fluid("width", 28);
+        }
+      }
+    }
+
+    &.col_info {
+      ul {
+        display: flex;
+        flex-flow: column nowrap;
+        @include fluid("gap", 33);
+        li {
+          display: flex;
+          flex-direction: column;
+          @include fluid("gap", 11);
+          align-items: flex-end;
+          .label {
+            font-family: var(--font-family);
+            font-weight: 500;
+            @include fz_20;
+            line-height: 140%;
+            color: #141414;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            @include fluid("gap", 20);
+            width: fit-content;
+            img {
+              @include fluid("width", 19);
+            }
+          }
+          .info {
+            font-family: var(--font-family);
+            font-weight: 400;
+            @include fz_35;
+            line-height: 109%;
+            text-align: right;
+            color: #141414;
+            @include fluid("wdth", 500);
+            a {
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottom_block {
+    @include fluid("margin-top", 95);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    .col {
+      &.col_log {
+        display: flex;
+        flex-flow: column nowrap;
+        @include fluid("gap", 7);
+        .row_title {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          font-family: var(--font-family);
+          font-weight: 500;
+          @include fz_16;
+          line-height: 88%;
+          color: #141414;
+          @include fluid("gap", 5);
+          img {
+            @include fluid("width", 57);
+          }
+        }
+        .row_post_title {
+          font-family: var(--font-family);
+          font-weight: 500;
+          @include fz_14;
+          color: #959595;
+        }
+      }
+
+      &.col_socials {
+        ul {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          @include fluid("gap", 50);
+          li {
+            a {
+              display: flex;
+              flex-flow: row nowrap;
+              align-items: center;
+              @include fluid("gap", 9);
+              font-family: var(--font-family);
+              font-weight: 400;
+              @include fz_25;
+              color: #141414;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
