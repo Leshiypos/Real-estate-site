@@ -1570,6 +1570,10 @@ h5 {
   @media screen and (max-width: 1000px) {
     .virtual_tour_section {
       height: 840px; } }
+  @media screen and (max-width: 1000px) {
+    .virtual_tour_section {
+      margin-top: 92px;
+      height: auto; } }
   .virtual_tour_section .wrap_section {
     width: 97%;
     margin-left: auto;
@@ -1587,6 +1591,10 @@ h5 {
     @media screen and (max-width: 1000px) {
       .virtual_tour_section .wrap_section {
         border-radius: 7px; } }
+    @media screen and (max-width: 1000px) {
+      .virtual_tour_section .wrap_section {
+        flex-direction: column-reverse;
+        width: 95%; } }
   .virtual_tour_section .col.col_title {
     display: flex;
     flex-flow: column nowrap;
@@ -1622,6 +1630,13 @@ h5 {
     @media screen and (max-width: 1000px) {
       .virtual_tour_section .col.col_title {
         gap: 30px; } }
+    @media screen and (max-width: 1000px) {
+      .virtual_tour_section .col.col_title {
+        width: 100%;
+        gap: 30px;
+        padding: 15px;
+        padding-top: 37px;
+        padding-bottom: 44px; } }
     .virtual_tour_section .col.col_title .pre_title {
       font-family: var(--second-family);
       font-weight: 300;
@@ -1634,11 +1649,18 @@ h5 {
       @media screen and (max-width: 1000px) {
         .virtual_tour_section .col.col_title .pre_title {
           margin-bottom: -25px; } }
+      @media screen and (max-width: 1000px) {
+        .virtual_tour_section .col.col_title .pre_title {
+          margin-bottom: -11px;
+          font-size: 30px; } }
     .virtual_tour_section .col.col_title h2 {
       font-family: var(--second-family);
       font-weight: 300;
       font-size: clamp(70px, calc( 70px + (140 - 70) * ((100vw - 1000px) / (1920 - 1000)) ), 140px);
       color: #fff; }
+      @media screen and (max-width: 1000px) {
+        .virtual_tour_section .col.col_title h2 {
+          font-size: 65px; } }
     .virtual_tour_section .col.col_title .post_title {
       font-family: var(--font-family);
       font-weight: 500;
@@ -1659,6 +1681,13 @@ h5 {
       @media screen and (max-width: 1000px) {
         .virtual_tour_section .col.col_title .post_title {
           margin-left: 19px; } }
+      @media screen and (max-width: 1000px) {
+        .virtual_tour_section .col.col_title .post_title {
+          font-size: 14px;
+          margin-left: 0;
+          width: 98%;
+          margin-left: auto;
+          margin-right: auto; } }
     .virtual_tour_section .col.col_title .btn_block {
       margin-left: 19px; }
       @media screen and (min-width: 1001px) and (max-width: 1920px) {
@@ -1667,17 +1696,33 @@ h5 {
       @media screen and (max-width: 1000px) {
         .virtual_tour_section .col.col_title .btn_block {
           margin-left: 19px; } }
+      @media screen and (max-width: 1000px) {
+        .virtual_tour_section .col.col_title .btn_block {
+          margin-left: 0;
+          margin-top: 10px; } }
       .virtual_tour_section .col.col_title .btn_block a {
         font-family: var(--font-family);
         font-weight: 700;
         font-size: clamp(8px, calc( 8px + (16 - 8) * ((100vw - 1000px) / (1920 - 1000)) ), 16px);
         color: #00b0ae; }
+        @media screen and (max-width: 1000px) {
+          .virtual_tour_section .col.col_title .btn_block a {
+            font-size: 16px;
+            width: 100%; } }
   .virtual_tour_section .col.col_image {
     width: 57%; }
     .virtual_tour_section .col.col_image img {
       width: 100%;
       height: 100%;
       object-fit: cover; }
+    @media screen and (max-width: 1000px) {
+      .virtual_tour_section .col.col_image {
+        width: 100%;
+        height: 600px; } }
+    @media screen and (max-width: 560px) {
+      .virtual_tour_section .col.col_image {
+        width: 100%;
+        height: 419px; } }
 
 .map_section {
   margin-top: 85px; }
@@ -1687,6 +1732,9 @@ h5 {
   @media screen and (max-width: 1000px) {
     .map_section {
       margin-top: 85px; } }
+  @media screen and (max-width: 1000px) {
+    .map_section {
+      margin-top: 80px; } }
   .map_section .wrap_section {
     width: 97%;
     border-radius: 15px;
@@ -1694,6 +1742,12 @@ h5 {
     margin-left: auto;
     margin-right: auto;
     height: 726px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .map_section .wrap_section {
+        border-radius: calc(100vw * (15 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .map_section .wrap_section {
+        border-radius: 15px; } }
     @media screen and (min-width: 1001px) and (max-width: 1920px) {
       .map_section .wrap_section {
         height: calc(100vw * (726 / 1920)); } }
@@ -1704,6 +1758,14 @@ h5 {
       width: 100%;
       height: 100%;
       object-fit: cover; }
+    @media screen and (max-width: 1000px) {
+      .map_section .wrap_section {
+        border-radius: 0;
+        width: 100%;
+        height: 800px; } }
+    @media screen and (max-width: 560px) {
+      .map_section .wrap_section {
+        height: 520px; } }
 
 footer {
   position: relative;

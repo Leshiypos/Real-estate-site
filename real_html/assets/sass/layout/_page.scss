@@ -938,6 +938,10 @@ h5 {
 .virtual_tour_section {
   @include fluid("margin-top", 19);
   @include fluid("height", 840);
+  @include tablet {
+    margin-top: 92px;
+    height: auto;
+  }
 
   .wrap_section {
     width: 97%;
@@ -947,6 +951,10 @@ h5 {
     flex-flow: row nowrap;
     @include border_rad_15;
     overflow: clip;
+    @include tablet {
+      flex-direction: column-reverse;
+      width: 95%;
+    }
   }
   .col {
     &.col_title {
@@ -960,18 +968,33 @@ h5 {
       @include fluid("padding-bottom", 73);
       @include fluid("padding-right", 30);
       @include fluid("gap", 30);
+
+      @include tablet {
+        width: 100%;
+        gap: 30px;
+        padding: 15px;
+        padding-top: 37px;
+        padding-bottom: 44px;
+      }
       .pre_title {
         font-family: var(--second-family);
         font-weight: 300;
         @include fz_45;
         color: #fff;
         @include fluid("margin-bottom", -25);
+        @include tablet {
+          margin-bottom: -11px;
+          font-size: 30px;
+        }
       }
       h2 {
         font-family: var(--second-family);
         font-weight: 300;
         @include fz_140;
         color: #fff;
+        @include tablet {
+          font-size: 65px;
+        }
       }
       .post_title {
         font-family: var(--font-family);
@@ -981,14 +1004,30 @@ h5 {
         color: #fff;
         @include fluid("width", 340);
         @include fluid("margin-left", 19);
+
+        @include tablet {
+          font-size: 14px;
+          margin-left: 0;
+          width: 98%;
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
       .btn_block {
         @include fluid("margin-left", 19);
+        @include tablet {
+          margin-left: 0;
+          margin-top: 10px;
+        }
         a {
           font-family: var(--font-family);
           font-weight: 700;
           @include fz_16;
           color: #00b0ae;
+          @include tablet {
+            font-size: 16px;
+            width: 100%;
+          }
         }
       }
     }
@@ -999,6 +1038,14 @@ h5 {
         height: 100%;
         object-fit: cover;
       }
+      @include tablet {
+        width: 100%;
+        height: 600px;
+      }
+      @include mobile {
+        width: 100%;
+        height: 419px;
+      }
     }
   }
 }
@@ -1007,9 +1054,12 @@ h5 {
 
 .map_section {
   @include fluid("margin-top", 85);
+  @include tablet {
+    margin-top: 80px;
+  }
   .wrap_section {
     width: 97%;
-    border-radius: 15px;
+    @include fluid("border-radius", 15);
     overflow: clip;
     margin-left: auto;
     margin-right: auto;
@@ -1018,6 +1068,15 @@ h5 {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    @include tablet {
+      border-radius: 0;
+      width: 100%;
+      height: 800px;
+    }
+    @include mobile {
+      height: 520px;
     }
   }
 }
