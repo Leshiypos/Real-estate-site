@@ -45,10 +45,15 @@ function initialportfolioSwiper() {
 
 function initializationGallery() {
   var swiper = new Swiper(".thumb_slider", {
-    spaceBetween: 10,
+    spaceBetween: 4,
     slidesPerView: 3,
     freeMode: true,
     watchSlidesProgress: true,
+    breakpoints: {
+      1000: {
+        spaceBetween: 10,
+      },
+    },
   });
   var swiper2 = new Swiper(".gallery", {
     spaceBetween: 6,

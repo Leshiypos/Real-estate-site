@@ -181,16 +181,26 @@ h5 {
     @include fluid("right", 130);
     @include fluid("width", 549);
     @include fluid("height", 1871);
+    @include tablet {
+      display: none;
+    }
   }
 }
 
 // MARK: ABOUT SECTION
 .about_section {
   @include fluid("margin-top", 167);
+  @include tablet {
+    margin-top: 67px;
+  }
   .wrap_section {
     padding: 0;
     @include fluid("padding-left", 75);
     @include fluid("padding-right", 75);
+    @include tablet {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .header_block {
@@ -199,10 +209,19 @@ h5 {
     justify-content: flex-start;
     align-items: flex-start;
     @include fluid("gap", 150);
+    @include tablet {
+      flex-flow: row wrap;
+      gap: 44px;
+      padding-left: 28px;
+      padding-right: 28px;
+    }
     .col {
       &.col_title {
         @include fluid("width", 920);
         flex-shrink: 0;
+        @include tablet {
+          width: 100%;
+        }
       }
 
       &.col_post-title {
@@ -211,9 +230,17 @@ h5 {
         @include fz_14;
         line-height: 179%;
         color: rgba(43, 44, 51, 0.6);
+        @include tablet {
+          font-size: 14px;
+          line-height: 179%;
+        }
         p {
           @include fluid("width", 550);
           @include fluid("margin-top", 30);
+          @include tablet {
+            width: 100%;
+            margin-top: 0;
+          }
         }
       }
     }
@@ -223,6 +250,10 @@ h5 {
       @include fz_145;
       color: #2b2c33;
       white-space: nowrap;
+      @include tablet {
+        font-size: 85px;
+        white-space: wrap;
+      }
     }
   }
 
@@ -231,14 +262,29 @@ h5 {
     flex-flow: row nowrap;
     @include fluid("margin-top", 83);
     @include fluid("gap", 165);
+    @include tablet {
+      flex-direction: column;
+      margin-top: 63px;
+      gap: 62px;
+    }
     .col {
       &.col_gallery {
         @include fluid("width", 920);
+        @include tablet {
+          width: 100%;
+        }
         .swiper {
           width: 100%;
           &.gallery {
             @include fluid("height", 500);
             @include fluid("margin-bottom", 22);
+            @include tablet {
+              height: 500px;
+              margin-bottom: 5px;
+            }
+            @include mobile {
+              height: 263px;
+            }
             .btn_block_navigation {
               position: absolute;
               top: 50%;
@@ -261,6 +307,12 @@ h5 {
           }
           &.thumb_slider {
             @include fluid("height", 190);
+            @include tablet {
+              height: 170px;
+            }
+            @include mobile {
+              height: 86px;
+            }
             .swiper-slide {
               cursor: pointer;
             }
@@ -298,6 +350,45 @@ h5 {
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             &:last-child {
               border: none;
+            }
+            .value {
+              .wrap_value {
+                @include fluid("width", 200);
+                margin-left: auto;
+              }
+            }
+          }
+        }
+        @include tablet {
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+          gap: 33px;
+          .btn_block {
+            padding-left: 5px;
+            padding-right: 5px;
+            a {
+              width: 100%;
+            }
+          }
+          ul {
+            li {
+              font-weight: 300;
+              font-size: 18px;
+              height: 73px;
+              & > div {
+                flex: 1;
+                justify-content: space-between;
+              }
+              .label {
+                margin-left: 5px;
+              }
+              .value {
+                .wrap_value {
+                  width: 115px;
+                  margin-left: auto;
+                }
+              }
             }
           }
         }
