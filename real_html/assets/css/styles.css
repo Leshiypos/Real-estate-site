@@ -819,7 +819,7 @@ h5 {
             .about_section .content_block .col.col_description ul li .label {
               margin-left: 5px; }
             .about_section .content_block .col.col_description ul li .value .wrap_value {
-              width: 115px;
+              width: 120px;
               margin-left: auto; } }
 
 .gallery_section {
@@ -830,6 +830,9 @@ h5 {
   @media screen and (max-width: 1000px) {
     .gallery_section {
       margin-top: 285px; } }
+  @media screen and (max-width: 1000px) {
+    .gallery_section {
+      margin-top: 94px; } }
   .gallery_section .header_block {
     width: 92%;
     margin-left: auto;
@@ -837,12 +840,19 @@ h5 {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between; }
+    @media screen and (max-width: 1000px) {
+      .gallery_section .header_block {
+        flex-direction: column;
+        gap: 52px; } }
     .gallery_section .header_block h2 {
       font-family: var(--second-family);
       font-weight: 300;
       font-size: 250px;
       font-size: clamp(125px, calc( 125px + (250 - 125) * ((100vw - 1000px) / (1920 - 1000)) ), 250px);
       color: #2b2c33; }
+      @media screen and (max-width: 1000px) {
+        .gallery_section .header_block h2 {
+          font-size: 85px; } }
     .gallery_section .header_block .col.col_description {
       width: 300px;
       display: flex;
@@ -880,6 +890,19 @@ h5 {
         line-height: 143%;
         color: #2b2c33;
         width: 80%; }
+      @media screen and (max-width: 1000px) {
+        .gallery_section .header_block .col.col_description {
+          margin-top: 0;
+          max-width: 180px;
+          margin-left: auto;
+          gap: 20px; }
+          .gallery_section .header_block .col.col_description h3 {
+            font-size: 25px; }
+          .gallery_section .header_block .col.col_description p {
+            font-size: 12px;
+            line-height: 167%;
+            color: rgba(43, 44, 51, 0.6);
+            width: 100%; } }
   .gallery_section .gallery_block {
     margin-top: 40px; }
     @media screen and (min-width: 1001px) and (max-width: 1920px) {
@@ -888,6 +911,12 @@ h5 {
     @media screen and (max-width: 1000px) {
       .gallery_section .gallery_block {
         margin-top: 40px; } }
+    @media screen and (max-width: 1000px) {
+      .gallery_section .gallery_block {
+        margin-top: 53px;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto; } }
     .gallery_section .gallery_block .gallery_section_slider {
       width: 100%;
       height: 891px; }
@@ -897,6 +926,12 @@ h5 {
       @media screen and (max-width: 1000px) {
         .gallery_section .gallery_block .gallery_section_slider {
           height: 891px; } }
+      @media screen and (max-width: 1000px) {
+        .gallery_section .gallery_block .gallery_section_slider {
+          height: 572px; } }
+      @media screen and (max-width: 560px) {
+        .gallery_section .gallery_block .gallery_section_slider {
+          height: 286px; } }
       .gallery_section .gallery_block .gallery_section_slider .swiper-slide {
         border-radius: 15px;
         overflow: clip; }
@@ -906,6 +941,9 @@ h5 {
         @media screen and (max-width: 1000px) {
           .gallery_section .gallery_block .gallery_section_slider .swiper-slide {
             border-radius: 15px; } }
+        @media screen and (max-width: 1000px) {
+          .gallery_section .gallery_block .gallery_section_slider .swiper-slide {
+            border-radius: 7px; } }
         .gallery_section .gallery_block .gallery_section_slider .swiper-slide img {
           width: 100%;
           height: 100%;
@@ -952,6 +990,13 @@ h5 {
               height: 122px; } }
         .gallery_section .gallery_block .gallery_section_slider .btn_block_navigation > div {
           cursor: pointer; }
+        @media screen and (max-width: 1000px) {
+          .gallery_section .gallery_block .gallery_section_slider .btn_block_navigation {
+            padding-left: 14px;
+            padding-right: 14px; }
+            .gallery_section .gallery_block .gallery_section_slider .btn_block_navigation img {
+              width: 36px;
+              height: 36px; } }
 
 .floor-plans_section {
   margin-top: 158px; }
@@ -1070,6 +1115,9 @@ h5 {
       @media screen and (max-width: 1000px) {
         .floor-plans_section .content_block .content_card {
           border-radius: 15px; } }
+      @media screen and (max-width: 1000px) {
+        .floor-plans_section .content_block .content_card {
+          border-radius: 7px; } }
       .floor-plans_section .content_block .content_card .col.col_description {
         display: flex;
         flex-flow: row nowrap;
@@ -1247,6 +1295,9 @@ h5 {
     @media screen and (max-width: 1000px) {
       .payment_plan_section .wrap_section {
         border-radius: 15px; } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .wrap_section {
+        border-radius: 7px; } }
     @media screen and (min-width: 1001px) and (max-width: 1920px) {
       .payment_plan_section .wrap_section {
         padding-top: calc(100vw * (103 / 1920)); } }
@@ -1408,6 +1459,9 @@ h5 {
     @media screen and (max-width: 1000px) {
       .virtual_tour_section .wrap_section {
         border-radius: 15px; } }
+    @media screen and (max-width: 1000px) {
+      .virtual_tour_section .wrap_section {
+        border-radius: 7px; } }
   .virtual_tour_section .col.col_title {
     display: flex;
     flex-flow: column nowrap;

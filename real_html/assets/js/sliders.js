@@ -77,9 +77,14 @@ function initializationGalleryTwo() {
   }
   var gallery = new Swiper(".gallery_section_slider", {
     spaceBetween: 19,
-    slidesPerView: 1.06,
-    slidesOffsetBefore: 50,
-    slidesOffsetAfter: 50,
+    slidesPerView: 1,
+    breakpoints: {
+      1000: {
+        slidesPerView: 1.06,
+        slidesOffsetBefore: 50,
+        slidesOffsetAfter: 50,
+      },
+    },
     navigation: {
       nextEl: ".swiper-button-gallery-next",
       prevEl: ".swiper-button-gallery-prev",
@@ -87,6 +92,7 @@ function initializationGalleryTwo() {
   });
 
   window.addEventListener("resize", () => {
+    if (window.innerWidth < 1000) return;
     const offset = getOffset();
     gallery.params.slidesOffsetBefore = offset;
     gallery.params.slidesOffsetAfter = offset;

@@ -122,3 +122,10 @@
 @mixin fz_13 {
   @include fluid-font(7, 13);
 }
+
+@mixin border_rad_15 {
+  @include fluid("border-radius", 15);
+  @include tablet {
+    border-radius: 7px;
+  }
+}

@@ -385,7 +385,7 @@ h5 {
               }
               .value {
                 .wrap_value {
-                  width: 115px;
+                  width: 120px;
                   margin-left: auto;
                 }
               }
@@ -400,6 +400,9 @@ h5 {
 // MARK: GALERRY SECTION
 .gallery_section {
   @include fluid("margin-top", 285);
+  @include tablet {
+    margin-top: 94px;
+  }
   .header_block {
     width: 92%;
     margin-left: auto;
@@ -407,12 +410,19 @@ h5 {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    @include tablet {
+      flex-direction: column;
+      gap: 52px;
+    }
     h2 {
       font-family: var(--second-family);
       font-weight: 300;
       font-size: 250px;
       @include fz_250;
       color: #2b2c33;
+      @include tablet {
+        font-size: 85px;
+      }
     }
 
     .col {
@@ -422,6 +432,7 @@ h5 {
         flex-flow: column nowrap;
         @include fluid("gap", 20);
         @include fluid("margin-top", 80);
+
         h3 {
           font-family: var(--second-family);
           font-weight: 400;
@@ -437,17 +448,44 @@ h5 {
           color: #2b2c33;
           width: 80%;
         }
+        @include tablet {
+          margin-top: 0;
+          max-width: 180px;
+          margin-left: auto;
+          gap: 20px;
+          h3 {
+            font-size: 25px;
+          }
+          p {
+            font-size: 12px;
+            line-height: 167%;
+            color: rgba(43, 44, 51, 0.6);
+            width: 100%;
+          }
+        }
       }
     }
   }
 
   .gallery_block {
     @include fluid("margin-top", 40);
+    @include tablet {
+      margin-top: 53px;
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .gallery_section_slider {
       width: 100%;
       @include fluid("height", 891);
+      @include tablet {
+        height: 572px;
+      }
+      @include mobile {
+        height: 286px;
+      }
       .swiper-slide {
-        @include fluid("border-radius", 15);
+        @include border_rad_15;
         overflow: clip;
         img {
           width: 100%;
@@ -474,6 +512,15 @@ h5 {
         }
         & > div {
           cursor: pointer;
+        }
+
+        @include tablet {
+          padding-left: 14px;
+          padding-right: 14px;
+          img {
+            width: 36px;
+            height: 36px;
+          }
         }
       }
     }
@@ -557,7 +604,7 @@ h5 {
     @include fluid("gap", 36);
 
     .content_card {
-      @include fluid("border-radius", 15);
+      @include border_rad_15;
       border: 1px solid rgba(29, 29, 29, 0.1);
       display: flex;
       flex-flow: row nowrap;
@@ -661,7 +708,7 @@ h5 {
     margin-left: auto;
     margin-right: auto;
     border: 1px solid rgba(29, 29, 29, 0.1);
-    @include fluid("border-radius", 15);
+    @include border_rad_15;
     @include fluid("padding-top", 103);
     @include fluid("padding-left", 90);
     @include fluid("padding-bottom", 112);
@@ -757,7 +804,7 @@ h5 {
     margin-right: auto;
     display: flex;
     flex-flow: row nowrap;
-    @include fluid("border-radius", 15);
+    @include border_rad_15;
     overflow: clip;
   }
   .col {
