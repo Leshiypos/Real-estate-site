@@ -531,7 +531,9 @@ h5 {
 
 .floor-plans_section {
   @include fluid("margin-top", 158);
-
+  @include tablet {
+    margin-top: 82px;
+  }
   .header_block {
     width: 95%;
     margin-left: auto;
@@ -540,12 +542,18 @@ h5 {
     flex-flow: row nowrap;
     align-items: flex-end;
     justify-content: space-between;
+    @include tablet {
+      width: 90%;
+    }
     h2 {
       font-family: var(--second-family);
       font-weight: 300;
       @include fz_120;
       line-height: 72%;
       color: #2b2c33;
+      @include tablet {
+        font-size: 65px;
+      }
     }
     .col {
       &.col_filter-btns {
@@ -590,6 +598,9 @@ h5 {
             }
           }
         }
+        @include tablet {
+          display: none;
+        }
       }
     }
   }
@@ -602,6 +613,9 @@ h5 {
     display: flex;
     flex-flow: column nowrap;
     @include fluid("gap", 36);
+    @include tablet {
+      gap: 118px;
+    }
 
     .content_card {
       @include border_rad_15;
@@ -609,6 +623,11 @@ h5 {
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+      @include tablet {
+        flex-direction: column;
+        border: none;
+        gap: 65px;
+      }
       .col {
         &.col_description {
           display: flex;
@@ -620,6 +639,13 @@ h5 {
           @include fluid("padding-bottom", 40);
           @include fluid("padding-left", 58);
           width: 100%;
+
+          @include tablet {
+            flex-direction: column;
+            padding: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            gap: 60px;
+          }
           .wrap_img {
             @include fluid("width", 427);
             @include fluid("height", 289);
@@ -628,17 +654,28 @@ h5 {
               height: 100%;
               object-fit: cover;
             }
+            @include tablet {
+              width: 100%;
+              height: unset;
+            }
           }
           .info_block {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
+            @include tablet {
+              text-align: center;
+            }
             .wrap_info_block {
               @include fluid("width", 390);
               display: flex;
               flex-direction: column;
               @include fluid("gap", 22);
+              @include tablet {
+                width: 100%;
+                gap: 26px;
+              }
             }
             h3 {
               font-family: var(--second-family);
@@ -646,12 +683,19 @@ h5 {
               @include fz_50;
               color: #2b2c33;
               @include fluid("margin-left", -8);
+              @include tablet {
+                margin-left: 0;
+                font-size: 50px;
+              }
             }
             .post_title {
               font-family: var(--font-family);
               font-weight: 500;
               @include fz_18;
               color: #2b2c33;
+              @include tablet {
+                font-size: 18px;
+              }
             }
             .descr {
               font-family: var(--font-family);
@@ -660,6 +704,18 @@ h5 {
               line-height: 157%;
               color: rgba(43, 44, 51, 0.35);
               @include fluid("margin-top", 10);
+              @include tablet {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 157%;
+                text-align: center;
+                color: rgba(43, 44, 51, 0.35);
+                margin-top: 5px;
+                margin-bottom: 70px;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+              }
             }
           }
         }
@@ -671,26 +727,47 @@ h5 {
           flex-flow: row nowrap;
           align-items: center;
           justify-content: center;
+          @include tablet {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 70px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+          }
           .wrap_col_price {
             display: flex;
             flex-direction: column;
             @include fluid("gap", 20);
             @include fluid("width", 260);
+            @include tablet {
+              width: 100%;
+            }
             .price {
               font-family: var(--second-family);
               font-weight: 300;
               font-size: 40px;
               @include fz_40;
               color: #2b2c33;
+              @include tablet {
+                font-size: 40px;
+              }
             }
             .post_title {
               font-family: var(--font-family);
               font-weight: 500;
               @include fz_18;
               color: #2b2c33;
+              @include tablet {
+                font-size: 18px;
+              }
             }
             .btn_block {
               @include fluid("margin-top", 20);
+              @include tablet {
+                width: 100%;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+              }
             }
           }
         }

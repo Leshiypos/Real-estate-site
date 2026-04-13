@@ -1006,6 +1006,9 @@ h5 {
   @media screen and (max-width: 1000px) {
     .floor-plans_section {
       margin-top: 158px; } }
+  @media screen and (max-width: 1000px) {
+    .floor-plans_section {
+      margin-top: 82px; } }
   .floor-plans_section .header_block {
     width: 95%;
     margin-left: auto;
@@ -1014,12 +1017,18 @@ h5 {
     flex-flow: row nowrap;
     align-items: flex-end;
     justify-content: space-between; }
+    @media screen and (max-width: 1000px) {
+      .floor-plans_section .header_block {
+        width: 90%; } }
     .floor-plans_section .header_block h2 {
       font-family: var(--second-family);
       font-weight: 300;
       font-size: clamp(60px, calc( 60px + (120 - 60) * ((100vw - 1000px) / (1920 - 1000)) ), 120px);
       line-height: 72%;
       color: #2b2c33; }
+      @media screen and (max-width: 1000px) {
+        .floor-plans_section .header_block h2 {
+          font-size: 65px; } }
     .floor-plans_section .header_block .col.col_filter-btns ul {
       display: flex;
       flex-flow: row nowrap;
@@ -1083,6 +1092,9 @@ h5 {
         border: none; }
         .floor-plans_section .header_block .col.col_filter-btns button.active_btn:hover {
           background: #03807e; }
+    @media screen and (max-width: 1000px) {
+      .floor-plans_section .header_block .col.col_filter-btns {
+        display: none; } }
   .floor-plans_section .content_block {
     margin-top: 55px;
     width: 97%;
@@ -1103,6 +1115,9 @@ h5 {
     @media screen and (max-width: 1000px) {
       .floor-plans_section .content_block {
         gap: 36px; } }
+    @media screen and (max-width: 1000px) {
+      .floor-plans_section .content_block {
+        gap: 118px; } }
     .floor-plans_section .content_block .content_card {
       border-radius: 15px;
       border: 1px solid rgba(29, 29, 29, 0.1);
@@ -1118,6 +1133,11 @@ h5 {
       @media screen and (max-width: 1000px) {
         .floor-plans_section .content_block .content_card {
           border-radius: 7px; } }
+      @media screen and (max-width: 1000px) {
+        .floor-plans_section .content_block .content_card {
+          flex-direction: column;
+          border: none;
+          gap: 65px; } }
       .floor-plans_section .content_block .content_card .col.col_description {
         display: flex;
         flex-flow: row nowrap;
@@ -1146,6 +1166,12 @@ h5 {
         @media screen and (max-width: 1000px) {
           .floor-plans_section .content_block .content_card .col.col_description {
             padding-left: 58px; } }
+        @media screen and (max-width: 1000px) {
+          .floor-plans_section .content_block .content_card .col.col_description {
+            flex-direction: column;
+            padding: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            gap: 60px; } }
         .floor-plans_section .content_block .content_card .col.col_description .wrap_img {
           width: 427px;
           height: 289px; }
@@ -1165,11 +1191,18 @@ h5 {
             width: 100%;
             height: 100%;
             object-fit: cover; }
+          @media screen and (max-width: 1000px) {
+            .floor-plans_section .content_block .content_card .col.col_description .wrap_img {
+              width: 100%;
+              height: unset; } }
         .floor-plans_section .content_block .content_card .col.col_description .info_block {
           display: flex;
           align-items: center;
           justify-content: center;
           width: 100%; }
+          @media screen and (max-width: 1000px) {
+            .floor-plans_section .content_block .content_card .col.col_description .info_block {
+              text-align: center; } }
           .floor-plans_section .content_block .content_card .col.col_description .info_block .wrap_info_block {
             width: 390px;
             display: flex;
@@ -1187,6 +1220,10 @@ h5 {
             @media screen and (max-width: 1000px) {
               .floor-plans_section .content_block .content_card .col.col_description .info_block .wrap_info_block {
                 gap: 22px; } }
+            @media screen and (max-width: 1000px) {
+              .floor-plans_section .content_block .content_card .col.col_description .info_block .wrap_info_block {
+                width: 100%;
+                gap: 26px; } }
           .floor-plans_section .content_block .content_card .col.col_description .info_block h3 {
             font-family: var(--second-family);
             font-weight: 300;
@@ -1199,11 +1236,18 @@ h5 {
             @media screen and (max-width: 1000px) {
               .floor-plans_section .content_block .content_card .col.col_description .info_block h3 {
                 margin-left: -8px; } }
+            @media screen and (max-width: 1000px) {
+              .floor-plans_section .content_block .content_card .col.col_description .info_block h3 {
+                margin-left: 0;
+                font-size: 50px; } }
           .floor-plans_section .content_block .content_card .col.col_description .info_block .post_title {
             font-family: var(--font-family);
             font-weight: 500;
             font-size: clamp(9px, calc( 9px + (18 - 9) * ((100vw - 1000px) / (1920 - 1000)) ), 18px);
             color: #2b2c33; }
+            @media screen and (max-width: 1000px) {
+              .floor-plans_section .content_block .content_card .col.col_description .info_block .post_title {
+                font-size: 18px; } }
           .floor-plans_section .content_block .content_card .col.col_description .info_block .descr {
             font-family: var(--font-family);
             font-weight: 500;
@@ -1217,6 +1261,18 @@ h5 {
             @media screen and (max-width: 1000px) {
               .floor-plans_section .content_block .content_card .col.col_description .info_block .descr {
                 margin-top: 10px; } }
+            @media screen and (max-width: 1000px) {
+              .floor-plans_section .content_block .content_card .col.col_description .info_block .descr {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 157%;
+                text-align: center;
+                color: rgba(43, 44, 51, 0.35);
+                margin-top: 5px;
+                margin-bottom: 70px;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto; } }
       .floor-plans_section .content_block .content_card .col.col_price {
         width: 424px;
         border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -1230,6 +1286,12 @@ h5 {
         @media screen and (max-width: 1000px) {
           .floor-plans_section .content_block .content_card .col.col_price {
             width: 424px; } }
+        @media screen and (max-width: 1000px) {
+          .floor-plans_section .content_block .content_card .col.col_price {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 70px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15); } }
         .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price {
           display: flex;
           flex-direction: column;
@@ -1247,17 +1309,26 @@ h5 {
           @media screen and (max-width: 1000px) {
             .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price {
               width: 260px; } }
+          @media screen and (max-width: 1000px) {
+            .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price {
+              width: 100%; } }
           .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price .price {
             font-family: var(--second-family);
             font-weight: 300;
             font-size: 40px;
             font-size: clamp(20px, calc( 20px + (40 - 20) * ((100vw - 1000px) / (1920 - 1000)) ), 40px);
             color: #2b2c33; }
+            @media screen and (max-width: 1000px) {
+              .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price .price {
+                font-size: 40px; } }
           .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price .post_title {
             font-family: var(--font-family);
             font-weight: 500;
             font-size: clamp(9px, calc( 9px + (18 - 9) * ((100vw - 1000px) / (1920 - 1000)) ), 18px);
             color: #2b2c33; }
+            @media screen and (max-width: 1000px) {
+              .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price .post_title {
+                font-size: 18px; } }
           .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price .btn_block {
             margin-top: 20px; }
             @media screen and (min-width: 1001px) and (max-width: 1920px) {
@@ -1266,6 +1337,12 @@ h5 {
             @media screen and (max-width: 1000px) {
               .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price .btn_block {
                 margin-top: 20px; } }
+            @media screen and (max-width: 1000px) {
+              .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price .btn_block {
+                width: 100%;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center; } }
 
 .payment_plan_section {
   margin-top: 51px; }
