@@ -11,7 +11,9 @@
   @include fluid("height", 53);
   @include fluid("width", 246);
   transition: background-color 0.3s ease;
-
+  @include tablet {
+    font-size: 16px;
+  }
   .btn_wrap {
     width: fit-content;
   }

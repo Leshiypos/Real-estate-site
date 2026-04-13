@@ -19,7 +19,7 @@
         <a href="/" class="logo">
           <img src="./assets/images/icons/logo.svg" alt="logo" />
         </a>
-        <nav class="main_menu">
+        <nav class="main_menu desktop">
           <ul>
             <li><a href="#">HOME</a></li>
             <li><a href="#">ABOUT BUILDING</a></li>
@@ -28,10 +28,18 @@
             <li><a href="#">HOVIRTUAL TOURME</a></li>
           </ul>
         </nav>
-        <div class="btn_block">
+        <div class="btn_block desktop">
           <a href="#" class="btn accent"
             ><div class="btn_wrap">Book a viewing</div></a
           >
+        </div>
+        <div class="burger_btn_block mobile">
+          <button>
+            <img
+              src="./assets/images/icons/burger_btn_menu.svg"
+              alt="burger button image"
+            />
+          </button>
         </div>
       </div>
     </header>
@@ -59,7 +67,7 @@
               media="(max-width: 1000px)"
             />
           </video>
-          <div class="logo_block">
+          <div class="logo_block desktop">
             <img
               src="./assets/images/icons/logo_hero_section.svg"
               alt="hero lofo"
@@ -80,6 +88,13 @@
               <div class="col qr_block">
                 <img src="./assets/images/QRcode.avif" alt="qr code" />
               </div>
+              <div class="col col_logo_block">
+                <img
+                  src="./assets/images/icons/logo_hero_section.svg"
+                  alt="hero lofo"
+                />
+                <div class="logo_description">Daynemic Offer Here</div>
+              </div>
             </div>
           </div>
           <div class="glass_line liquid-glass"></div>
@@ -87,7 +102,7 @@
       </section>
 
       <!-- MARK: ABOUT SECTION -->
-      <section class="about_section">
+      <section class="about_section" style="display: none">
         <div class="wrap_section">
           <div class="header_block">
             <div class="col col_title">
@@ -195,7 +210,7 @@
       </section>
 
       <!-- MARK: GALLERY SECTION -->
-      <section class="gallery_section">
+      <section class="gallery_section" style="display: none">
         <div class="wrap_section">
           <div class="header_block">
             <div class="col col_title">
@@ -269,7 +284,7 @@
       </section>
 
       <!-- MARK: FLOOR PLANS SECTION -->
-      <section class="floor-plans_section">
+      <section class="floor-plans_section" style="display: none">
         <div class="wrap_section">
           <div class="header_block">
             <div class="col col_title">
@@ -399,7 +414,7 @@
       </section>
 
       <!-- MARK: PAYMENT PLAN SECTION -->
-      <section class="payment_plan_section">
+      <section class="payment_plan_section" style="display: none">
         <div class="wrap_section">
           <div class="col col_header">
             <h2>Payment Plan</h2>
@@ -476,7 +491,7 @@
 
       <!-- MARK: 3D plan section-->
 
-      <section class="virtual_tour_section">
+      <section class="virtual_tour_section" style="display: none">
         <div class="wrap_section">
           <div class="col col_title">
             <div class="pre_title">360°</div>
@@ -501,14 +516,14 @@
       </section>
 
       <!-- MARK: MAP SECTION -->
-      <section class="map_section">
+      <section class="map_section" style="display: none">
         <div class="wrap_section">
           <img src="./assets/images/map_img.avif" alt="map image" />
         </div>
       </section>
 
       <!-- MARK: FOOTER -->
-      <footer>
+      <footer style="display: none">
         <div class="wrap_footer">
           <div class="privacy_block">
             <p class="yer">Ⓒ 2025</p>

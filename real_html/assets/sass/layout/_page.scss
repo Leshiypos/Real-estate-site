@@ -94,9 +94,12 @@ h5 {
     font-weight: 500;
     @include fz_25;
     color: #fff;
-    gap: 35px;
+    @include fluid("gap", 35);
     img {
       @include fluid("width", 597);
+    }
+    @include tablet {
+      display: none;
     }
   }
   .content_block {
@@ -106,27 +109,67 @@ h5 {
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-end;
+
     .wrap_content_block {
       width: 100%;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
-
       @include fluid("margin-bottom", 35);
       @include fluid("margin-left", 40);
       @include fluid("margin-right", 20);
-
+      @include tablet {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 5vh;
+        margin-left: 28px;
+        margin-right: 28px;
+        margin-bottom: 28px;
+      }
+      .col_logo_block {
+        display: none;
+        @include tablet {
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          gap: 25px;
+          img {
+            width: 276px;
+          }
+          .logo_description {
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 16px;
+            color: #fff;
+          }
+        }
+      }
       .btn_block {
         display: flex;
         flex-flow: row nowrap;
         align-items: flex-end;
         gap: 20px;
         @include fluid("gap", 20);
+        @include tablet {
+          flex-direction: column;
+          width: 100%;
+          gap: 16px;
+          a {
+            width: 100%;
+          }
+        }
       }
       .qr_block {
         img {
           @include fluid("width", 112);
           @include fluid("height", 112);
+          @include tablet {
+            width: 159px;
+            height: 159px;
+          }
+        }
+        @include tablet {
+          margin-bottom: 2vh;
         }
       }
     }
@@ -703,7 +746,11 @@ h5 {
 // MARK: FOOTER
 
 footer {
+  position: relative;
+  @include fluid("margin-top", 40);
+  z-index: 5;
   .wrap_footer {
+    background-color: white;
     width: 97%;
     margin-left: auto;
     margin-right: auto;
@@ -759,6 +806,11 @@ footer {
       @include fluid("width", 280);
     }
     .btn_block {
+      a {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
       img {
         @include fluid("width", 61);
       }
@@ -823,7 +875,7 @@ footer {
             line-height: 109%;
             text-align: right;
             color: #141414;
-            @include fluid("wdth", 500);
+            @include fluid("width", 500);
             a {
               &:hover {
                 text-decoration: underline;

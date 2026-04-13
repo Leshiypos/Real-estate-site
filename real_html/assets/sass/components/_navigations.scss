@@ -16,10 +16,17 @@ header {
     width: 95%;
     color: white;
     @include fluid("height", 106);
+    @include tablet {
+      height: 70px;
+      width: 90%;
+    }
   }
 
   .logo {
     @include fluid("width", 199);
+    @include tablet {
+      width: 145px;
+    }
     img {
       width: 100%;
     }
@@ -49,6 +56,50 @@ header {
             color: $accent_color;
           }
         }
+      }
+    }
+  }
+  // mobile
+  .burger_btn_block {
+    button {
+      background-color: transparent;
+      border-radius: 300px;
+      width: 31px;
+      height: 31px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 24px rgba(0, 0, 0, 0.16);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0.03) 35%,
+          rgba(255, 255, 255, 0.01) 100%
+        );
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.24);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.16),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+          0 10px 28px rgba(0, 0, 0, 0.2);
       }
     }
   }
