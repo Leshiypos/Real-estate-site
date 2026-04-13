@@ -613,6 +613,8 @@ h5 {
           @media screen and (max-width: 1000px) {
             .about_section .content_block .col.col_gallery .swiper.thumb_slider {
               height: 190px; } }
+          .about_section .content_block .col.col_gallery .swiper.thumb_slider .swiper-slide {
+            cursor: pointer; }
         .about_section .content_block .col.col_gallery .swiper .swiper-slide img {
           display: block;
           width: 100%;
@@ -1050,5 +1052,165 @@ h5 {
             @media screen and (max-width: 1000px) {
               .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price .btn_block {
                 margin-top: 20px; } }
+
+.payment_plan_section {
+  margin-top: 51px; }
+  @media screen and (min-width: 1001px) and (max-width: 1920px) {
+    .payment_plan_section {
+      margin-top: calc(100vw * (51 / 1920)); } }
+  @media screen and (max-width: 1000px) {
+    .payment_plan_section {
+      margin-top: 51px; } }
+  .payment_plan_section .wrap_section {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(29, 29, 29, 0.1);
+    border-radius: 15px;
+    padding-top: 103px;
+    padding-left: 90px;
+    padding-bottom: 112px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 150px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .payment_plan_section .wrap_section {
+        border-radius: calc(100vw * (15 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .wrap_section {
+        border-radius: 15px; } }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .payment_plan_section .wrap_section {
+        padding-top: calc(100vw * (103 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .wrap_section {
+        padding-top: 103px; } }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .payment_plan_section .wrap_section {
+        padding-left: calc(100vw * (90 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .wrap_section {
+        padding-left: 90px; } }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .payment_plan_section .wrap_section {
+        padding-bottom: calc(100vw * (112 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .wrap_section {
+        padding-bottom: 112px; } }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .payment_plan_section .wrap_section {
+        gap: calc(100vw * (150 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .wrap_section {
+        gap: 150px; } }
+  .payment_plan_section .col.col_header {
+    display: flex;
+    flex-flow: column;
+    gap: 30px;
+    justify-content: center; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .payment_plan_section .col.col_header {
+        gap: calc(100vw * (30 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .col.col_header {
+        gap: 30px; } }
+    .payment_plan_section .col.col_header h2 {
+      font-family: var(--second-family);
+      font-weight: 300;
+      font-size: clamp(60px, calc( 60px + (120 - 60) * ((100vw - 1000px) / (1920 - 1000)) ), 120px);
+      color: #2b2c33;
+      margin-bottom: 20px;
+      white-space: nowrap; }
+      @media screen and (min-width: 1001px) and (max-width: 1920px) {
+        .payment_plan_section .col.col_header h2 {
+          margin-bottom: calc(100vw * (20 / 1920)); } }
+      @media screen and (max-width: 1000px) {
+        .payment_plan_section .col.col_header h2 {
+          margin-bottom: 20px; } }
+    .payment_plan_section .col.col_header .post_title {
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: clamp(7px, calc( 7px + (14 - 7) * ((100vw - 1000px) / (1920 - 1000)) ), 14px);
+      line-height: 157%;
+      color: rgba(43, 44, 51, 0.35);
+      width: 387px; }
+      @media screen and (min-width: 1001px) and (max-width: 1920px) {
+        .payment_plan_section .col.col_header .post_title {
+          width: calc(100vw * (387 / 1920)); } }
+      @media screen and (max-width: 1000px) {
+        .payment_plan_section .col.col_header .post_title {
+          width: 387px; } }
+  .payment_plan_section .col.col_plan-info {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap; }
+    .payment_plan_section .col.col_plan-info .vertical_line {
+      width: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+      transform: translate(6px, -6px);
+      z-index: -1; }
+    .payment_plan_section .col.col_plan-info ul {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 100%;
+      gap: 30px; }
+      @media screen and (min-width: 1001px) and (max-width: 1920px) {
+        .payment_plan_section .col.col_plan-info ul {
+          gap: calc(100vw * (30 / 1920)); } }
+      @media screen and (max-width: 1000px) {
+        .payment_plan_section .col.col_plan-info ul {
+          gap: 30px; } }
+      .payment_plan_section .col.col_plan-info ul li {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        font-weight: 500;
+        font-size: clamp(8px, calc( 8px + (16 - 8) * ((100vw - 1000px) / (1920 - 1000)) ), 16px);
+        font-family: var(--font-family);
+        color: #2b2c33; }
+        .payment_plan_section .col.col_plan-info ul li::before {
+          content: url(../images/icons/list_circl_gray.svg);
+          width: 11px;
+          height: 11px;
+          padding-right: 40px; }
+          @media screen and (min-width: 1001px) and (max-width: 1920px) {
+            .payment_plan_section .col.col_plan-info ul li::before {
+              width: calc(100vw * (11 / 1920)); } }
+          @media screen and (max-width: 1000px) {
+            .payment_plan_section .col.col_plan-info ul li::before {
+              width: 11px; } }
+          @media screen and (min-width: 1001px) and (max-width: 1920px) {
+            .payment_plan_section .col.col_plan-info ul li::before {
+              height: calc(100vw * (11 / 1920)); } }
+          @media screen and (max-width: 1000px) {
+            .payment_plan_section .col.col_plan-info ul li::before {
+              height: 11px; } }
+          @media screen and (min-width: 1001px) and (max-width: 1920px) {
+            .payment_plan_section .col.col_plan-info ul li::before {
+              padding-right: calc(100vw * (40 / 1920)); } }
+          @media screen and (max-width: 1000px) {
+            .payment_plan_section .col.col_plan-info ul li::before {
+              padding-right: 40px; } }
+        .payment_plan_section .col.col_plan-info ul li:first-child::before {
+          content: url(../images/icons/list_circl.svg); }
+        .payment_plan_section .col.col_plan-info ul li .price {
+          width: 250px; }
+          @media screen and (min-width: 1001px) and (max-width: 1920px) {
+            .payment_plan_section .col.col_plan-info ul li .price {
+              width: calc(100vw * (250 / 1920)); } }
+          @media screen and (max-width: 1000px) {
+            .payment_plan_section .col.col_plan-info ul li .price {
+              width: 250px; } }
+        .payment_plan_section .col.col_plan-info ul li .title {
+          width: 430px; }
+          @media screen and (min-width: 1001px) and (max-width: 1920px) {
+            .payment_plan_section .col.col_plan-info ul li .title {
+              width: calc(100vw * (430 / 1920)); } }
+          @media screen and (max-width: 1000px) {
+            .payment_plan_section .col.col_plan-info ul li .title {
+              width: 430px; } }
 
 /*# sourceMappingURL=styles.css.map */

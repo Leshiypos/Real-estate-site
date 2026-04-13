@@ -218,6 +218,9 @@ h5 {
           }
           &.thumb_slider {
             @include fluid("height", 190);
+            .swiper-slide {
+              cursor: pointer;
+            }
           }
           .swiper-slide {
             img {
@@ -508,6 +511,99 @@ h5 {
             .btn_block {
               @include fluid("margin-top", 20);
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+//  MARK: PAYMENT PLAN SECTION
+
+.payment_plan_section {
+  @include fluid("margin-top", 51);
+  .wrap_section {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(29, 29, 29, 0.1);
+    @include fluid("border-radius", 15);
+    @include fluid("padding-top", 103);
+    @include fluid("padding-left", 90);
+    @include fluid("padding-bottom", 112);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    @include fluid("gap", 150);
+  }
+
+  .col {
+    &.col_header {
+      display: flex;
+      flex-flow: column;
+      @include fluid("gap", 30);
+      justify-content: center;
+      h2 {
+        font-family: var(--second-family);
+        font-weight: 300;
+        @include fz_120;
+        color: #2b2c33;
+        @include fluid("margin-bottom", 20);
+        white-space: nowrap;
+      }
+      .post_title {
+        font-family: var(--font-family);
+        font-weight: 500;
+        @include fz_14;
+        line-height: 157%;
+        color: rgba(43, 44, 51, 0.35);
+        @include fluid("width", 387);
+      }
+    }
+
+    &.col_plan-info {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      .vertical_line {
+        width: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+        transform: translate(6px, -6px);
+        z-index: -1;
+      }
+      ul {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 100%;
+        @include fluid("gap", 30);
+
+        li {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: flex-start;
+          width: 100%;
+          font-weight: 500;
+          @include fz_16;
+          font-family: var(--font-family);
+          color: #2b2c33;
+          &::before {
+            content: url(../images/icons/list_circl_gray.svg);
+            @include fluid("width", 11);
+            @include fluid("height", 11);
+            @include fluid("padding-right", 40);
+          }
+          &:first-child {
+            &::before {
+              content: url(../images/icons/list_circl.svg);
+            }
+          }
+          .price {
+            @include fluid("width", 250);
+          }
+
+          .title {
+            @include fluid("width", 430);
           }
         }
       }
