@@ -1085,7 +1085,7 @@ h5 {
 
 footer {
   position: relative;
-  @include fluid("margin-top", 40);
+  @include fluid("margin-top", -40);
   z-index: 5;
   .wrap_footer {
     background-color: white;
@@ -1098,6 +1098,12 @@ footer {
     @include fluid("padding-bottom", 50);
     @include fluid("padding-left", 66);
     @include fluid("padding-right", 66);
+    @include tablet {
+      display: flex;
+      flex-flow: column nowrap;
+      padding: 36px;
+      width: 100%;
+    }
   }
 
   .privacy_block {
@@ -1107,12 +1113,24 @@ footer {
     margin-left: auto;
     width: fit-content;
     align-items: center;
+
+    @include tablet {
+      order: 2;
+      margin-left: unset;
+      width: 100%;
+      justify-content: space-between;
+      border-bottom: 1px solid #000;
+      padding-bottom: 23px;
+    }
     .yer {
       font-family: var(--font-family);
       font-weight: 400;
       @include fz_20;
       color: #000;
       @include fluid("padding-bottom", 5);
+      @include tablet {
+        font-size: 14px;
+      }
     }
     a {
       font-family: var(--font-family);
@@ -1123,6 +1141,14 @@ footer {
       border-bottom: 1px solid #acacac;
       &:hover {
         border-bottom: 1px solid transparent;
+      }
+      @include tablet {
+        font-size: 16px;
+        padding-bottom: 0;
+        border: none;
+        &:hover {
+          border-bottom: none;
+        }
       }
     }
   }
@@ -1135,6 +1161,13 @@ footer {
     align-items: flex-end;
     @include fluid("padding-bottom", 155);
     border-bottom: 1px solid #000;
+
+    @include tablet {
+      order: 1;
+      margin-top: 0;
+      padding-bottom: 60px;
+      border: none;
+    }
     h2 {
       font-family: var(--font-family);
       font-weight: 400;
@@ -1142,6 +1175,14 @@ footer {
       line-height: 100%;
       color: #141414;
       @include fluid("width", 280);
+      @include tablet {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 108%;
+        color: #141414;
+        width: 180px;
+      }
     }
     .btn_block {
       a {
@@ -1152,6 +1193,9 @@ footer {
       img {
         @include fluid("width", 61);
       }
+      @include tablet {
+        display: none;
+      }
     }
   }
 
@@ -1160,6 +1204,12 @@ footer {
     flex-flow: row nowrap;
     justify-content: space-between;
     @include fluid("margin-top", 39);
+    @include tablet {
+      flex-direction: column-reverse;
+    }
+    @include tablet {
+      order: 3;
+    }
   }
   .col {
     &.col_btn {
@@ -1178,19 +1228,40 @@ footer {
         img {
           @include fluid("width", 28);
         }
+        @include tablet {
+          justify-content: center;
+          font-size: 22px;
+          gap: 14px;
+          margin-top: 61px;
+          img {
+            width: 22px;
+          }
+        }
       }
     }
 
     &.col_info {
+      @include tablet {
+        border-bottom: 1px solid #000;
+        padding-bottom: 40px;
+      }
       ul {
         display: flex;
         flex-flow: column nowrap;
         @include fluid("gap", 33);
+        @include tablet {
+          gap: 41px;
+        }
         li {
           display: flex;
           flex-direction: column;
           @include fluid("gap", 11);
           align-items: flex-end;
+
+          @include tablet {
+            align-items: flex-start;
+            gap: 16px;
+          }
           .label {
             font-family: var(--font-family);
             font-weight: 500;
@@ -1205,6 +1276,14 @@ footer {
             img {
               @include fluid("width", 19);
             }
+
+            @include tablet {
+              font-size: 14px;
+              gap: 10px;
+              img {
+                width: 13px;
+              }
+            }
           }
           .info {
             font-family: var(--font-family);
@@ -1214,6 +1293,15 @@ footer {
             text-align: right;
             color: #141414;
             @include fluid("width", 500);
+
+            @include tablet {
+              width: 100%;
+              text-align: left;
+              font-family: var(--font-family);
+              font-weight: 500;
+              font-size: 22px;
+              line-height: 127%;
+            }
             a {
               &:hover {
                 text-decoration: underline;
@@ -1229,6 +1317,10 @@ footer {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    @include tablet {
+      order: 4;
+      margin-top: 127px;
+    }
 
     .col {
       &.col_log {
@@ -1245,8 +1337,15 @@ footer {
           line-height: 88%;
           color: #141414;
           @include fluid("gap", 5);
+          @include tablet {
+            font-size: 16px;
+          }
           img {
             @include fluid("width", 57);
+
+            @include tablet {
+              width: 57px;
+            }
           }
         }
         .row_post_title {
@@ -1254,6 +1353,9 @@ footer {
           font-weight: 500;
           @include fz_14;
           color: #959595;
+          @include tablet {
+            font-size: 14px;
+          }
         }
       }
 
@@ -1278,6 +1380,18 @@ footer {
               }
             }
           }
+        }
+        @include tablet {
+          display: none;
+        }
+      }
+
+      &.btn_block_mobile {
+        display: none;
+        @include tablet {
+          display: block;
+          width: 61px;
+          height: 61px;
         }
       }
     }

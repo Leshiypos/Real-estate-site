@@ -1769,14 +1769,14 @@ h5 {
 
 footer {
   position: relative;
-  margin-top: 40px;
+  margin-top: -40px;
   z-index: 5; }
   @media screen and (min-width: 1001px) and (max-width: 1920px) {
     footer {
-      margin-top: calc(100vw * (40 / 1920)); } }
+      margin-top: calc(100vw * (-40 / 1920)); } }
   @media screen and (max-width: 1000px) {
     footer {
-      margin-top: 40px; } }
+      margin-top: -40px; } }
   footer .wrap_footer {
     background-color: white;
     width: 97%;
@@ -1824,6 +1824,12 @@ footer {
     @media screen and (max-width: 1000px) {
       footer .wrap_footer {
         padding-right: 66px; } }
+    @media screen and (max-width: 1000px) {
+      footer .wrap_footer {
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 36px;
+        width: 100%; } }
   footer .privacy_block {
     display: flex;
     flex-flow: row nowrap;
@@ -1837,6 +1843,14 @@ footer {
     @media screen and (max-width: 1000px) {
       footer .privacy_block {
         gap: 30px; } }
+    @media screen and (max-width: 1000px) {
+      footer .privacy_block {
+        order: 2;
+        margin-left: unset;
+        width: 100%;
+        justify-content: space-between;
+        border-bottom: 1px solid #000;
+        padding-bottom: 23px; } }
     footer .privacy_block .yer {
       font-family: var(--font-family);
       font-weight: 400;
@@ -1849,6 +1863,9 @@ footer {
       @media screen and (max-width: 1000px) {
         footer .privacy_block .yer {
           padding-bottom: 5px; } }
+      @media screen and (max-width: 1000px) {
+        footer .privacy_block .yer {
+          font-size: 14px; } }
     footer .privacy_block a {
       font-family: var(--font-family);
       font-weight: 400;
@@ -1864,6 +1881,13 @@ footer {
           padding-bottom: 8px; } }
       footer .privacy_block a:hover {
         border-bottom: 1px solid transparent; }
+      @media screen and (max-width: 1000px) {
+        footer .privacy_block a {
+          font-size: 16px;
+          padding-bottom: 0;
+          border: none; }
+          footer .privacy_block a:hover {
+            border-bottom: none; } }
   footer .header_block {
     margin-top: 45px;
     display: flex;
@@ -1884,6 +1908,12 @@ footer {
     @media screen and (max-width: 1000px) {
       footer .header_block {
         padding-bottom: 155px; } }
+    @media screen and (max-width: 1000px) {
+      footer .header_block {
+        order: 1;
+        margin-top: 0;
+        padding-bottom: 60px;
+        border: none; } }
     footer .header_block h2 {
       font-family: var(--font-family);
       font-weight: 400;
@@ -1897,6 +1927,14 @@ footer {
       @media screen and (max-width: 1000px) {
         footer .header_block h2 {
           width: 280px; } }
+      @media screen and (max-width: 1000px) {
+        footer .header_block h2 {
+          font-family: var(--font-family);
+          font-weight: 400;
+          font-size: 40px;
+          line-height: 108%;
+          color: #141414;
+          width: 180px; } }
     footer .header_block .btn_block a:hover {
       opacity: 0.8; }
     footer .header_block .btn_block img {
@@ -1907,6 +1945,9 @@ footer {
       @media screen and (max-width: 1000px) {
         footer .header_block .btn_block img {
           width: 61px; } }
+    @media screen and (max-width: 1000px) {
+      footer .header_block .btn_block {
+        display: none; } }
   footer .contact_block {
     display: flex;
     flex-flow: row nowrap;
@@ -1918,6 +1959,12 @@ footer {
     @media screen and (max-width: 1000px) {
       footer .contact_block {
         margin-top: 39px; } }
+    @media screen and (max-width: 1000px) {
+      footer .contact_block {
+        flex-direction: column-reverse; } }
+    @media screen and (max-width: 1000px) {
+      footer .contact_block {
+        order: 3; } }
   footer .col.col_btn a {
     display: flex;
     flex-flow: row nowrap;
@@ -1943,6 +1990,18 @@ footer {
       @media screen and (max-width: 1000px) {
         footer .col.col_btn a img {
           width: 28px; } }
+    @media screen and (max-width: 1000px) {
+      footer .col.col_btn a {
+        justify-content: center;
+        font-size: 22px;
+        gap: 14px;
+        margin-top: 61px; }
+        footer .col.col_btn a img {
+          width: 22px; } }
+  @media screen and (max-width: 1000px) {
+    footer .col.col_info {
+      border-bottom: 1px solid #000;
+      padding-bottom: 40px; } }
   footer .col.col_info ul {
     display: flex;
     flex-flow: column nowrap;
@@ -1953,6 +2012,9 @@ footer {
     @media screen and (max-width: 1000px) {
       footer .col.col_info ul {
         gap: 33px; } }
+    @media screen and (max-width: 1000px) {
+      footer .col.col_info ul {
+        gap: 41px; } }
     footer .col.col_info ul li {
       display: flex;
       flex-direction: column;
@@ -1964,6 +2026,10 @@ footer {
       @media screen and (max-width: 1000px) {
         footer .col.col_info ul li {
           gap: 11px; } }
+      @media screen and (max-width: 1000px) {
+        footer .col.col_info ul li {
+          align-items: flex-start;
+          gap: 16px; } }
       footer .col.col_info ul li .label {
         font-family: var(--font-family);
         font-weight: 500;
@@ -1989,6 +2055,12 @@ footer {
           @media screen and (max-width: 1000px) {
             footer .col.col_info ul li .label img {
               width: 19px; } }
+        @media screen and (max-width: 1000px) {
+          footer .col.col_info ul li .label {
+            font-size: 14px;
+            gap: 10px; }
+            footer .col.col_info ul li .label img {
+              width: 13px; } }
       footer .col.col_info ul li .info {
         font-family: var(--font-family);
         font-weight: 400;
@@ -2003,6 +2075,14 @@ footer {
         @media screen and (max-width: 1000px) {
           footer .col.col_info ul li .info {
             width: 500px; } }
+        @media screen and (max-width: 1000px) {
+          footer .col.col_info ul li .info {
+            width: 100%;
+            text-align: left;
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 127%; } }
         footer .col.col_info ul li .info a:hover {
           text-decoration: underline; }
   footer .bottom_block {
@@ -2016,6 +2096,10 @@ footer {
     @media screen and (max-width: 1000px) {
       footer .bottom_block {
         margin-top: 95px; } }
+    @media screen and (max-width: 1000px) {
+      footer .bottom_block {
+        order: 4;
+        margin-top: 127px; } }
     footer .bottom_block .col.col_log {
       display: flex;
       flex-flow: column nowrap;
@@ -2042,6 +2126,9 @@ footer {
         @media screen and (max-width: 1000px) {
           footer .bottom_block .col.col_log .row_title {
             gap: 5px; } }
+        @media screen and (max-width: 1000px) {
+          footer .bottom_block .col.col_log .row_title {
+            font-size: 16px; } }
         footer .bottom_block .col.col_log .row_title img {
           width: 57px; }
           @media screen and (min-width: 1001px) and (max-width: 1920px) {
@@ -2050,11 +2137,17 @@ footer {
           @media screen and (max-width: 1000px) {
             footer .bottom_block .col.col_log .row_title img {
               width: 57px; } }
+          @media screen and (max-width: 1000px) {
+            footer .bottom_block .col.col_log .row_title img {
+              width: 57px; } }
       footer .bottom_block .col.col_log .row_post_title {
         font-family: var(--font-family);
         font-weight: 500;
         font-size: clamp(7px, calc( 7px + (14 - 7) * ((100vw - 1000px) / (1920 - 1000)) ), 14px);
         color: #959595; }
+        @media screen and (max-width: 1000px) {
+          footer .bottom_block .col.col_log .row_post_title {
+            font-size: 14px; } }
     footer .bottom_block .col.col_socials ul {
       display: flex;
       flex-flow: row nowrap;
@@ -2083,5 +2176,15 @@ footer {
             gap: 9px; } }
         footer .bottom_block .col.col_socials ul li a:hover {
           text-decoration: underline; }
+    @media screen and (max-width: 1000px) {
+      footer .bottom_block .col.col_socials {
+        display: none; } }
+    footer .bottom_block .col.btn_block_mobile {
+      display: none; }
+      @media screen and (max-width: 1000px) {
+        footer .bottom_block .col.btn_block_mobile {
+          display: block;
+          width: 61px;
+          height: 61px; } }
 
 /*# sourceMappingURL=styles.css.map */
