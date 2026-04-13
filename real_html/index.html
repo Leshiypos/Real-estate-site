@@ -34,7 +34,7 @@
           >
         </div>
         <div class="burger_btn_block mobile">
-          <button>
+          <button data-btn-open="mobile_menu">
             <img
               src="./assets/images/icons/burger_btn_menu.svg"
               alt="burger button image"
@@ -616,5 +616,86 @@
         </div>
       </footer>
     </main>
+    <div
+      class="menu_mobile_block"
+      id="menu_mobile_block"
+      data-block-closable="mobile_menu"
+    >
+      <div class="wrap_menu">
+        <div class="header_block">
+          <a href="/" class="logo">
+            <img src="./assets/images/logo_accent.avif" alt="logo" />
+          </a>
+
+          <button data-btn-close>
+            <svg
+              role="presentation"
+              class="t-popup__close-icon"
+              width="23px"
+              height="23px"
+              viewBox="0 0 23 23"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                stroke="none"
+                stroke-width="1"
+                fill="#848da2"
+                fill-rule="evenodd"
+              >
+                <rect
+                  transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) "
+                  x="10.3137085"
+                  y="-3.6862915"
+                  width="2"
+                  height="30"
+                ></rect>
+                <rect
+                  transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) "
+                  x="10.3137085"
+                  y="-3.6862915"
+                  width="2"
+                  height="30"
+                ></rect>
+              </g>
+            </svg>
+          </button>
+        </div>
+        <nav class="mobile_menu">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT BUILDING</a></li>
+            <li><a href="#">GALLERY</a></li>
+            <li><a href="#">FLOORS PLANS</a></li>
+            <li><a href="#">HOVIRTUAL TOURME</a></li>
+          </ul>
+        </nav>
+        <div class="socials_block">
+          <ul>
+            <li>
+              <a href="#">
+                <img src="./assets/images/icons/mail.svg" alt="mail" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./assets/images/icons/wa-menu.svg" alt="mail" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./assets/images/icons/inst.svg" alt="mail" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./assets/images/icons/telegram.svg" alt="mail" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   //   liquidGlassEffect();
+
+  //   Логика открытия и закрытия POPuP
+  closeBlockInit();
+  openBlockInit();
 });
 
 function liquidGlassEffect() {
@@ -139,4 +143,79 @@ function liquidGlassEffect() {
       }
     });
   })();
+}
+
+// MARK: Функция открытия попапов
+function openBlockInit() {
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    const btnOpen = target.closest("[data-btn-open]");
+    if (!btnOpen) return;
+    e.preventDefault();
+    const blockTag = btnOpen.dataset.btnOpen;
+
+    if (!blockTag || blockTag == "") {
+      console.log(
+        "⚠️ Добавьте атрибуту [data-btn-open] кнопки значение метку открываемого окна",
+      );
+      return;
+    }
+
+    const blockOpen = document.querySelector(
+      `[data-block-closable="${blockTag}"]`,
+    );
+
+    if (!blockOpen) {
+      console.log(
+        `❌ Блок с отрибутом [data-block-closable=${blockTag}] отсутствует на странице`,
+      );
+      return;
+    }
+    // Добавляем заголовок если есть куда
+    const titlePopUp = blockOpen.querySelector("[data-title-popup]");
+    if (titlePopUp) {
+      titlePopUp.textContent =
+        btnOpen.dataset?.titlePopup || "Получить консультацию";
+    }
+
+    // Был ли этот блок ОТКРЫТ до клика?
+    const wasOpen = blockOpen.classList.contains("active");
+    // Получаем метку группу окон
+    const groupTag = blockOpen.dataset.group;
+    // закрываем все окна в группе
+    if (groupTag && groupTag != "") {
+      const blocksGroup = document.querySelectorAll(
+        `[data-group="${groupTag}"]`,
+      );
+      if (blocksGroup.length) {
+        blocksGroup.forEach((block) => {
+          block.classList.remove("active");
+        });
+      }
+    }
+
+    // Если был открыт — закрываем его
+    if (wasOpen) {
+      blockOpen.classList.remove("active");
+      return;
+    }
+
+    // Если был закрыт — открываем его
+    blockOpen.classList.add("active");
+  });
+}
+// функция закрытия
+function closeBlockInit() {
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    const btnClose = target.closest("[data-btn-close]");
+    const overlay = target.closest(".overlay");
+    const blockClosable = target.closest("[data-block-closable]");
+    if (overlay) {
+      blockClosable.classList.remove("active");
+    }
+    if (!btnClose || !blockClosable) return;
+
+    blockClosable.classList.remove("active");
+  });
 }

@@ -329,6 +329,56 @@ header {
       border-color: rgba(255, 255, 255, 0.24);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 10px 28px rgba(0, 0, 0, 0.2); }
 
+.menu_mobile_block {
+  position: fixed;
+  z-index: 100;
+  top: -120%;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  transition: all 0.3s ease; }
+  .menu_mobile_block.active {
+    top: 0; }
+  .menu_mobile_block .wrap_menu {
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%; }
+  .menu_mobile_block .header_block {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center; }
+    .menu_mobile_block .header_block .logo img {
+      width: 213px; }
+    .menu_mobile_block .header_block button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer; }
+      .menu_mobile_block .header_block button svg {
+        width: 23px;
+        height: 23px; }
+  .menu_mobile_block .mobile_menu {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center; }
+    .menu_mobile_block .mobile_menu a {
+      font-size: 20px;
+      text-align: center;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      color: #404d63; }
+  .menu_mobile_block .socials_block ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px; }
+
 div,
 p,
 a,
