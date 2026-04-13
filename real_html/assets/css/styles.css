@@ -1291,6 +1291,7 @@ h5 {
             width: 100%;
             text-align: center;
             padding-bottom: 70px;
+            border-left: none;
             border-bottom: 1px solid rgba(0, 0, 0, 0.15); } }
         .floor-plans_section .content_block .content_card .col.col_price .wrap_col_price {
           display: flex;
@@ -1399,6 +1400,13 @@ h5 {
     @media screen and (max-width: 1000px) {
       .payment_plan_section .wrap_section {
         gap: 150px; } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .wrap_section {
+        flex-direction: column;
+        padding: 0;
+        border: none;
+        gap: 80px;
+        width: 90%; } }
   .payment_plan_section .col.col_header {
     display: flex;
     flex-flow: column;
@@ -1423,6 +1431,10 @@ h5 {
       @media screen and (max-width: 1000px) {
         .payment_plan_section .col.col_header h2 {
           margin-bottom: 20px; } }
+      @media screen and (max-width: 1000px) {
+        .payment_plan_section .col.col_header h2 {
+          white-space: wrap;
+          margin-bottom: 0; } }
     .payment_plan_section .col.col_header .post_title {
       font-family: var(--font-family);
       font-weight: 500;
@@ -1436,6 +1448,12 @@ h5 {
       @media screen and (max-width: 1000px) {
         .payment_plan_section .col.col_header .post_title {
           width: 387px; } }
+      @media screen and (max-width: 1000px) {
+        .payment_plan_section .col.col_header .post_title {
+          display: none; } }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .col.col_header .btn_block {
+        display: none; } }
   .payment_plan_section .col.col_plan-info {
     width: 100%;
     display: flex;
@@ -1456,6 +1474,9 @@ h5 {
       @media screen and (max-width: 1000px) {
         .payment_plan_section .col.col_plan-info ul {
           gap: 30px; } }
+      @media screen and (max-width: 1000px) {
+        .payment_plan_section .col.col_plan-info ul {
+          gap: 40px; } }
       .payment_plan_section .col.col_plan-info ul li {
         display: flex;
         flex-flow: row nowrap;
@@ -1465,6 +1486,9 @@ h5 {
         font-size: clamp(8px, calc( 8px + (16 - 8) * ((100vw - 1000px) / (1920 - 1000)) ), 16px);
         font-family: var(--font-family);
         color: #2b2c33; }
+        @media screen and (max-width: 1000px) {
+          .payment_plan_section .col.col_plan-info ul li {
+            font-size: 14px; } }
         .payment_plan_section .col.col_plan-info ul li::before {
           content: url(../images/icons/list_circl_gray.svg);
           width: 11px;
@@ -1488,6 +1512,9 @@ h5 {
           @media screen and (max-width: 1000px) {
             .payment_plan_section .col.col_plan-info ul li::before {
               padding-right: 40px; } }
+          @media screen and (max-width: 1000px) {
+            .payment_plan_section .col.col_plan-info ul li::before {
+              padding-right: 20px; } }
         .payment_plan_section .col.col_plan-info ul li:first-child::before {
           content: url(../images/icons/list_circl.svg); }
         .payment_plan_section .col.col_plan-info ul li .price {
@@ -1498,6 +1525,9 @@ h5 {
           @media screen and (max-width: 1000px) {
             .payment_plan_section .col.col_plan-info ul li .price {
               width: 250px; } }
+          @media screen and (max-width: 1000px) {
+            .payment_plan_section .col.col_plan-info ul li .price {
+              width: unset; } }
         .payment_plan_section .col.col_plan-info ul li .title {
           width: 430px; }
           @media screen and (min-width: 1001px) and (max-width: 1920px) {
@@ -1506,6 +1536,24 @@ h5 {
           @media screen and (max-width: 1000px) {
             .payment_plan_section .col.col_plan-info ul li .title {
               width: 430px; } }
+          @media screen and (max-width: 1000px) {
+            .payment_plan_section .col.col_plan-info ul li .title {
+              width: 200px;
+              margin-left: auto; } }
+        @media screen and (max-width: 1000px) {
+          .payment_plan_section .col.col_plan-info ul li .istallment {
+            display: none; } }
+  .payment_plan_section .btn_block_mobile {
+    display: none; }
+    @media screen and (max-width: 1000px) {
+      .payment_plan_section .btn_block_mobile {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-top: -20px; }
+        .payment_plan_section .btn_block_mobile a {
+          width: 100%; } }
 
 .virtual_tour_section {
   margin-top: 19px;

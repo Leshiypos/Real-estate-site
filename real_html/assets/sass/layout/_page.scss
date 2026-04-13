@@ -731,6 +731,7 @@ h5 {
             width: 100%;
             text-align: center;
             padding-bottom: 70px;
+            border-left: none;
             border-bottom: 1px solid rgba(0, 0, 0, 0.15);
           }
           .wrap_col_price {
@@ -794,6 +795,14 @@ h5 {
     justify-content: space-between;
     align-items: center;
     @include fluid("gap", 150);
+
+    @include tablet {
+      flex-direction: column;
+      padding: 0;
+      border: none;
+      gap: 80px;
+      width: 90%;
+    }
   }
 
   .col {
@@ -809,6 +818,11 @@ h5 {
         color: #2b2c33;
         @include fluid("margin-bottom", 20);
         white-space: nowrap;
+
+        @include tablet {
+          white-space: wrap;
+          margin-bottom: 0;
+        }
       }
       .post_title {
         font-family: var(--font-family);
@@ -817,6 +831,15 @@ h5 {
         line-height: 157%;
         color: rgba(43, 44, 51, 0.35);
         @include fluid("width", 387);
+
+        @include tablet {
+          display: none;
+        }
+      }
+      .btn_block {
+        @include tablet {
+          display: none;
+        }
       }
     }
 
@@ -824,6 +847,7 @@ h5 {
       width: 100%;
       display: flex;
       flex-flow: row nowrap;
+
       .vertical_line {
         width: 1px;
         background-color: rgba(0, 0, 0, 0.1);
@@ -836,6 +860,10 @@ h5 {
         width: 100%;
         @include fluid("gap", 30);
 
+        @include tablet {
+          gap: 40px;
+        }
+
         li {
           display: flex;
           flex-flow: row nowrap;
@@ -845,11 +873,19 @@ h5 {
           @include fz_16;
           font-family: var(--font-family);
           color: #2b2c33;
+
+          @include tablet {
+            font-size: 14px;
+          }
           &::before {
             content: url(../images/icons/list_circl_gray.svg);
             @include fluid("width", 11);
             @include fluid("height", 11);
             @include fluid("padding-right", 40);
+
+            @include tablet {
+              padding-right: 20px;
+            }
           }
           &:first-child {
             &::before {
@@ -858,12 +894,40 @@ h5 {
           }
           .price {
             @include fluid("width", 250);
+            @include tablet {
+              width: unset;
+            }
           }
 
           .title {
             @include fluid("width", 430);
+            @include tablet {
+              width: 200px;
+              margin-left: auto;
+            }
+          }
+
+          .istallment {
+            @include tablet {
+              display: none;
+            }
           }
         }
+      }
+    }
+  }
+
+  .btn_block_mobile {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      margin-top: -20px;
+      a {
+        width: 100%;
       }
     }
   }
