@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  liquidGlassEffect();
+  //   liquidGlassEffect();
+
+  //   Инициализация инпута формы
+  initalizationIntTel();
 
   //   Логика открытия и закрытия POPuP
   closeBlockInit();
@@ -217,5 +220,27 @@ function closeBlockInit() {
     if (!btnClose || !blockClosable) return;
 
     blockClosable.classList.remove("active");
+  });
+}
+
+function initalizationIntTel() {
+  const input = document.querySelector("#phone");
+  if (!input) return;
+
+  const iti = window.intlTelInput(input, {
+    initialCountry: "auto",
+    geoIpLookup: function (callback) {
+      fetch("https://ipapi.co/json")
+        .then((res) => res.json())
+        .then((data) => callback(data.country_code))
+        .catch(() => callback("us"));
+    },
+    separateDialCode: true,
+    utilsScript:
+      "https://cdn.jsdelivr.net/npm/intl-tel-input@18/build/js/utils.js",
+  });
+
+  input.addEventListener("countrychange", function () {
+    iti.setNumber(""); // 👈 правильный способ
   });
 }

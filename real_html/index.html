@@ -7,9 +7,17 @@
     <link rel="stylesheet" href="./assets/fonts/ivymode/ivymode-font.css" />
     <link rel="stylesheet" href="./assets/libs/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@18/build/css/intlTelInput.css"
+    />
     <script src="./assets/libs/swiper/swiper-bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/sliders.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18/build/js/utils.js"></script>
 
     <title>Real Estate</title>
   </head>
@@ -21,15 +29,15 @@
         </a>
         <nav class="main_menu desktop">
           <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT BUILDING</a></li>
-            <li><a href="#">GALLERY</a></li>
-            <li><a href="#">FLOORS PLANS</a></li>
-            <li><a href="#">HOVIRTUAL TOURME</a></li>
+            <li><a href="#start_page">HOME</a></li>
+            <li><a href="#about">ABOUT BUILDING</a></li>
+            <li><a href="#gallery">GALLERY</a></li>
+            <li><a href="#plans">FLOORS PLANS</a></li>
+            <li><a href="#tour">VIRTUAL TOUR</a></li>
           </ul>
         </nav>
         <div class="btn_block desktop">
-          <a href="#" class="btn accent"
+          <a href="#" class="btn accent" data-btn-open="pop_up"
             ><div class="btn_wrap">Book a viewing</div></a
           >
         </div>
@@ -77,10 +85,10 @@
           <div class="content_block">
             <div class="wrap_content_block">
               <div class="col btn_block">
-                <a href="#" class="btn white"
+                <a href="#" class="btn white" data-btn-open="pop_up"
                   ><div class="btn_wrap">Leave a request</div></a
                 >
-                <a href="#" class="btn glass whith_arrow"
+                <a href="#" class="btn glass whith_arrow" data-btn-open="pop_up"
                   ><p>Learn More</p>
                   <img src="./assets/images/icons/arrow_diag.avif" alt="arrow"
                 /></a>
@@ -102,7 +110,7 @@
       </section>
 
       <!-- MARK: ABOUT SECTION -->
-      <section class="about_section">
+      <section class="about_section" id="about">
         <div class="wrap_section">
           <div class="header_block">
             <div class="col col_title">
@@ -187,7 +195,10 @@
                 </li>
               </ul>
               <div class="btn_block">
-                <a href="#" class="btn accent whith_arrow"
+                <a
+                  href="#"
+                  class="btn accent whith_arrow"
+                  data-btn-open="pop_up"
                   ><p>Get Offer</p>
                   <img src="./assets/images/icons/arrow_diag.avif" alt="arrow"
                 /></a>
@@ -198,7 +209,7 @@
       </section>
 
       <!-- MARK: GALLERY SECTION -->
-      <section class="gallery_section">
+      <section class="gallery_section" id="gallery">
         <div class="wrap_section">
           <div class="header_block">
             <div class="col col_title">
@@ -272,7 +283,7 @@
       </section>
 
       <!-- MARK: FLOOR PLANS SECTION -->
-      <section class="floor-plans_section">
+      <section class="floor-plans_section" id="plans">
         <div class="wrap_section">
           <div class="header_block">
             <div class="col col_title">
@@ -319,7 +330,10 @@
                   <div class="price">AED 11,274,000</div>
                   <div class="post_title">Starting price</div>
                   <div class="btn_block">
-                    <a href="#" class="btn accent whith_arrow"
+                    <a
+                      href="#"
+                      class="btn accent whith_arrow"
+                      data-btn-open="pop_up"
                       ><p>Get Offer</p>
                       <img
                         src="./assets/images/icons/arrow_diag.avif"
@@ -387,7 +401,10 @@
                   <div class="price">AED 11,274,000</div>
                   <div class="post_title">Starting price</div>
                   <div class="btn_block">
-                    <a href="#" class="btn accent whith_arrow"
+                    <a
+                      href="#"
+                      class="btn accent whith_arrow"
+                      data-btn-open="pop_up"
                       ><p>Get Offer</p>
                       <img
                         src="./assets/images/icons/arrow_diag.avif"
@@ -412,7 +429,7 @@
               most prominent cultural hubs.
             </div>
             <div class="btn_block">
-              <a href="#" class="btn accent whith_arrow"
+              <a href="#" class="btn accent whith_arrow" data-btn-open="pop_up"
                 ><p>Get Offer</p>
                 <img src="./assets/images/icons/arrow_diag.avif" alt="arrow"
               /></a>
@@ -475,7 +492,7 @@
             </ul>
           </div>
           <div class="btn_block_mobile">
-            <a href="#" class="btn accent whith_arrow"
+            <a href="#" class="btn accent whith_arrow" data-btn-open="pop_up"
               ><p>Get Offer</p>
               <img src="./assets/images/icons/arrow_diag.avif" alt="arrow"
             /></a>
@@ -485,7 +502,7 @@
 
       <!-- MARK: 3D plan section-->
 
-      <section class="virtual_tour_section">
+      <section class="virtual_tour_section" id="tour">
         <div class="wrap_section">
           <div class="col col_title">
             <div class="pre_title">360°</div>
@@ -495,7 +512,7 @@
               arrive as an even more
             </div>
             <div class="btn_block">
-              <a href="#" class="btn white whith_arrow"
+              <a href="#" class="btn white whith_arrow" data-btn-open="pop_up"
                 ><p>Get Offer</p>
                 <img
                   src="./assets/images/icons/arrow_diag_accent.avif"
@@ -664,11 +681,11 @@
         </div>
         <nav class="mobile_menu">
           <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT BUILDING</a></li>
-            <li><a href="#">GALLERY</a></li>
-            <li><a href="#">FLOORS PLANS</a></li>
-            <li><a href="#">HOVIRTUAL TOURME</a></li>
+            <li><a href="#start_page">HOME</a></li>
+            <li><a href="#about">ABOUT BUILDING</a></li>
+            <li><a href="#gallery">GALLERY</a></li>
+            <li><a href="#plans">FLOORS PLANS</a></li>
+            <li><a href="#tour">VIRTUAL TOUR</a></li>
           </ul>
         </nav>
         <div class="socials_block">
@@ -680,17 +697,17 @@
             </li>
             <li>
               <a href="#">
-                <img src="./assets/images/icons/wa-menu.svg" alt="mail" />
+                <img src="./assets/images/icons/wa-menu.svg" alt="whatsapp" />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="./assets/images/icons/inst.svg" alt="mail" />
+                <img src="./assets/images/icons/inst.svg" alt="instagram" />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="./assets/images/icons/telegram.svg" alt="mail" />
+                <img src="./assets/images/icons/telegram.svg" alt="telegram" />
               </a>
             </li>
           </ul>
@@ -698,4 +715,70 @@
       </div>
     </div>
   </body>
+
+  <!-- MARK: MODAL POPUP -->
+  <div class="popUp" data-block-closable="pop_up">
+    <div class="wrap_popUp">
+      <div class="col col_img">
+        <img src="./assets/images/pop_img.avif" alt="background" />
+      </div>
+
+      <div class="col col_form">
+        <div class="rwo btn_row">
+          <button data-btn-close>
+            <img
+              src="./assets/images/icons/popUp_btn_close.svg"
+              alt="button close"
+            />
+          </button>
+        </div>
+        <div class="row form_row">
+          <h2>
+            Get a presentation <br />
+            <span>of our properties</span>
+          </h2>
+
+          <form action="" id="popUp_form" method="post">
+            <div class="wrap_input">
+              <input
+                type="tel"
+                class="phone"
+                name="phone"
+                id="phone"
+                required
+              />
+            </div>
+            <input type="submit" value="GET A PRESENTATION" />
+          </form>
+          <div class="pivacy_block">
+            <p>
+              By clicking the button, you agree to the
+              <a href="#">Privacy Policy</a>
+            </p>
+          </div>
+        </div>
+        <div class="row row_social">
+          <ul>
+            <li>
+              <a href="#"
+                >telegram
+                <img
+                  src="./assets/images/icons/social_icon.svg"
+                  alt="social icon"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                >whatsapp
+                <img
+                  src="./assets/images/icons/social_icon.svg"
+                  alt="social icon"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" data-btn-close></div>
+  </div>
 </html>

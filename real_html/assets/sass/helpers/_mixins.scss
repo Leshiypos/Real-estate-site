@@ -53,6 +53,17 @@
   }
 }
 
+// Расыты высоты от ширины
+@mixin fluid-important($prop, $val, $val-mob: $val) {
+  #{$prop}: #{$val}px !important;
+  @media screen and (min-width: #{$screen-medium+1}px) and (max-width: #{$screen-container}px) {
+    #{$prop}: calc(100vw * (#{$val} / #{$screen-container})) !important;
+  }
+  @media screen and (max-width: #{$screen-medium}px) {
+    #{$prop}: #{$val-mob}px;
+  }
+}
+
 @mixin setupWrapSection {
   width: 100%;
   @include fluid("max-width", $screen-container); //   max-width: 1400px;
@@ -121,6 +132,9 @@
 }
 @mixin fz_13 {
   @include fluid-font(7, 13);
+}
+@mixin fz_12 {
+  @include fluid-font(6, 12);
 }
 
 @mixin border_rad_15 {
