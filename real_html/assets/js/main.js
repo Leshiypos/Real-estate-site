@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  //   liquidGlassEffect();
+  liquidGlassEffect();
 
   //   Инициализация инпута формы
   initalizationIntTel();
