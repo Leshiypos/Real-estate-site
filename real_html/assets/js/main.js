@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //   Логика открытия и закрытия POPuP
   closeBlockInit();
   openBlockInit();
+
+  //   Инициализация фильтра
+  initFloorPlansFilter();
 });
 
 function liquidGlassEffect() {
@@ -273,4 +276,79 @@ function smoothScroll() {
 
   // После инициализации — пересчитать все триггеры
   ScrollTrigger.refresh();
+}
+
+function initFloorPlansFilter() {
+  const section = document.querySelector(".floor-plans_section");
+  if (!section) return;
+
+  const buttons = section.querySelectorAll("[data-filter]");
+  const cards = section.querySelectorAll(".content_card");
+
+  const ANIMATION_DURATION = 400; // должно совпадать с CSS
+  let refreshTimer = null;
+
+  function refreshGSAP() {
+    clearTimeout(refreshTimer);
+
+    refreshTimer = setTimeout(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (typeof ScrollTrigger !== "undefined") {
+            ScrollTrigger.refresh();
+          }
+        });
+      });
+    }, 30);
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+
+      buttons.forEach((b) => b.classList.remove("active_btn"));
+      btn.classList.add("active_btn");
+
+      let hasHiddenCards = false;
+      let hasShownCards = false;
+
+      cards.forEach((card) => {
+        const type = card.dataset.type;
+
+        if (filter === "all" || filter === type) {
+          // ПОКАЗ
+          if (card.style.display === "none") {
+            hasShownCards = true;
+            card.style.display = "";
+
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                card.classList.remove("is-hiding");
+                refreshGSAP();
+              });
+            });
+          }
+        } else {
+          // СКРЫТИЕ
+          if (
+            card.style.display !== "none" &&
+            !card.classList.contains("is-hiding")
+          ) {
+            hasHiddenCards = true;
+            card.classList.add("is-hiding");
+
+            setTimeout(() => {
+              card.style.display = "none";
+              refreshGSAP();
+            }, ANIMATION_DURATION);
+          }
+        }
+      });
+
+      // если ничего не анимировалось, но refresh всё равно нужен
+      if (!hasHiddenCards && !hasShownCards) {
+        refreshGSAP();
+      }
+    });
+  });
 }
