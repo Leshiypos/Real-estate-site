@@ -718,6 +718,9 @@ header {
       .popUp .overlay {
         display: none; } }
 
+html {
+  scroll-behavior: smooth; }
+
 div,
 p,
 a,

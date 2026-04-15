@@ -249,7 +249,6 @@ function initalizationIntTel() {
 }
 
 // MARK: Smooth Scroll
-
 function smoothScroll() {
   // плавный скролл
   const lenis = new Lenis({
