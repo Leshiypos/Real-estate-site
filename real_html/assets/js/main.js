@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Плавный скролл
   smoothScroll();
 
-  liquidGlassEffect();
+  //   liquidGlassEffect();
 
   //   Инициализация инпута формы
   initalizationIntTel();
