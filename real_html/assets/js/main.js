@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Плавный скролл
   smoothScroll();
 
-  liquidGlassEffect();
+  //   liquidGlassEffect();
 
   //   Инициализация инпута формы
   initalizationIntTel();
@@ -145,6 +145,7 @@ function liquidGlassEffect() {
     const glassElements = document.querySelectorAll(".liquid-glass");
     glassElements.forEach((element) => {
       if (isChromium) {
+        element.classList.remove("liquid-glass-fallback");
         element.insertAdjacentHTML("beforeend", svg);
       } else {
         element.classList.remove("liquid-glass");
