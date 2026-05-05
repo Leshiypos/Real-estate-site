@@ -13,6 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //   Инициализация фильтра
   initFloorPlansFilter();
+
+  //   инициализация GLighbox
+  const lightbox = GLightbox({
+    selector: ".glightbox",
+    zoomable: true,
+  });
 });
 
 function liquidGlassEffect() {
