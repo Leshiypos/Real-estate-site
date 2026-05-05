@@ -1000,7 +1000,7 @@ h5 {
     .about_section .header_block .col.col_post-title {
       font-family: var(--font-family);
       font-weight: 500;
-      font-size: clamp(7px, calc( 7px + (14 - 7) * ((100vw - 1000px) / (1920 - 1000)) ), 14px);
+      font-size: clamp(8px, calc( 8px + (16 - 8) * ((100vw - 1000px) / (1920 - 1000)) ), 16px);
       line-height: 179%;
       color: rgba(43, 44, 51, 0.6); }
       @media screen and (max-width: 1000px) {
@@ -1008,14 +1008,14 @@ h5 {
           font-size: 14px;
           line-height: 179%; } }
       .about_section .header_block .col.col_post-title p {
-        width: 550px;
+        width: 620px;
         margin-top: 30px; }
         @media screen and (min-width: 1001px) and (max-width: 1920px) {
           .about_section .header_block .col.col_post-title p {
-            width: calc(100vw * (550 / 1920)); } }
+            width: calc(100vw * (620 / 1920)); } }
         @media screen and (max-width: 1000px) {
           .about_section .header_block .col.col_post-title p {
-            width: 550px; } }
+            width: 620px; } }
         @media screen and (min-width: 1001px) and (max-width: 1920px) {
           .about_section .header_block .col.col_post-title p {
             margin-top: calc(100vw * (30 / 1920)); } }

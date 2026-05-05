@@ -230,7 +230,7 @@ h5 {
       &.col_post-title {
         font-family: var(--font-family);
         font-weight: 500;
-        @include fz_14;
+        @include fz_16;
         line-height: 179%;
         color: rgba(43, 44, 51, 0.6);
         @include tablet {
@@ -238,7 +238,7 @@ h5 {
           line-height: 179%;
         }
         p {
-          @include fluid("width", 550);
+          @include fluid("width", 620);
           @include fluid("margin-top", 30);
           @include tablet {
             width: 100%;
