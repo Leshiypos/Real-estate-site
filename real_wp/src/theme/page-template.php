@@ -269,26 +269,43 @@ get_header();
 	</section>
 
 	<!-- MARK: FLOOR PLANS SECTION -->
+	<?php
+	$floor_plans_section = get_field("floor_plans_section") ?? [];
+	$title = $floor_plans_section["title"] ?? "";
+	$apartaments = $floor_plans_section["apartments"] ?? [];
+
+	// Получаем уникальные значения количества комнат для фильтра 
+	$froom_count_array = [];
+	foreach ($apartaments as $apartament) {
+		if (!empty($apartament))
+			$froom_count_array[] = $apartament["rooms_count"] ?? "";
+	}
+	$filter_param = array_values(array_unique($froom_count_array));
+	?>
 	<section class="floor-plans_section" id="plans">
 		<div class="wrap_section">
 			<div class="header_block fade_in">
 				<div class="col col_title">
-					<h2>Floor Plans</h2>
+					<h2><?php echo $title; ?></h2>
 				</div>
 				<div class="col col_filter-btns">
 					<ul>
 						<li>
 							<button class="active_btn" data-filter="all">All</button>
 						</li>
-						<li>
-							<button data-filter="1">1 Bedroom</button>
-						</li>
-						<li>
-							<button data-filter="2">2 Bedroom</button>
-						</li>
-						<li>
-							<button data-filter="3">3 Bedroom</button>
-						</li>
+						<?php
+						if (!empty($filter_param)) {
+							foreach ($filter_param as $room_count) {
+						?>
+								<li>
+									<button data-filter="<?php echo $room_count; ?>"><?php echo $room_count;  ?> Bedroom</button>
+								</li>
+
+						<?php
+							}
+						}
+						?>
+
 					</ul>
 				</div>
 			</div>

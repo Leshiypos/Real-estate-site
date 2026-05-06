@@ -56,6 +56,7 @@ function real_estate_setup()
 	);
 
 	add_image_size("about-section-gallery-thumb", 300, 190, true);
+	add_image_size("floor-plan-gallery-thumb", 427, 289, true);
 }
 add_action('after_setup_theme', 'real_estate_setup');
 
