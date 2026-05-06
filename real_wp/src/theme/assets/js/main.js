@@ -1,0 +1,361 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Плавный скролл
+  smoothScroll();
+
+  //   liquidGlassEffect();
+
+  //   Инициализация инпута формы
+  initalizationIntTel();
+
+  //   Логика открытия и закрытия POPuP
+  closeBlockInit();
+  openBlockInit();
+
+  //   Инициализация фильтра
+  initFloorPlansFilter();
+
+  //   инициализация GLighbox
+  const lightbox = GLightbox({
+    selector: ".glightbox",
+    zoomable: true,
+  });
+});
+
+function liquidGlassEffect() {
+  const svg = `<svg width="100%" height="100%" viewBox="0 0 100% 100%" xmlns="http://www.w3.org/2000/svg">
+  <filter id="liquid-glass-filter">
+    <feImage
+      xlink:href="data:image/svg+xml,%3Csvg width='100%' height='100%' viewBox='0 0 100% 100%' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='rgb%280 0 0 %2F100 / 2.55}%25%29' /%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='%23FFF' style='filter:blur(10}px)' /%3E%3C/svg%3E"
+      x="0%"
+      y="0%"
+      width="100%"
+      height="100%"
+      result="first"
+      id="first"
+    />
+    <feImage
+      xlink:href="data:image/svg+xml,%3Csvg width='100%' height='100%' viewBox='0 0 100% 100%' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='rgb%28255 255 255 %2F0 / 2.55}%25%29' style='filter:blur(0px)' /%3E%3C/svg%3E"
+      x="0%"
+      y="0%"
+      width="100%"
+      height="100%"
+      result="second"
+      id="second"
+    />
+    <feImage
+      xlink:href="data:image/svg+xml,%3Csvg width='100%' height='100%' viewBox='0 0 100% 100%' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='%23000' /%3E%3C/svg%3E"
+      x="0%"
+      y="0%"
+      width="100%"
+      height="100%"
+      result="third"
+      id="third"
+    />
+    <feImage
+      xlink:href="data:image/svg+xml,%3Csvg width='100%' height='100%' viewBox='0 0 100% 100%' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='gradient1' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23000'/%3E%3Cstop offset='100%25' stop-color='%2300F'/%3E%3C/linearGradient%3E%3ClinearGradient id='gradient2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23000'/%3E%3Cstop offset='100%25' stop-color='%230F0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='%237F7F7F' /%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='%23000' /%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='url(%23gradient1)' style='mix-blend-mode: screen' /%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='url(%23gradient2)' style='mix-blend-mode: screen' /%3E%3Crect x='0' y='0' width='100%' height='100%' rx='32' fill='rgb%28127 127 127 %2F92.15686274509804%25%29' style='filter:blur(40px)' /%3E%3C/svg%3E"
+      x="0%"
+      y="0%"
+      width="100%"
+      height="100%"
+      result="fourth"
+      id="fourth"
+    />
+    <feTurbulence
+      type="fractalNoise"
+      baseFrequency="0.001 0.001"
+      numOctaves="2"
+      seed="92"
+      result="noise"
+    />
+    <feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+    <feGaussianBlur
+      stdDeviation="2.2"
+      id="preblur"
+      in="SourceGraphic"
+      result="preblur"
+    />
+    <feOffset dx="43" dy="43" in="preblur" result="preblurOffset" />
+    <feDisplacementMap
+      in="preblurOffset"
+      in2="blurred"
+      scale="0"
+      xChannelSelector="R"
+      yChannelSelector="G"
+      result="displaced"
+    />
+    <feDisplacementMap
+      id="dispR"
+      in2="fourth"
+      in="displaced"
+      scale="-145"
+      xChannelSelector="B"
+      yChannelSelector="G"
+    />
+    <feColorMatrix
+      type="matrix"
+      values="1 0 0 0 0
+            0 0 0 0 0
+            0 0 0 0 0
+            0 0 0 1 0"
+      result="disp1"
+    />
+    <feDisplacementMap
+      id="dispG"
+      in2="fourth"
+      in="displaced"
+      scale="-150"
+      xChannelSelector="B"
+      yChannelSelector="G"
+    />
+    <feColorMatrix
+      type="matrix"
+      values="0 0 0 0 0
+            0 1 0 0 0
+            0 0 0 0 0
+            0 0 0 1 0"
+      result="disp2"
+    />
+    <feDisplacementMap
+      id="dispB"
+      in2="fourth"
+      in="displaced"
+      scale="-155"
+      xChannelSelector="B"
+      yChannelSelector="G"
+    />
+    <feColorMatrix
+      type="matrix"
+      values="0 0 0 0 0
+            0 0 0 0 0
+            0 0 1 0 0
+            0 0 0 1 0"
+      result="disp3"
+    />
+    <feBlend in2="disp2" mode="screen" />
+    <feBlend in2="disp1" mode="screen" />
+    <feGaussianBlur stdDeviation="0" id="postblur" />
+    <feBlend in2="second" mode="screen" />
+    <feBlend in2="first" mode="multiply" />
+    <feComposite in2="third" operator="in" />
+  </filter>
+</svg>`;
+
+  (function () {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isChromium =
+      userAgent.includes("chrome") ||
+      userAgent.includes("edg") ||
+      userAgent.includes("opr") ||
+      userAgent.includes("opera");
+
+    const glassElements = document.querySelectorAll(".liquid-glass");
+    glassElements.forEach((element) => {
+      if (isChromium) {
+        element.classList.remove("liquid-glass-fallback");
+        element.insertAdjacentHTML("beforeend", svg);
+      } else {
+        element.classList.remove("liquid-glass");
+        element.classList.add("liquid-glass-fallback");
+      }
+    });
+  })();
+}
+
+// MARK: Функция открытия попапов
+function openBlockInit() {
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    const btnOpen = target.closest("[data-btn-open]");
+    if (!btnOpen) return;
+    e.preventDefault();
+    const blockTag = btnOpen.dataset.btnOpen;
+
+    if (!blockTag || blockTag == "") {
+      console.log(
+        "⚠️ Добавьте атрибуту [data-btn-open] кнопки значение метку открываемого окна",
+      );
+      return;
+    }
+
+    const blockOpen = document.querySelector(
+      `[data-block-closable="${blockTag}"]`,
+    );
+
+    if (!blockOpen) {
+      console.log(
+        `❌ Блок с отрибутом [data-block-closable=${blockTag}] отсутствует на странице`,
+      );
+      return;
+    }
+    // Добавляем заголовок если есть куда
+    const titlePopUp = blockOpen.querySelector("[data-title-popup]");
+    if (titlePopUp) {
+      titlePopUp.textContent =
+        btnOpen.dataset?.titlePopup || "Получить консультацию";
+    }
+
+    // Был ли этот блок ОТКРЫТ до клика?
+    const wasOpen = blockOpen.classList.contains("active");
+    // Получаем метку группу окон
+    const groupTag = blockOpen.dataset.group;
+    // закрываем все окна в группе
+    if (groupTag && groupTag != "") {
+      const blocksGroup = document.querySelectorAll(
+        `[data-group="${groupTag}"]`,
+      );
+      if (blocksGroup.length) {
+        blocksGroup.forEach((block) => {
+          block.classList.remove("active");
+        });
+      }
+    }
+
+    // Если был открыт — закрываем его
+    if (wasOpen) {
+      blockOpen.classList.remove("active");
+      return;
+    }
+
+    // Если был закрыт — открываем его
+    blockOpen.classList.add("active");
+  });
+}
+// функция закрытия
+function closeBlockInit() {
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    const btnClose = target.closest("[data-btn-close]");
+    const overlay = target.closest(".overlay");
+    const blockClosable = target.closest("[data-block-closable]");
+    if (overlay) {
+      blockClosable.classList.remove("active");
+    }
+    if (!btnClose || !blockClosable) return;
+
+    blockClosable.classList.remove("active");
+  });
+}
+
+function initalizationIntTel() {
+  const input = document.querySelector("#phone");
+  if (!input) return;
+
+  const iti = window.intlTelInput(input, {
+    initialCountry: "auto",
+    geoIpLookup: function (callback) {
+      fetch("https://ipapi.co/json")
+        .then((res) => res.json())
+        .then((data) => callback(data.country_code))
+        .catch(() => callback("us"));
+    },
+    separateDialCode: true,
+    utilsScript:
+      "https://cdn.jsdelivr.net/npm/intl-tel-input@18/build/js/utils.js",
+  });
+
+  input.addEventListener("countrychange", function () {
+    iti.setNumber(""); // 👈 правильный способ
+  });
+}
+
+// MARK: Smooth Scroll
+function smoothScroll() {
+  // плавный скролл
+  const lenis = new Lenis({
+    duration: 1.05, // «инерция» (0.6–1.4 — подбирай на вкус)
+    smoothWheel: true, // сглаживание колёсика мыши
+    smoothTouch: false, // при желании можно включить и для тача
+    // orientation: 'vertical', // если понадобится горизонтальный — можно переключать
+  });
+
+  // Обновляем ScrollTrigger на каждом «виртуальном» скролле Lenis
+  lenis.on("scroll", () => {
+    ScrollTrigger.update();
+  });
+
+  // Привязываем Lenis к кадрам анимации (используем GSAP ticker)
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  // Отключаем сглаживание лага GSAP, чтобы не было задержек
+  gsap.ticker.lagSmoothing(0);
+
+  // После инициализации — пересчитать все триггеры
+  ScrollTrigger.refresh();
+}
+
+function initFloorPlansFilter() {
+  const section = document.querySelector(".floor-plans_section");
+  if (!section) return;
+
+  const buttons = section.querySelectorAll("[data-filter]");
+  const cards = section.querySelectorAll(".content_card");
+
+  const ANIMATION_DURATION = 400; // должно совпадать с CSS
+  let refreshTimer = null;
+
+  function refreshGSAP() {
+    clearTimeout(refreshTimer);
+
+    refreshTimer = setTimeout(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (typeof ScrollTrigger !== "undefined") {
+            ScrollTrigger.refresh();
+          }
+        });
+      });
+    }, 30);
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+
+      buttons.forEach((b) => b.classList.remove("active_btn"));
+      btn.classList.add("active_btn");
+
+      let hasHiddenCards = false;
+      let hasShownCards = false;
+
+      cards.forEach((card) => {
+        const type = card.dataset.type;
+
+        if (filter === "all" || filter === type) {
+          // ПОКАЗ
+          if (card.style.display === "none") {
+            hasShownCards = true;
+            card.style.display = "";
+
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                card.classList.remove("is-hiding");
+                refreshGSAP();
+              });
+            });
+          }
+        } else {
+          // СКРЫТИЕ
+          if (
+            card.style.display !== "none" &&
+            !card.classList.contains("is-hiding")
+          ) {
+            hasHiddenCards = true;
+            card.classList.add("is-hiding");
+
+            setTimeout(() => {
+              card.style.display = "none";
+              refreshGSAP();
+            }, ANIMATION_DURATION);
+          }
+        }
+      });
+
+      // если ничего не анимировалось, но refresh всё равно нужен
+      if (!hasHiddenCards && !hasShownCards) {
+        refreshGSAP();
+      }
+    });
+  });
+}

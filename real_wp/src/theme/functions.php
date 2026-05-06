@@ -1,13 +1,5 @@
 <?php
 
-/**
- * real_estate functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package real_estate
- */
-
 if (! defined('_S_VERSION')) {
 
 	define('_S_VERSION', '1.0.0');
@@ -62,6 +54,8 @@ function real_estate_setup()
 			'flex-height' => true,
 		)
 	);
+
+	add_image_size("about-section-gallery-thumb", 300, 190, true);
 }
 add_action('after_setup_theme', 'real_estate_setup');
 
@@ -92,7 +86,46 @@ function real_estate_scripts()
 	wp_enqueue_style('real_estate-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('real_estate-style', 'rtl', 'replace');
 
-	wp_enqueue_script('real_estate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	// Fonts
+	wp_enqueue_style('helvetica-font', get_template_directory_uri() . '/assets/fonts/helvetica/helvetica-font.css', array(), _S_VERSION);
+
+	wp_enqueue_style('ivymode-font', get_template_directory_uri() . '/assets/fonts/ivymode/ivymode-font.css', array(), _S_VERSION);
+
+	// Libraries CSS
+	wp_enqueue_style('swiper', get_template_directory_uri() . '/assets/libs/swiper/swiper-bundle.min.css', array(), _S_VERSION);
+
+	wp_enqueue_style('lenis', 'https://unpkg.com/lenis@1.3.4/dist/lenis.css', array(), '1.3.4');
+
+	wp_enqueue_style('intl-tel-input', 'https://cdn.jsdelivr.net/npm/intl-tel-input@18/build/css/intlTelInput.css', array(), '18');
+
+	wp_enqueue_style('glightbox', 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css', array(), null);
+
+	// Main CSS
+	wp_enqueue_style('real-estate-main', get_template_directory_uri() . '/assets/css/styles.css', array('swiper', 'lenis', 'intl-tel-input', 'glightbox'), _S_VERSION);
+
+	// Libraries JS
+	wp_enqueue_script('gsap',	'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js', '3.13.0', true);
+
+	wp_enqueue_script('gsap-scrolltrigger',	'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js',	array('gsap'), '3.12.5',	true);
+
+	wp_enqueue_script('lenis', 'https://unpkg.com/lenis@1.3.4/dist/lenis.min.js', array(), '1.3.4', true);
+
+	wp_enqueue_script('swiper',	get_template_directory_uri() . '/assets/libs/swiper/swiper-bundle.min.js',	array(), _S_VERSION,	true);
+
+	wp_enqueue_script('intl-tel-input',	'https://cdn.jsdelivr.net/npm/intl-tel-input@18/build/js/intlTelInput.min.js',	array(), '18', true);
+
+	wp_enqueue_script('intl-tel-input-utils',	'https://cdn.jsdelivr.net/npm/intl-tel-input@18/build/js/utils.js',	array('intl-tel-input'), '18', true);
+
+	wp_enqueue_script('glightbox',	'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js', array(), null, true);
+
+	// Theme JS
+	wp_enqueue_script('real-estate-main',	get_template_directory_uri() . '/assets/js/main.js', array('swiper', 'lenis', 'gsap', 'gsap-scrolltrigger', 'intl-tel-input', 'glightbox'),	_S_VERSION,	true);
+
+	wp_enqueue_script('real-estate-sliders',	get_template_directory_uri() . '/assets/js/sliders.js',	array('swiper'), _S_VERSION,	true);
+
+	wp_enqueue_script('real-estate-animation', get_template_directory_uri() . '/assets/js/animation.js', array('gsap', 'gsap-scrolltrigger'),	_S_VERSION,	true);
+
+	wp_enqueue_script('real_estate-navigation',	get_template_directory_uri() . '/js/navigation.js',	array(), _S_VERSION,	true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -102,12 +135,34 @@ add_action('wp_enqueue_scripts', 'real_estate_scripts');
 
 // require get_template_directory() . '/inc/custom-header.php';
 
-// require get_template_directory() . '/inc/template-tags.php';
 
-// require get_template_directory() . '/inc/template-functions.php';
 
-// require get_template_directory() . '/inc/customizer.php';
 
-// if ( defined( 'JETPACK__VERSION' ) ) {
-// 	require get_template_directory() . '/inc/jetpack.php';
-// }
+// разрешить загрузку SVG только администраторам
+// Разрешаем SVG только администраторам
+add_filter('upload_mimes', function ($mimes) {
+	if (current_user_can('manage_options')) {
+		$mimes['svg']  = 'image/svg+xml';
+		$mimes['svgz'] = 'image/svg+xml';
+	} else {
+		// на всякий случай запретим, если кто-то добавил ранее
+		unset($mimes['svg'], $mimes['svgz']);
+	}
+	return $mimes;
+});
+add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
+	$ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+	if (in_array($ext, ['svg', 'svgz'], true)) {
+		$data['ext']             = 'svg';
+		$data['type']            = 'image/svg+xml';
+		$data['proper_filename'] = $data['proper_filename'] ?: $filename;
+	}
+	return $data;
+}, 10, 4);
+// Минимальный фикс превью в админке
+add_action('admin_head', function () {
+	echo '<style>
+      .attachment .thumbnail img[src$=".svg"],
+      .media-icon img[src$=".svg"]{ width:100%; height:auto; }
+    </style>';
+});

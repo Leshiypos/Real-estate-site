@@ -1,0 +1,264 @@
+.popUp {
+  display: none;
+
+  @include tablet {
+    position: relative;
+  }
+  &.active {
+    display: block;
+  }
+  .wrap_popUp {
+    z-index: 99;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include fluid("width", 1660);
+    @include fluid("height", 840);
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: white;
+    @include fluid("border-radius", 20);
+    overflow: clip;
+    @include tablet {
+      width: 100%;
+      height: 100vh;
+      flex-direction: column;
+      inset: 0;
+      transform: none;
+      border-radius: 0;
+    }
+  }
+  .col_img {
+    width: 70%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @include tablet {
+      width: 100%;
+      height: 35vh;
+    }
+  }
+  .col_form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    @include fluid("padding-top", 24);
+    @include fluid("padding-right", 58);
+    @include fluid("padding-left", 58);
+    @include fluid("padding-bottom", 47);
+    width: 30%;
+
+    @include tablet {
+      width: 100%;
+      height: 65vh;
+
+      padding: 90px 30px 41px 30px;
+    }
+    .btn_row {
+      margin-left: auto;
+      @include fluid("margin-right", -34);
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        img {
+          @include fluid("width", 34);
+        }
+      }
+
+      @include tablet {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        margin-right: 0;
+        border-radius: 50%;
+        background-color: white;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+
+    .form_row {
+      @include fluid("margin-top", 40);
+
+      @include tablet {
+        margin-top: 0;
+      }
+      h2 {
+        font-family: var(--font-family);
+        font-weight: 500;
+        @include fz_40;
+        line-height: 98%;
+        letter-spacing: -0.03em;
+        color: #545454;
+        @include fluid("margin-bottom", 81);
+        span {
+          color: #aaafbb;
+        }
+        @include tablet {
+          font-size: 40px;
+          margin-top: 0;
+          margin-bottom: 74px;
+        }
+        @include tablet(380) {
+          font-size: 32px;
+        }
+      }
+
+      form {
+        display: flex;
+        flex-flow: column nowrap;
+        @include fluid("gap", 17);
+        @include fluid("margin-bottom", 17);
+      }
+      .wrap_input {
+        background: #f6f6f6;
+        border-radius: 1000px;
+        @include fluid("padding-left", 30);
+        @include tablet {
+          padding-left: 30px;
+        }
+      }
+      input {
+        border-radius: 1000px;
+        @include fluid("padding-top", 18);
+        @include fluid("padding-bottom", 18);
+
+        border: none;
+        font-family: var(--font-family);
+        font-weight: 500;
+        @include fz_18;
+        color: #545454;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        @include tablet {
+          font-size: 18px;
+        }
+        &[type="tel"] {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+        }
+        &[type="submit"] {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          background: #00b0ae;
+          font-family: var(--font-family);
+          font-weight: 500;
+          @include fz_16;
+          letter-spacing: -0.03em;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          @include tablet {
+            font-size: 16px;
+          }
+          &:hover {
+            background-color: $accent_color_hover;
+          }
+        }
+      }
+
+      .pivacy_block {
+        font-family: var(--font-family);
+        font-weight: 400;
+        @include fz_12;
+        line-height: 133%;
+        letter-spacing: -0.03em;
+        color: rgba(99, 99, 99, 0.7);
+        p {
+          text-align: center;
+        }
+        a {
+          text-decoration: underline;
+          text-decoration-skip-ink: none;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        @include tablet {
+          font-size: 12px;
+        }
+      }
+
+      //   Форматирование плагина номера
+      .iti--separate-dial-code {
+        .iti__selected-flag {
+          background-color: transparent;
+        }
+        .iti__flag.iti__nl {
+          @include fluid("width", 20);
+          @include fluid("height", 14);
+        }
+      }
+
+      .iti__selected-dial-code {
+        @include fz_18;
+        @include tablet {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .row_social {
+      ul {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        a {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          @include fluid("gap", 8);
+          font-family: var(--font-family);
+          font-weight: 400;
+          @include fz_25;
+          color: #141414;
+          img {
+            @include fluid("width", 21);
+            @include fluid("height", 21);
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        @include tablet {
+          a {
+            font-size: 25px;
+            img {
+              width: 21px;
+              height: 21px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 98;
+    backdrop-filter: blur(5px);
+    @include tablet {
+      display: none;
+    }
+  }
+}

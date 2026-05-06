@@ -1,0 +1,16 @@
+:root {
+  --font-family: "Helvetica Neue", sans-serif;
+  --second-family: "Ivy Mode", sans-serif;
+  --third-family: "Herr Von Muellerhoff", sans-serif;
+}
+
+$accent_color: rgba(0, 176, 174, 1);
+$accent_color_hover: rgb(3, 128, 126);
+
+// Точки останова
+
+$screen-small: 560;
+$screen-medium: 1000;
+$screen-larger: 1920;
+
+$screen-container: 1920;
