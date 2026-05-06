@@ -205,68 +205,66 @@ get_header();
 	</section>
 
 	<!-- MARK: GALLERY SECTION -->
+	<?php
+	$gallery_section = get_field("gallery_section") ?? [];
+	$title = $gallery_section['title'] ?? "";
+	$post_title = $gallery_section['post_title'] ?? "";
+	$description = $gallery_section['description'] ?? "";
+	$images = $gallery_section['images'] ?? [];
+	?>
 	<section class="gallery_section" id="gallery">
 		<div class="wrap_section">
 			<div class="header_block fade_in">
 				<div class="col col_title">
-					<h2>Gallery</h2>
+					<h2><?php echo $title; ?></h2>
 				</div>
 				<div class="col col_description">
-					<h3>Interior of main living room</h3>
+					<h3><?php echo $post_title; ?></h3>
 					<p>
-						Following the overwhelming demand for Phase these two towers
-						arrive as an even more
+						<?php echo $description; ?>
 					</p>
 				</div>
 			</div>
-			<div class="gallery_block fade_in">
-				<div class="swiper gallery_section_slider">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_1.avif"
-								alt="images" />
+			<?php
+			if (!empty($images)) {
+			?>
+				<div class="gallery_block fade_in">
+					<div class="swiper gallery_section_slider">
+						<div class="swiper-wrapper">
+							<?php
+							foreach ($images as $image_id) {
+								$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+								if (!$alt) {
+									$alt = get_the_title($image_id);
+								}
+							?>
+								<div class="swiper-slide">
+									<img
+										src="<?php echo wp_get_attachment_image_url($image_id, "full"); ?>"
+										alt="<?php echo esc_attr($alt); ?>" />
+								</div>
+							<?php
+							}
+							?>
 						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_2.avif"
-								alt="images" />
-						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_1.avif"
-								alt="images" />
-						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_2.avif"
-								alt="images" />
-						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_1.avif"
-								alt="images" />
-						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_2.avif"
-								alt="images" />
-						</div>
-					</div>
-					<div class="btn_block_navigation">
-						<div class="swiper-button-gallery-prev">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_prev.svg"
-								alt="btn prev" />
-						</div>
-						<div class="swiper-button-gallery-next">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_next.svg"
-								alt="btn next" />
+						<div class="btn_block_navigation">
+							<div class="swiper-button-gallery-prev">
+								<img
+									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_prev.svg"
+									alt="btn prev" />
+							</div>
+							<div class="swiper-button-gallery-next">
+								<img
+									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_next.svg"
+									alt="btn next" />
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			<?php
+			}
+			?>
+
 		</div>
 	</section>
 
