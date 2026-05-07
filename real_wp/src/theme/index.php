@@ -1,4 +1,5 @@
 <?php
+
 get_header();
 ?>
 <main>
@@ -55,13 +56,13 @@ get_header();
 				<div class="wrap_content_block">
 					<div class="col btn_block fade_in">
 						<a href="#" class="btn white" data-btn-open="pop_up">
-							<div class="btn_wrap">Leave a request</div>
+							<div class="btn_wrap"><?php pll_e('Leave a request'); ?></div>
 						</a>
 						<a
 							href="#"
 							class="btn glass whith_arrow fade_in"
 							data-btn-open="pop_up">
-							<p>Learn More</p>
+							<p><?php pll_e('Learn More'); ?></p>
 							<img
 								src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag_black.avif"
 								alt="arrow" />
@@ -80,9 +81,9 @@ get_header();
 
 					<div class="col col_logo_block fade_in">
 						<img
-							src="<?php echo get_template_directory_uri() ?>/assets/images/icons/logo_hero_section.svg"
+							src="<?php echo $logo_url; ?>"
 							alt="hero lofo" />
-						<div class="logo_description">Daynemic Offer Here</div>
+						<div class="logo_description"><?php echo $title; ?></div>
 					</div>
 				</div>
 			</div>
@@ -192,7 +193,7 @@ get_header();
 							href="#"
 							class="btn accent whith_arrow"
 							data-btn-open="pop_up">
-							<p>Get Offer</p>
+							<p><?php pll_e('Get Offer'); ?></p>
 							<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif" alt="arrow" />
 						</a>
 					</div>
@@ -288,14 +289,14 @@ get_header();
 				<div class="col col_filter-btns">
 					<ul>
 						<li>
-							<button class="active_btn" data-filter="all">All</button>
+							<button class="active_btn" data-filter="all"><?php pll_e('All'); ?></button>
 						</li>
 						<?php
 						if (!empty($filter_param)) {
 							foreach ($filter_param as $room_count) {
 						?>
 								<li>
-									<button data-filter="<?php echo $room_count; ?>"><?php echo $room_count;  ?> Bedroom</button>
+									<button data-filter="<?php echo $room_count; ?>"><?php echo $room_count;  ?> <?php pll_e('Bedroom'); ?></button>
 								</li>
 
 						<?php
@@ -355,7 +356,7 @@ get_header();
 											href="#"
 											class="btn accent whith_arrow"
 											data-btn-open="pop_up">
-											<p>Get Offer</p>
+											<p><?php pll_e('Get Offer'); ?></p>
 											<img
 												src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif"
 												alt="arrow" />
@@ -389,7 +390,7 @@ get_header();
 				</div>
 				<div class="btn_block fade_in">
 					<a href="#" class="btn accent whith_arrow" data-btn-open="pop_up">
-						<p>Get Offer</p>
+						<p><?php pll_e('Get Offer'); ?></p>
 						<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif" alt="arrow" />
 					</a>
 				</div>
@@ -432,7 +433,7 @@ get_header();
 			</div>
 			<div class="btn_block_mobile">
 				<a href="#" class="btn accent whith_arrow" data-btn-open="pop_up">
-					<p>Get Offer</p>
+					<p><?php pll_e('Get Offer'); ?></p>
 					<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif" alt="arrow" />
 				</a>
 			</div>

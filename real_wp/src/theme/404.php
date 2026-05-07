@@ -1,60 +1,66 @@
 <?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package real_estate
- */
+// Template Name: Page template
+// Template Post Type: page 
 
 get_header();
 ?>
+<main>
+	<!-- MARK: HERO SECTION -->
 
-	<main id="primary" class="site-main">
+	<section class="hero_section" style="margin-bottom: 200px">
+		<div class="wrap_section">
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'real_estate' ); ?></h1>
-			</header><!-- .page-header -->
+			<video
+				class="video_background"
+				poster=""
+				muted
+				autoplay
+				playsinline
+				loop>
+				<!-- Десктоп -->
+				<source
+					src="<?php echo get_template_directory_uri(); ?>/assets/video/hero_video.mp4"
+					type="video/mp4"
+					media="(min-width: 1001px)" />
+				<source
+					src="<?php echo get_template_directory_uri(); ?>/assets/video/hero_video.mp4"
+					type="video/mp4"
+					media="(max-width: 1000px)" />
+			</video>
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'real_estate' ); ?></p>
+			<div class="logo_block desktop fade_in">
 
-					<?php
-					get_search_form();
+				<div class="logo_description fade_in">404. Что-то пошло не так</div>
+			</div>
+			<div class="content_block">
+				<div class="wrap_content_block">
+					<div class="col btn_block fade_in">
+						<a href="#" class="btn white" data-btn-open="pop_up">
+							<div class="btn_wrap"><?php pll_e('Leave a request'); ?></div>
+						</a>
+						<a
+							href="#"
+							class="btn glass whith_arrow fade_in"
+							data-btn-open="pop_up">
+							<p><?php pll_e('Learn More'); ?></p>
+							<img
+								src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag_black.avif"
+								alt="arrow" />
+						</a>
+					</div>
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+					<div class="col qr_block fade_in">
+						<img src="<?php echo get_template_directory_uri() ?>/assets/images/QRcode.avif" alt="qr code" />
+					</div>
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'real_estate' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
+				</div>
+			</div>
+			<div class="glass_line liquid-glass liquid-glass-fallback"></div>
+		</div>
+	</section>
 
-					<?php
-					/* translators: %1$s: smiley */
-					$real_estate_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'real_estate' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$real_estate_archive_content" );
 
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
 
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
-
-<?php
-get_footer();
+	<?php
+	get_footer();
+	?>
