@@ -1,13 +1,32 @@
 	<!-- MARK: FOOTER -->
+	<?php
+	$footer_option = get_field("footer", 'option') ?? [];
+	$title_footer = $footer_option['title'] ?? '';
+	$link_to_privacy_police_footer = $footer_option['link_to_privacy_police'] ?? "";
+
+	$contacts_page = get_field('contacts_page') ?? [];
+	$is_active_local_contacts  = $contacts_page['active_local_contacts'];
+
+	if ($is_active_local_contacts) {
+		$contacts_footer = $contacts_page ?? [];
+	} else {
+		$contacts_footer = get_field('contacts', 'option') ?? [];
+	}
+
+	$phone_number = $contacts_footer['number_phone'] ?? '';
+	$address = $contacts_footer['address'] ?? '';
+	$socials = $contacts_footer['socials'] ?? [];
+
+	?>
 	<footer>
 		<div class="wrap_footer">
 			<div class="privacy_block fade_in">
-				<p class="yer">Ⓒ 2025</p>
-				<a href="#">Privacy Policy</a>
+				<p class="yer">Ⓒ <?php echo date('Y'); ?></p>
+				<a href="<?php echo $link_to_privacy_police_footer; ?>">Privacy Policy</a>
 			</div>
 
 			<div class="header_block fade_in">
-				<h2>properties services contact team</h2>
+				<h2><?php echo $title_footer; ?></h2>
 				<div class="btn_block">
 					<a href="#start_page">
 						<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_top.svg" alt="" />
@@ -32,7 +51,7 @@
 							</div>
 
 							<div class="info">
-								Park Lane Tower, Business Bay, Office 717
+								<?php echo $address; ?>
 							</div>
 						</li>
 						<li>
@@ -42,7 +61,7 @@
 							</div>
 
 							<div class="info">
-								<a href="tel:045754047">04 575 4047</a>
+								<a href="tel:<?php echo $phone_number; ?>"><?php echo $phone_number; ?></a>
 							</div>
 						</li>
 					</ul>
@@ -59,26 +78,31 @@
 				</div>
 
 				<div class="col col_socials">
-					<ul>
-						<li>
-							<a href="#">telegram
-								<img
-									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/social_icon.svg"
-									alt="social icon" /></a>
-						</li>
-						<li>
-							<a href="#">whatsapp
-								<img
-									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/social_icon.svg"
-									alt="social icon" /></a>
-						</li>
-						<li>
-							<a href="#start_page">instagram
-								<img
-									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/social_icon.svg"
-									alt="social icon" /></a>
-						</li>
-					</ul>
+					<?php
+					if (!empty($socials)) {
+
+					?>
+						<ul>
+							<?php
+							foreach ($socials as $social) {
+								$label = $social['label'] ?? "";
+								$link = $social['link'] ?? "#";
+							?>
+								<li>
+									<a href="<?php echo esc_attr($link); ?>"><?php echo $label; ?>
+										<img
+											src="<?php echo get_template_directory_uri() ?>/assets/images/icons/social_icon.svg"
+											alt="social icon" /></a>
+								</li>
+							<?php
+							}
+							?>
+
+						</ul>
+					<?php
+					}
+					?>
+
 				</div>
 
 				<div class="col btn_block_mobile">

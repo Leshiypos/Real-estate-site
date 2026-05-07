@@ -13,9 +13,12 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<header>
+		<?php
+		$logo = get_field("site_logo", "option") ?? get_template_directory_uri() . "/assets/images/icons/logo.svg";
+		?>
 		<div class="wrap_header" id="start_page">
 			<a href="/" class="logo">
-				<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/logo.svg" alt="logo" />
+				<img src="<?php echo $logo; ?>" alt="logo" />
 			</a>
 			<nav class="main_menu desktop">
 				<ul>
