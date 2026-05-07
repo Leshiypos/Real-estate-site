@@ -132,6 +132,19 @@
           padding-left: 30px;
         }
       }
+      .message_send_status {
+        text-align: center;
+        height: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        @include fz_14;
+        color: rgb(43, 44, 51);
+        @include tablet {
+          font-size: 14px;
+        }
+      }
       input {
         border-radius: 1000px;
         @include fluid("padding-top", 18);

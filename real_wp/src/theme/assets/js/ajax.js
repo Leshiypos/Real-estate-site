@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const countryData = iti.getSelectedCountryData();
       const dialCode = countryData.dialCode;
       if (!form) return;
-      const message = form.querySelector(".message_send_satatus");
+      const message = form.querySelector(".message_send_status");
 
       const action = form.dataset.action;
       if (!action || action != "send_mail") return;

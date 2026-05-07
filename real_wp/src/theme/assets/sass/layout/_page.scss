@@ -52,8 +52,7 @@ h5 {
     backdrop-filter: blur(22px) !important;
     -webkit-backdrop-filter: blur(22px) !important;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow:
-      inset 0 0 10px 0 rgba(0, 0, 0, 0.39215686274509803),
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.39215686274509803),
       0 8px 32px rgba(0, 0, 0, 0.1);
   }
 }
@@ -627,12 +626,8 @@ h5 {
       flex-flow: row nowrap;
       justify-content: space-between;
       //   Для анимации
-      transition:
-        opacity 0.4s ease,
-        transform 0.4s ease,
-        max-height 0.4s ease,
-        margin 0.4s ease,
-        padding 0.4s ease;
+      transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease,
+        margin 0.4s ease, padding 0.4s ease;
 
       opacity: 1;
       transform: scaleY(1);
@@ -1191,20 +1186,23 @@ footer {
       padding-bottom: 60px;
       border: none;
     }
-    h2 {
+    .footer_menu {
       font-family: var(--font-family);
       font-weight: 400;
       @include fz_75;
       line-height: 100%;
       color: #141414;
-      @include fluid("width", 280);
+      text-transform: lowercase;
+      a {
+        &:hover {
+          color: #545454;
+        }
+      }
       @include tablet {
         font-family: var(--font-family);
         font-weight: 400;
         font-size: 40px;
         line-height: 108%;
-        color: #141414;
-        width: 180px;
       }
     }
     .btn_block {

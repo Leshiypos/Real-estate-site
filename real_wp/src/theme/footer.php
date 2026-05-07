@@ -26,7 +26,15 @@
 			</div>
 
 			<div class="header_block fade_in">
-				<h2><?php echo $title_footer; ?></h2>
+				<div class="footer_menu">
+					<ul>
+						<li><a href="#start_page">HOME</a></li>
+						<li><a href="#about">ABOUT BUILDING</a></li>
+						<li><a href="#gallery">GALLERY</a></li>
+						<li><a href="#plans">FLOORS PLANS</a></li>
+						<li><a href="#tour">VIRTUAL TOUR</a></li>
+					</ul>
+				</div>
 				<div class="btn_block">
 					<a href="#start_page">
 						<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_top.svg" alt="" />
@@ -225,7 +233,7 @@
 								id="phone"
 								required />
 						</div>
-						<div class="message_send_satatus"></div>
+						<div class="message_send_status"></div>
 						<input type="submit" value="GET A PRESENTATION" />
 					</form>
 					<div class="pivacy_block">
