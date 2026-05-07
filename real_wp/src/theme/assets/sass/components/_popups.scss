@@ -121,7 +121,7 @@
       form {
         display: flex;
         flex-flow: column nowrap;
-        @include fluid("gap", 17);
+        @include fluid("gap", 8);
         @include fluid("margin-bottom", 17);
       }
       .wrap_input {

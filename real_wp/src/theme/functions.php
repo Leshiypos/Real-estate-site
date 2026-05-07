@@ -139,7 +139,7 @@ function real_estate_scripts()
 }
 add_action('wp_enqueue_scripts', 'real_estate_scripts');
 
-// require get_template_directory() . '/inc/custom-header.php';
+
 
 
 
@@ -173,6 +173,10 @@ add_action('admin_head', function () {
     </style>';
 });
 
+// Добавление языков для options ACF
+add_filter('acf/settings/current_language', function () {
+	return pll_current_language();
+});
 
 // MARK: AJAX
 
@@ -228,3 +232,5 @@ add_action('phpmailer_init', function ($m) {
 	$m->Username = 'wpdevelsite@gmail.com';
 	$m->Password = 'sphb xcoi wkny bxay'; // пароль приложения
 });
+
+require get_template_directory() . '/inc/polylang.php';

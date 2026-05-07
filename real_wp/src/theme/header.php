@@ -17,16 +17,16 @@
 		$logo = get_field("site_logo", "option") ?? get_template_directory_uri() . "/assets/images/icons/logo.svg";
 		?>
 		<div class="wrap_header" id="start_page">
-			<a href="/" class="logo">
+			<a href="<?php echo esc_url(function_exists('pll_home_url') ? pll_home_url() : home_url('/')); ?>" class="logo">
 				<img src="<?php echo $logo; ?>" alt="logo" />
 			</a>
 			<nav class="main_menu desktop">
 				<ul>
-					<li><a href="#start_page">HOME</a></li>
-					<li><a href="#about">ABOUT BUILDING</a></li>
-					<li><a href="#gallery">GALLERY</a></li>
-					<li><a href="#plans">FLOORS PLANS</a></li>
-					<li><a href="#tour">VIRTUAL TOUR</a></li>
+					<li><a href="#start_page"><?php pll_e('HOME'); ?></a></li>
+					<li><a href="#about"><?php pll_e('ABOUT BUILDING'); ?></a></li>
+					<li><a href="#gallery"><?php pll_e('GALLERY'); ?></a></li>
+					<li><a href="#plans"><?php pll_e('FLOORS PLANS'); ?></a></li>
+					<li><a href="#tour"><?php pll_e('VIRTUAL TOUR'); ?></a></li>
 				</ul>
 			</nav>
 			<ul class="language_block">
@@ -44,7 +44,7 @@
 			</ul>
 			<div class="btn_block desktop">
 				<a href="#" class="btn accent" data-btn-open="pop_up">
-					<div class="btn_wrap">Book a viewing</div>
+					<div class="btn_wrap"><?php pll_e('Book a viewing'); ?></div>
 				</a>
 			</div>
 			<div class="burger_btn_block mobile">

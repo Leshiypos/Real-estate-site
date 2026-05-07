@@ -21,17 +21,17 @@
 		<div class="wrap_footer">
 			<div class="privacy_block fade_in">
 				<p class="yer">Ⓒ <?php echo date('Y'); ?></p>
-				<a href="<?php echo $link_to_privacy_police_footer; ?>">Privacy Policy</a>
+				<a href="<?php echo $link_to_privacy_police_footer; ?>"><?php pll_e('Privacy Policy'); ?></a>
 			</div>
 
 			<div class="header_block fade_in">
 				<div class="footer_menu">
 					<ul>
-						<li><a href="#start_page">HOME</a></li>
-						<li><a href="#about">ABOUT BUILDING</a></li>
-						<li><a href="#gallery">GALLERY</a></li>
-						<li><a href="#plans">FLOORS PLANS</a></li>
-						<li><a href="#tour">VIRTUAL TOUR</a></li>
+						<li><a href="#start_page"><?php pll_e('HOME'); ?></a></li>
+						<li><a href="#about"><?php pll_e('ABOUT BUILDING'); ?></a></li>
+						<li><a href="#gallery"><?php pll_e('GALLERY'); ?></a></li>
+						<li><a href="#plans"><?php pll_e('FLOORS PLANS'); ?></a></li>
+						<li><a href="#tour"><?php pll_e('VIRTUAL TOUR'); ?></a></li>
 					</ul>
 				</div>
 				<div class="btn_block">
@@ -43,7 +43,7 @@
 
 			<div class="contact_block fade_in">
 				<div class="col col_btn">
-					<a href="#">Submit a request
+					<a href="#"><?php pll_e('Submit a request'); ?>
 						<img
 							src="<?php echo get_template_directory_uri() ?>/assets/images/icons/request_arrow.svg"
 							alt=" arrow icon" /></a>
@@ -53,7 +53,7 @@
 					<ul>
 						<li>
 							<div class="label">
-								office
+								<?php pll_e('office'); ?>
 								<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/star_point.svg" alt="" />
 							</div>
 
@@ -63,7 +63,7 @@
 						</li>
 						<li>
 							<div class="label">
-								phone
+								<?php pll_e('phone'); ?>
 								<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/star_point.svg" alt="" />
 							</div>
 
@@ -164,37 +164,40 @@
 			</div>
 			<nav class="mobile_menu">
 				<ul>
-					<li><a href="#start_page">HOME</a></li>
-					<li><a href="#about">ABOUT BUILDING</a></li>
-					<li><a href="#gallery">GALLERY</a></li>
-					<li><a href="#plans">FLOORS PLANS</a></li>
-					<li><a href="#tour">VIRTUAL TOUR</a></li>
+					<li><a href="#start_page"><?php pll_e('HOME'); ?></a></li>
+					<li><a href="#about"><?php pll_e('ABOUT BUILDING'); ?></a></li>
+					<li><a href="#gallery"><?php pll_e('GALLERY'); ?></a></li>
+					<li><a href="#plans"><?php pll_e('FLOORS PLANS'); ?></a></li>
+					<li><a href="#tour"><?php pll_e('VIRTUAL TOUR'); ?></a></li>
 				</ul>
 			</nav>
-			<div class="socials_block">
-				<ul>
-					<li>
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/mail.svg" alt="mail" />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/wa-menu.svg" alt="whatsapp" />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/inst.svg" alt="instagram" />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/telegram.svg" alt="telegram" />
-						</a>
-					</li>
-				</ul>
-			</div>
+			<?php
+			if (!empty($socials)) {
+			?>
+				<div class="socials_block">
+					<ul>
+						<?php
+						foreach ($socials as $social) {
+							$label = $social['label'] ?? "";
+							$link = $social['link'] ?? "#";
+							$icon_url = $social['icon_url'] ?? "#";
+						?>
+							<li>
+								<a href="<?php echo $link; ?>">
+									<img src="<?php echo $icon_url; ?>" alt="mail" />
+								</a>
+							</li>
+
+						<?php
+						}
+						?>
+					</ul>
+				</div>
+
+			<?php
+			}
+			?>
+
 		</div>
 	</div>
 	<?php wp_footer(); ?>
@@ -218,8 +221,8 @@
 				</div>
 				<div class="row form_row">
 					<h2>
-						Get a presentation <br />
-						<span>of our properties</span>
+						<?php pll_e('Get a presentation'); ?> <br />
+						<span><?php pll_e('of our properties'); ?></span>
 					</h2>
 
 					<form action="" id="popUp_form" method="post" data-action="send_mail">
@@ -233,30 +236,43 @@
 								required />
 						</div>
 						<div class="message_send_status"></div>
-						<input type="submit" value="GET A PRESENTATION" />
+						<input type="submit" value="<?php pll_e('Get a presentation'); ?>" />
 					</form>
 					<div class="pivacy_block">
 						<p>
-							By clicking the button, you agree to the
-							<a href="#">Privacy Policy</a>
+							<?php pll_e('By clicking the button, you agree to the'); ?>
+							<a href="#"><?php pll_e('Privacy Policy'); ?></a>
 						</p>
 					</div>
 				</div>
 				<div class="row row_social">
-					<ul>
-						<li>
-							<a href="#">telegram
-								<img
-									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/social_icon.svg"
-									alt="social icon" /></a>
-						</li>
-						<li>
-							<a href="#">whatsapp
-								<img
-									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/social_icon.svg"
-									alt="social icon" /></a>
-						</li>
-					</ul>
+					<?php
+					if (!empty($socials)) {
+					?> <ul>
+							<?php
+							$i = 1;
+							foreach ($socials as $social) {
+								if ($i >= 3) continue;
+								$i++;
+								$label = $social['label'] ?? "";
+								$link = $social['link'] ?? "#";
+							?>
+								<li>
+									<a href="<?php echo $link; ?>"><?php echo $label; ?>
+										<img
+											src="<?php echo get_template_directory_uri() ?>/assets/images/icons/social_icon.svg"
+											alt="social icon" /></a>
+								</li>
+							<?php
+							}
+							?>
+						</ul>
+
+					<?php
+
+					}
+					?>
+
 				</div>
 			</div>
 		</div>

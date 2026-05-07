@@ -585,14 +585,14 @@ header {
       .popUp .col_form .form_row form {
         display: flex;
         flex-flow: column nowrap;
-        gap: 17px;
+        gap: 8px;
         margin-bottom: 17px; }
         @media screen and (min-width: 1001px) and (max-width: 1920px) {
           .popUp .col_form .form_row form {
-            gap: calc(100vw * (17 / 1920)); } }
+            gap: calc(100vw * (8 / 1920)); } }
         @media screen and (max-width: 1000px) {
           .popUp .col_form .form_row form {
-            gap: 17px; } }
+            gap: 8px; } }
         @media screen and (min-width: 1001px) and (max-width: 1920px) {
           .popUp .col_form .form_row form {
             margin-bottom: calc(100vw * (17 / 1920)); } }
