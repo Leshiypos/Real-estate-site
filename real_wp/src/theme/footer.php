@@ -1,7 +1,6 @@
 	<!-- MARK: FOOTER -->
 	<?php
 	$footer_option = get_field("footer", 'option') ?? [];
-	$title_footer = $footer_option['title'] ?? '';
 	$link_to_privacy_police_footer = $footer_option['link_to_privacy_police'] ?? "";
 
 	$contacts_page = get_field('contacts_page') ?? [];

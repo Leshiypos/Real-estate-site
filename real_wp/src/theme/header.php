@@ -29,6 +29,19 @@
 					<li><a href="#tour">VIRTUAL TOUR</a></li>
 				</ul>
 			</nav>
+			<ul class="language_block">
+				<?php
+				if (function_exists('pll_the_languages')) {
+					pll_the_languages([
+						'dropdown' => 0,
+						'show_flags' => 0,
+						'show_names' => 1,
+						'hide_current' => 0,
+						'display_names_as' => 'slug'
+					]);
+				}
+				?>
+			</ul>
 			<div class="btn_block desktop">
 				<a href="#" class="btn accent" data-btn-open="pop_up">
 					<div class="btn_wrap">Book a viewing</div>

@@ -236,6 +236,7 @@ header {
   align-items: center;
   justify-content: center; }
   header .wrap_header {
+    position: relative;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -303,6 +304,39 @@ header {
       transition: color 0.3s ease; }
       header .main_menu ul li a:hover {
         color: #00b0ae; }
+  header .language_block {
+    position: absolute;
+    right: 300px;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 15px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      header .language_block {
+        right: calc(100vw * (300 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      header .language_block {
+        right: 300px; } }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      header .language_block {
+        gap: calc(100vw * (15 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      header .language_block {
+        gap: 15px; } }
+    @media screen and (max-width: 1000px) {
+      header .language_block {
+        position: static; } }
+    header .language_block li {
+      opacity: 0.5;
+      font-size: clamp(8px, calc( 8px + (16 - 8) * ((100vw - 1000px) / (1920 - 1000)) ), 16px); }
+      @media screen and (max-width: 1000px) {
+        header .language_block li {
+          font-size: 16px; } }
+      header .language_block li.current-lang {
+        text-decoration: underline;
+        opacity: 1; }
+      header .language_block li:hover {
+        opacity: 1;
+        text-decoration: underline; }
   header .burger_btn_block button {
     background-color: transparent;
     border-radius: 300px;
