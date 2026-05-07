@@ -3,30 +3,53 @@ get_header();
 ?>
 <main>
 	<!-- MARK: HERO SECTION -->
+	<?php
+	$hero_section  =  get_field("hero_section") ?: [];
+	$logo_url = $hero_section["logo"] ?? get_template_directory_uri() . '/assets/images/icons/logo_hero_section.svg';
+	$title = $hero_section["title"] ?? "parameter is not defined";
+	$qr_code = $hero_section["qr_code"] ?? "";
+	$video_section_url = $hero_section["video_section"] ?? "";
+	$image_section_url = $hero_section["image_section"] ?? "";
+
+
+	?>
 	<section class="hero_section">
 		<div class="wrap_section">
-			<video
-				class="video_background"
-				poster=""
-				muted
-				autoplay
-				playsinline
-				loop>
-				<!-- Десктоп -->
-				<source
-					src="<?php echo get_template_directory_uri() ?>/assets/video/hero_video.mp4"
-					type="video/mp4"
-					media="(min-width: 1001px)" />
-				<source
-					src="<?php echo get_template_directory_uri() ?>/assets/video/hero_video.mp4"
-					type="video/mp4"
-					media="(max-width: 1000px)" />
-			</video>
+			<?php if (!empty($video_section_url)) {
+			?>
+				<video
+					class="video_background"
+					poster=""
+					muted
+					autoplay
+					playsinline
+					loop>
+					<!-- Десктоп -->
+					<source
+						src="<?php echo $video_section_url; ?>"
+						type="video/mp4"
+						media="(min-width: 1001px)" />
+					<source
+						src="<?php echo $video_section_url; ?>"
+						type="video/mp4"
+						media="(max-width: 1000px)" />
+				</video>
+
+			<?php
+
+			} else {
+			?>
+				<img src="<?php echo $image_section_url; ?>" alt="image hero section">
+
+			<?php
+
+			} ?>
+
 			<div class="logo_block desktop fade_in">
 				<img
-					src="<?php echo get_template_directory_uri() ?>/assets/images/icons/logo_hero_section.svg"
+					src="<?php echo $logo_url; ?>"
 					alt="hero lofo" />
-				<div class="logo_description fade_in">Daynemic Offer Here</div>
+				<div class="logo_description fade_in"><?php echo $title; ?></div>
 			</div>
 			<div class="content_block">
 				<div class="wrap_content_block">
@@ -44,9 +67,17 @@ get_header();
 								alt="arrow" />
 						</a>
 					</div>
-					<div class="col qr_block fade_in">
-						<img src="<?php echo get_template_directory_uri() ?>/assets/images/QRcode.avif" alt="qr code" />
-					</div>
+					<?php
+					if (!empty($qr_code)) {
+					?>
+						<div class="col qr_block fade_in">
+							<img src="<?php echo $qr_code; ?>" alt="qr code" />
+						</div>
+
+					<?php
+					}
+					?>
+
 					<div class="col col_logo_block fade_in">
 						<img
 							src="<?php echo get_template_directory_uri() ?>/assets/images/icons/logo_hero_section.svg"
@@ -60,102 +91,102 @@ get_header();
 	</section>
 
 	<!-- MARK: ABOUT SECTION -->
+	<?php
+	$about_section = get_field("about_section") ?? [];
+	$title = $about_section["title"] ?? "parameter is not defined";
+	$description = $about_section["description"] ?? "parameter is not defined";
+	$gallery_about_section = $about_section["gallery"] ?? [];
+	$characteristics_about_section = $about_section["characteristics"] ?? [];
+
+	?>
 	<section class="about_section" id="about">
 		<div class="wrap_section">
 			<div class="header_block fade_in">
 				<div class="col col_title">
-					<h2>About Building</h2>
+					<h2><?php echo $title; ?></h2>
 				</div>
 				<div class="col col_post-title">
 					<p>
-						Spanning over 61,000 sq.ft., the leisure deck of the podium
-						level offers a haven of well-being and fun for all, including a
-						large fully equipped gymnasium, infinity pool, outdoor gym,
-						padel courts, pickleball/basketball court, barbecue area and a
-						selection of seating and lounge areas.
+						<?php echo $description; ?>
 					</p>
 				</div>
 			</div>
 			<div class="content_block fade_in">
 				<div class="col col_gallery">
-					<div class="swiper gallery">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/gallery_slide_1.avif" />
-							</div>
-							<div class="swiper-slide">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/gallery_slide_2.avif" />
-							</div>
-							<div class="swiper-slide">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/gallery_slide_3.avif" />
+					<?php
+					if (!empty($gallery_about_section)) {
+					?>
+						<div class="swiper gallery">
+							<div class="swiper-wrapper">
+								<?php
+								foreach ($gallery_about_section as $image_id) {
+									$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+									if (!$alt) {
+										$alt = get_the_title($image_id);
+									}
+								?>
+									<div class="swiper-slide">
+										<img
+											src="<?php echo wp_get_attachment_image_url($image_id, "full"); ?>"
+											alt="<?php echo esc_attr($alt); ?>" />
+									</div>
+
+								<?php
+
+								}
+								?>
 							</div>
 						</div>
-					</div>
-					<div class="swiper thumb_slider">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/thumb_1.avif" />
-							</div>
-							<div class="swiper-slide">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/thumb_2.avif" />
-							</div>
-							<div class="swiper-slide">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/thumb_3.avif" />
+						<div class="swiper thumb_slider">
+							<div class="swiper-wrapper">
+
+								<?php
+								foreach ($gallery_about_section as $image_id) {
+									$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+									if (!$alt) {
+										$alt = get_the_title($image_id);
+									}
+								?>
+									<div class="swiper-slide">
+										<img
+											src="<?php echo wp_get_attachment_image_url($image_id, "about-section-gallery-thumb"); ?>"
+											alt="<?php echo esc_attr($alt); ?>" />
+									</div>
+								<?php
+								}
+								?>
+
 							</div>
 						</div>
-					</div>
+					<?php
+					}
+					?>
 				</div>
 				<div class="col col_description">
-					<ul>
-						<li>
-							<div class="label">Towers</div>
-							<div class="value">
-								<div class="wrap_value">2</div>
-							</div>
-						</li>
+					<?php
 
-						<li>
-							<div class="label">Floors</div>
-							<div class="value">
-								<div class="wrap_value">10</div>
-							</div>
-						</li>
+					if (!empty($characteristics_about_section)) {
 
-						<li>
-							<div class="label">Handover</div>
-							<div class="value">
-								<div class="wrap_value">Q2 2026</div>
-							</div>
-						</li>
-
-						<li>
-							<div class="label">Starting Price</div>
-							<div class="value">
-								<div class="wrap_value">AED 1 047 000</div>
-							</div>
-						</li>
-
-						<li>
-							<div class="label">Bedrooms</div>
-							<div class="value">
-								<div class="wrap_value">1-2</div>
-							</div>
-						</li>
-
-						<li>
-							<div class="label">Areaa from</div>
-							<div class="value">
-								<div class="wrap_value">36 m²</div>
-							</div>
-						</li>
-
-						<li>
-							<div class="label">Payment Plan</div>
-							<div class="value">
-								<div class="wrap_value">40/60</div>
-							</div>
-						</li>
-					</ul>
+					?>
+						<ul>
+							<?php
+							foreach ($characteristics_about_section as $charact) {
+								$label = $charact['label'] ?? "label is not defined";
+								$value = $charact['value'] ?? "value is not defined";
+							?>
+								<li>
+									<div class="label"><?php echo $label; ?></div>
+									<div class="value">
+										<div class="wrap_value"><?php echo $value; ?></div>
+									</div>
+								</li>
+							<?php
+							}
+							?>
+						</ul>
+					<?php
+					}
+					?>
 					<div class="btn_block">
 						<a
 							href="#"
@@ -171,231 +202,190 @@ get_header();
 	</section>
 
 	<!-- MARK: GALLERY SECTION -->
+	<?php
+	$gallery_section = get_field("gallery_section") ?? [];
+	$title = $gallery_section['title'] ?? "";
+	$post_title = $gallery_section['post_title'] ?? "";
+	$description = $gallery_section['description'] ?? "";
+	$images = $gallery_section['images'] ?? [];
+	?>
 	<section class="gallery_section" id="gallery">
 		<div class="wrap_section">
 			<div class="header_block fade_in">
 				<div class="col col_title">
-					<h2>Gallery</h2>
+					<h2><?php echo $title; ?></h2>
 				</div>
 				<div class="col col_description">
-					<h3>Interior of main living room</h3>
+					<h3><?php echo $post_title; ?></h3>
 					<p>
-						Following the overwhelming demand for Phase these two towers
-						arrive as an even more
+						<?php echo $description; ?>
 					</p>
 				</div>
 			</div>
-			<div class="gallery_block fade_in">
-				<div class="swiper gallery_section_slider">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_1.avif"
-								alt="images" />
+			<?php
+			if (!empty($images)) {
+			?>
+				<div class="gallery_block fade_in">
+					<div class="swiper gallery_section_slider">
+						<div class="swiper-wrapper">
+							<?php
+							foreach ($images as $image_id) {
+								$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+								if (!$alt) {
+									$alt = get_the_title($image_id);
+								}
+							?>
+								<div class="swiper-slide">
+									<img
+										src="<?php echo wp_get_attachment_image_url($image_id, "full"); ?>"
+										alt="<?php echo esc_attr($alt); ?>" />
+								</div>
+							<?php
+							}
+							?>
 						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_2.avif"
-								alt="images" />
-						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_1.avif"
-								alt="images" />
-						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_2.avif"
-								alt="images" />
-						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_1.avif"
-								alt="images" />
-						</div>
-						<div class="swiper-slide">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/slide_section_2.avif"
-								alt="images" />
-						</div>
-					</div>
-					<div class="btn_block_navigation">
-						<div class="swiper-button-gallery-prev">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_prev.svg"
-								alt="btn prev" />
-						</div>
-						<div class="swiper-button-gallery-next">
-							<img
-								src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_next.svg"
-								alt="btn next" />
+						<div class="btn_block_navigation">
+							<div class="swiper-button-gallery-prev">
+								<img
+									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_prev.svg"
+									alt="btn prev" />
+							</div>
+							<div class="swiper-button-gallery-next">
+								<img
+									src="<?php echo get_template_directory_uri() ?>/assets/images/icons/btn_next.svg"
+									alt="btn next" />
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			<?php
+			}
+			?>
+
 		</div>
 	</section>
 
 	<!-- MARK: FLOOR PLANS SECTION -->
+	<?php
+	$floor_plans_section = get_field("floor_plans_section") ?? [];
+	$title = $floor_plans_section["title"] ?? "";
+	$apartaments = $floor_plans_section["apartments"] ?? [];
+
+	// Получаем уникальные значения количества комнат для фильтра 
+	$froom_count_array = [];
+	foreach ($apartaments as $apartament) {
+		if (!empty($apartament))
+			$froom_count_array[] = $apartament["rooms_count"] ?? "";
+	}
+	$filter_param = array_values(array_unique($froom_count_array));
+	?>
 	<section class="floor-plans_section" id="plans">
 		<div class="wrap_section">
 			<div class="header_block fade_in">
 				<div class="col col_title">
-					<h2>Floor Plans</h2>
+					<h2><?php echo $title; ?></h2>
 				</div>
 				<div class="col col_filter-btns">
 					<ul>
 						<li>
 							<button class="active_btn" data-filter="all">All</button>
 						</li>
-						<li>
-							<button data-filter="1">1 Bedroom</button>
-						</li>
-						<li>
-							<button data-filter="2">2 Bedroom</button>
-						</li>
-						<li>
-							<button data-filter="3">3 Bedroom</button>
-						</li>
+						<?php
+						if (!empty($filter_param)) {
+							foreach ($filter_param as $room_count) {
+						?>
+								<li>
+									<button data-filter="<?php echo $room_count; ?>"><?php echo $room_count;  ?> Bedroom</button>
+								</li>
+
+						<?php
+							}
+						}
+						?>
+
 					</ul>
 				</div>
 			</div>
-			<div class="content_block fade_in">
-				<!-- card -->
-				<div class="content_card" data-type="1">
-					<div class="col col_description">
-						<div class="wrap_img">
-							<a
-								href="<?php echo get_template_directory_uri(); ?>/assets/images/plan_img.avif"
-								class="glightbox"
-								data-gallery="plans">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/plan_img.avif" alt="plan" />
-							</a>
-						</div>
-						<div class="info_block">
-							<div class="wrap_info_block">
-								<h3>Tower A</h3>
-								<div class="post_title">Total area from: 3,049 ft2</div>
-								<div class="descr">
-									The Row Saadiyat is a landmark residential destination
-									located within Abu Dhabi’s Saadiyat Cultural District, one
-									of the world’s most prominent cultural hubs.
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col col_price">
-						<div class="wrap_col_price">
-							<div class="price">AED 11,274,000</div>
-							<div class="post_title">Starting price</div>
-							<div class="btn_block">
-								<a
-									href="#"
-									class="btn accent whith_arrow"
-									data-btn-open="pop_up">
-									<p>Get Offer</p>
-									<img
-										src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif"
-										alt="arrow" />
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+			<?php if (!empty($apartaments)) {
+			?>
+				<div class="content_block fade_in">
 
-				<!-- card -->
-				<div class="content_card" data-type="2">
-					<div class="col col_description">
-						<div class="wrap_img">
-							<a
-								href="<?php echo get_template_directory_uri(); ?>/assets/images/plan_img.avif"
-								class="glightbox"
-								data-gallery="plans">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/plan_img.avif" alt="plan" />
-							</a>
-						</div>
-						<div class="info_block">
-							<div class="wrap_info_block">
-								<h3>Tower B</h3>
-								<div class="post_title">Total area from: 3,049 ft2</div>
-								<div class="descr">
-									The Row Saadiyat is a landmark residential destination
-									located within Abu Dhabi’s Saadiyat Cultural District, one
-									of the world’s most prominent cultural hubs.
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col col_price">
-						<div class="wrap_col_price">
-							<div class="price">AED 11,274,000</div>
-							<div class="post_title">Starting price</div>
-							<div class="btn_block">
-								<a href="#" class="btn accent whith_arrow">
-									<p>Get Offer</p>
-									<img
-										src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif"
-										alt="arrow" />
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+					<?php foreach ($apartaments as $apartament) {
+						$plan_id = $apartament["plan"];
+						$location = $apartament["location"];
+						$square_description = $apartament["square_description"];
+						$description_room = $apartament["description_room"];
+						$price = $apartament["price"];
+						$description_price = $apartament["description_price"];
+						$rooms_count = $apartament["rooms_count"];
 
-				<!-- card -->
-				<div class="content_card" data-type="3">
-					<div class="col col_description">
-						<div class="wrap_img">
-							<a
-								href="<?php echo get_template_directory_uri(); ?>/assets/images/plan_img.avif"
-								class="glightbox"
-								data-gallery="plans">
-								<img src="<?php echo get_template_directory_uri() ?>/assets/images/plan_img.avif" alt="plan" />
-							</a>
-						</div>
-						<div class="info_block">
-							<div class="wrap_info_block">
-								<h3>Tower С</h3>
-								<div class="post_title">Total area from: 3,049 ft2</div>
-								<div class="descr">
-									The Row Saadiyat is a landmark residential destination
-									located within Abu Dhabi’s Saadiyat Cultural District, one
-									of the world’s most prominent cultural hubs.
+						$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+						if (!$alt) {
+							$alt = get_the_title($image_id);
+						}
+
+					?>
+						<div class="content_card" data-type="<?php echo $rooms_count; ?>">
+							<div class="col col_description">
+								<div class="wrap_img">
+									<a
+										href="<?php echo wp_get_attachment_image_url($plan_id, "full"); ?>"
+										alt="<?php echo $alt; ?>"
+										class=" glightbox"
+										data-gallery="plans">
+										<img src="<?php echo wp_get_attachment_image_url($plan_id, "floor-plan-gallery-thumb");  ?>" alt="plan" />
+									</a>
+								</div>
+								<div class="info_block">
+									<div class="wrap_info_block">
+										<h3><?php echo $location; ?></h3>
+										<div class="post_title"><?php echo $square_description; ?></div>
+										<div class="descr">
+											<?php echo $description_room; ?>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col col_price">
+								<div class="wrap_col_price">
+									<div class="price"><?php echo $price; ?></div>
+									<div class="post_title"><?php echo $description_price; ?></div>
+									<div class="btn_block">
+										<a
+											href="#"
+											class="btn accent whith_arrow"
+											data-btn-open="pop_up">
+											<p>Get Offer</p>
+											<img
+												src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif"
+												alt="arrow" />
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col col_price">
-						<div class="wrap_col_price">
-							<div class="price">AED 11,274,000</div>
-							<div class="post_title">Starting price</div>
-							<div class="btn_block">
-								<a
-									href="#"
-									class="btn accent whith_arrow"
-									data-btn-open="pop_up">
-									<p>Get Offer</p>
-									<img
-										src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif"
-										alt="arrow" />
-								</a>
-							</div>
-						</div>
-					</div>
+					<?php
+					} ?>
+
 				</div>
-			</div>
+			<?php
+			} ?>
 		</div>
 	</section>
 
 	<!-- MARK: PAYMENT PLAN SECTION -->
+	<?php
+	$payment_plan_section = get_field("payment_plan_section") ?? [];
+	$title = $payment_plan_section["title"] ?? "";
+	$description = $payment_plan_section["description"] ?? "";
+	$steps = $payment_plan_section["steps"] ?? "";
+	?>
 	<section class="payment_plan_section">
 		<div class="wrap_section">
 			<div class="col col_header">
-				<h2 class="fade_in">Payment Plan</h2>
+				<h2 class="fade_in"><?php echo $title; ?></h2>
 				<div class="post_title fade_in">
-					The Row Saadiyat is a landmark residential destination located
-					within Abu Dhabi’s Saadiyat Cultural District, one of the world’s
-					most prominent cultural hubs.
+					<?php echo $description; ?>
 				</div>
 				<div class="btn_block fade_in">
 					<a href="#" class="btn accent whith_arrow" data-btn-open="pop_up">
@@ -406,59 +396,39 @@ get_header();
 			</div>
 
 			<div class="col col_plan-info">
-				<div class="vertical_line"></div>
-				<ul class="fade_in">
-					<li>
-						<div class="price">
-							<div class="wrap">50K</div>
-						</div>
-						<div class="title">
-							<div class="wrap">Reservation free</div>
-						</div>
+				<?php
+				if (!empty($steps)) {
 
-						<div class="istallment">
-							<div class="wrap">1st Installment</div>
-						</div>
-					</li>
+				?>
+					<div class="vertical_line"></div>
+					<ul class="fade_in">
+						<?php
+						foreach ($steps as $step) {
+							$procent = $step["procent"] ?? "";
+							$label = $step["label"] ?? "";
+							$installment = $step["installment"] ?? "";
+						?>
+							<li>
+								<div class="price">
+									<div class="wrap"><?php echo $procent; ?></div>
+								</div>
+								<div class="title">
+									<div class="wrap"><?php echo $label; ?></div>
+								</div>
 
-					<li>
-						<div class="price">
-							<div class="wrap">20%</div>
-						</div>
-						<div class="title">
-							<div class="wrap">within 14 days of reservation</div>
-						</div>
+								<div class="istallment">
+									<div class="wrap"><?php echo $installment; ?></div>
+								</div>
+							</li>
+						<?php
+						}
+						?>
+					</ul>
 
-						<div class="istallment">
-							<div class="wrap">2st Installment</div>
-						</div>
-					</li>
+				<?php
+				}
+				?>
 
-					<li>
-						<div class="price">
-							<div class="wrap">20%</div>
-						</div>
-						<div class="title">
-							<div class="wrap">within 6 months of reservation</div>
-						</div>
-
-						<div class="istallment">
-							<div class="wrap">3st Installment</div>
-						</div>
-					</li>
-					<li>
-						<div class="price">
-							<div class="wrap">60%</div>
-						</div>
-						<div class="title">
-							<div class="wrap">upon completion</div>
-						</div>
-
-						<div class="istallment">
-							<div class="wrap">4st Installment</div>
-						</div>
-					</li>
-				</ul>
 			</div>
 			<div class="btn_block_mobile">
 				<a href="#" class="btn accent whith_arrow" data-btn-open="pop_up">
@@ -470,7 +440,7 @@ get_header();
 	</section>
 
 	<!-- MARK: 3D plan section-->
-
+	<?php /* ?>
 	<section class="virtual_tour_section" id="tour">
 		<div class="wrap_section">
 			<div class="col col_title">
@@ -494,18 +464,24 @@ get_header();
 			</div>
 		</div>
 	</section>
+	<?php */ ?>
 
 	<!-- MARK: MAP SECTION -->
-	<section class="map_section fade_in">
-		<div class="wrap_section">
-			<!-- <img src="<?php echo get_template_directory_uri() ?>/assets/images/map_img.avif" alt="map image" /> -->
-			<script
-				type="text/javascript"
-				charset="utf-8"
-				async
-				src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3e9ddd17b8321685016795e08d5d440351e6e19a3fd121ec53718b3b85fcb199&amp;width=100%25&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>
-		</div>
-	</section>
+	<?php
+	$map_section = get_field("map_section") ?? [];
+	$script = $map_section["map_script"] ?? "";
+
+	if (!empty($script)) {
+	?>
+		<section class="map_section fade_in">
+			<div class="wrap_section">
+				<?php echo $script; ?>
+			</div>
+		</section>
+	<?php
+	}
+	?>
+
 	<?php
 	get_footer();
 	?>

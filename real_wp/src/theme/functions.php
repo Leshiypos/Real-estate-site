@@ -122,12 +122,17 @@ function real_estate_scripts()
 	// Theme JS
 	wp_enqueue_script('real-estate-main',	get_template_directory_uri() . '/assets/js/main.js', array('swiper', 'lenis', 'gsap', 'gsap-scrolltrigger', 'intl-tel-input', 'glightbox'),	_S_VERSION,	true);
 
+	wp_enqueue_script('real-estate-ajax',	get_template_directory_uri() . '/assets/js/ajax.js', array('swiper', 'lenis', 'gsap', 'gsap-scrolltrigger', 'intl-tel-input', 'glightbox'),	_S_VERSION,	true);
+
 	wp_enqueue_script('real-estate-sliders',	get_template_directory_uri() . '/assets/js/sliders.js',	array('swiper'), _S_VERSION,	true);
 
 	wp_enqueue_script('real-estate-animation', get_template_directory_uri() . '/assets/js/animation.js', array('gsap', 'gsap-scrolltrigger'),	_S_VERSION,	true);
 
 	wp_enqueue_script('real_estate-navigation',	get_template_directory_uri() . '/js/navigation.js',	array(), _S_VERSION,	true);
 
+	wp_localize_script('real-estate-ajax', 'my_ajax_object', array(
+		'ajax_url' => admin_url('admin-ajax.php'),
+	));
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
@@ -166,4 +171,60 @@ add_action('admin_head', function () {
       .attachment .thumbnail img[src$=".svg"],
       .media-icon img[src$=".svg"]{ width:100%; height:auto; }
     </style>';
+});
+
+
+// MARK: AJAX
+
+//MARK: Отправка форм на почту
+
+function handle_send_mail()
+{
+	if (!isset($_POST['send_mail_wpnonce']) || !wp_verify_nonce($_POST['send_mail_wpnonce'], 'send_mail')) {
+		wp_send_json_error(array('message' => 'Security error!'));
+	}
+
+	$namber = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
+	$dial_code = isset($_POST['dial_code']) ? sanitize_text_field($_POST['dial_code']) : '';
+
+
+
+
+	// $to = get_option('admin_email');
+	$to = get_option('admin_email');
+
+
+	$message = "Пришло сообщение с формы сайта Real Estate \n";
+
+	if ($namber) {
+		$message .= "Телефон: +$dial_code $namber \n";
+	}
+
+
+	$from = 'Leshiy_pos@mail.ru';
+	$subject = 'Пришло сообщение с формы сайта Real Estate';
+	$headers = array('From: ' . get_bloginfo('name') . ' <' . $from . '>'); //Заголовок должен содержать адрес почты, зарегестрированный в SMTP
+
+	$sent = wp_mail($to, $subject, $message, $headers);
+
+	if ($sent) {
+		wp_send_json_success(array('message' => 'Thank you! Your data has been sent.'));
+	} else {
+		wp_send_json_error(array('message' => 'Sending error. Try again later.'));
+	}
+
+	wp_die();
+}
+add_action('wp_ajax_send_mail', 'handle_send_mail');
+add_action('wp_ajax_nopriv_send_mail', 'handle_send_mail');
+
+// Тестовая настройка почтового сервера через Docker
+add_action('phpmailer_init', function ($m) {
+	$m->isSMTP();
+	$m->Host = 'smtp.gmail.com';
+	$m->Port = 587;           // или 465 + 'ssl'
+	$m->SMTPSecure = 'tls';
+	$m->SMTPAuth = true;
+	$m->Username = 'wpdevelsite@gmail.com';
+	$m->Password = 'sphb xcoi wkny bxay'; // пароль приложения
 });

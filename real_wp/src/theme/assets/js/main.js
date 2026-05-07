@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   liquidGlassEffect();
 
   //   Инициализация инпута формы
+  let iti = null;
   initalizationIntTel();
 
   //   Логика открытия и закрытия POPuP
@@ -240,7 +241,7 @@ function initalizationIntTel() {
   const input = document.querySelector("#phone");
   if (!input) return;
 
-  const iti = window.intlTelInput(input, {
+  iti = window.intlTelInput(input, {
     initialCountry: "auto",
     geoIpLookup: function (callback) {
       fetch("https://ipapi.co/json")

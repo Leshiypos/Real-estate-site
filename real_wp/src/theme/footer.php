@@ -215,7 +215,8 @@
 						<span>of our properties</span>
 					</h2>
 
-					<form action="" id="popUp_form" method="post">
+					<form action="" id="popUp_form" method="post" data-action="send_mail">
+						<?php wp_nonce_field('send_mail', 'send_mail_wpnonce'); ?>
 						<div class="wrap_input">
 							<input
 								type="tel"
@@ -224,6 +225,7 @@
 								id="phone"
 								required />
 						</div>
+						<div class="message_send_satatus"></div>
 						<input type="submit" value="GET A PRESENTATION" />
 					</form>
 					<div class="pivacy_block">
