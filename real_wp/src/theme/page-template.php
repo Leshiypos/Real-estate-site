@@ -57,6 +57,7 @@ get_header();
 			<div class="content_block">
 				<div class="wrap_content_block">
 					<div class="col btn_block fade_in">
+						<?php /*
 						<a href="#" class="btn white" data-btn-open="pop_up">
 							<div class="btn_wrap"><?php pll_e('Leave a request'); ?></div>
 						</a>
@@ -69,7 +70,9 @@ get_header();
 								src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag_black.avif"
 								alt="arrow" />
 						</a>
+						*/ ?>
 					</div>
+
 					<?php
 					if (!empty($qr_code)) {
 					?>

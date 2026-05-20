@@ -26,7 +26,7 @@
 					<li><a href="#about"><?php pll_e('ABOUT BUILDING'); ?></a></li>
 					<li><a href="#gallery"><?php pll_e('GALLERY'); ?></a></li>
 					<li><a href="#plans"><?php pll_e('FLOORS PLANS'); ?></a></li>
-					<li><a href="#tour"><?php pll_e('VIRTUAL TOUR'); ?></a></li>
+
 				</ul>
 			</nav>
 			<ul class="language_block">

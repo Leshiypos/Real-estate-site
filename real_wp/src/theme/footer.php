@@ -31,7 +31,6 @@
 						<li><a href="#about"><?php pll_e('ABOUT BUILDING'); ?></a></li>
 						<li><a href="#gallery"><?php pll_e('GALLERY'); ?></a></li>
 						<li><a href="#plans"><?php pll_e('FLOORS PLANS'); ?></a></li>
-						<li><a href="#tour"><?php pll_e('VIRTUAL TOUR'); ?></a></li>
 					</ul>
 				</div>
 				<div class="btn_block">
@@ -77,11 +76,14 @@
 
 			<div class="bottom_block">
 				<div class="col col_log">
+					<?php
+					/*
 					<div class="row row_title">
 						<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/fernandes_logo.svg" alt="" />
 						Fernandes <br />Media
 					</div>
 					<div class="row row_post_title">Website development</div>
+					 */ ?>
 				</div>
 
 				<div class="col col_socials">
@@ -168,7 +170,6 @@
 					<li><a href="#about"><?php pll_e('ABOUT BUILDING'); ?></a></li>
 					<li><a href="#gallery"><?php pll_e('GALLERY'); ?></a></li>
 					<li><a href="#plans"><?php pll_e('FLOORS PLANS'); ?></a></li>
-					<li><a href="#tour"><?php pll_e('VIRTUAL TOUR'); ?></a></li>
 				</ul>
 			</nav>
 			<?php

@@ -166,8 +166,8 @@ h5 {
           @include fluid("width", 112);
           @include fluid("height", 112);
           @include tablet {
-            width: 159px;
-            height: 159px;
+            width: 110px;
+            height: 110px;
           }
         }
         @include tablet {
@@ -453,7 +453,8 @@ h5 {
         @include tablet {
           margin-top: 0;
           max-width: 180px;
-          margin-left: auto;
+          //   margin-left: auto;
+          margin-left: 5px;
           gap: 20px;
           h3 {
             font-size: 25px;

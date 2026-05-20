@@ -948,8 +948,8 @@ h5 {
             height: 112px; } }
         @media screen and (max-width: 1000px) {
           .hero_section .content_block .wrap_content_block .qr_block img {
-            width: 159px;
-            height: 159px; } }
+            width: 110px;
+            height: 110px; } }
       @media screen and (max-width: 1000px) {
         .hero_section .content_block .wrap_content_block .qr_block {
           margin-bottom: 2vh; } }
@@ -1329,7 +1329,7 @@ h5 {
         .gallery_section .header_block .col.col_description {
           margin-top: 0;
           max-width: 180px;
-          margin-left: auto;
+          margin-left: 5px;
           gap: 20px; }
           .gallery_section .header_block .col.col_description h3 {
             font-size: 25px; }
