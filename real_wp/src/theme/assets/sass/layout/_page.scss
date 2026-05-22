@@ -963,6 +963,7 @@ h5 {
   }
 
   .wrap_section {
+    height: 100%;
     width: 97%;
     margin-left: auto;
     margin-right: auto;
@@ -1053,6 +1054,11 @@ h5 {
     &.col_image {
       width: 57%;
       img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cover_bg {
         width: 100%;
         height: 100%;
         object-fit: cover;

@@ -57,10 +57,11 @@ get_header();
 			<div class="content_block">
 				<div class="wrap_content_block">
 					<div class="col btn_block fade_in">
-						<?php /*
 						<a href="#" class="btn white" data-btn-open="pop_up">
 							<div class="btn_wrap"><?php pll_e('Leave a request'); ?></div>
 						</a>
+						<?php /*
+
 						<a
 							href="#"
 							class="btn glass whith_arrow fade_in"
@@ -446,15 +447,21 @@ get_header();
 	</section>
 
 	<!-- MARK: 3D plan section-->
-	<?php /* ?>
+	<?php
+	$vitrual_tour_section = get_field('vitrual_tour_section') ?? [];
+	$pre_title = $vitrual_tour_section['pre_title'] ?? "";
+	$title = $vitrual_tour_section['title'] ?? "";
+	$description = $vitrual_tour_section['description'] ?? "";
+	$video_desktop = $vitrual_tour_section['video_desktop'] ?? "";
+	$video_mobile = $vitrual_tour_section['video_mobile'] ?? "";
+	?>
 	<section class="virtual_tour_section" id="tour">
 		<div class="wrap_section">
 			<div class="col col_title">
-				<div class="pre_title fade_in">360°</div>
-				<h2 class="fade_in">Virtual tour</h2>
+				<div class="pre_title fade_in"><?php echo $pre_title; ?></div>
+				<h2 class="fade_in"><?php echo $title; ?></h2>
 				<div class="post_title fade_in">
-					Following the overwhelming demand for Phase these two towers
-					arrive as an even more
+					<?php echo $description; ?>
 				</div>
 				<div class="btn_block fade_in">
 					<a href="#" class="btn white whith_arrow" data-btn-open="pop_up">
@@ -466,11 +473,28 @@ get_header();
 				</div>
 			</div>
 			<div class="col col_image">
-				<img src="<?php echo get_template_directory_uri() ?>/assets/images/virtual_img.avif" alt="virtual image" />
+
+				<?php if (!empty($video_desktop)) {
+				?>
+					<video class="cover_bg" poster="" muted="" autoplay="" playsinline="" loop=''>
+						<!-- Десктоп -->
+						<source src="<?php echo esc_url($video_desktop); ?>" type="video/mp4" media="(min-width: 1001px)">
+						<source
+							src="<?php echo esc_url($video_mobile); ?>"
+							type="video/mp4"
+							media="(max-width: 1000px)" />
+					</video>
+				<?php
+				} else {
+				?>
+					<img src="<?php echo get_template_directory_uri() ?>/assets/images/virtual_img.avif" alt="virtual image" />
+				<?php
+				} ?>
+
 			</div>
 		</div>
 	</section>
-	<?php */ ?>
+
 
 	<!-- MARK: MAP SECTION -->
 	<?php

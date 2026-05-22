@@ -2021,6 +2021,7 @@ h5 {
       margin-top: 92px;
       height: auto; } }
   .virtual_tour_section .wrap_section {
+    height: 100%;
     width: 97%;
     margin-left: auto;
     margin-right: auto;
@@ -2158,6 +2159,10 @@ h5 {
   .virtual_tour_section .col.col_image {
     width: 57%; }
     .virtual_tour_section .col.col_image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+    .virtual_tour_section .col.col_image .cover_bg {
       width: 100%;
       height: 100%;
       object-fit: cover; }
