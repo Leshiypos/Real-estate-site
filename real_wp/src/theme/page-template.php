@@ -13,6 +13,8 @@ get_header();
 	$qr_code = $hero_section["qr_code"] ?? "";
 	$video_section_url = $hero_section["video_section"] ?? "";
 	$image_section_url = $hero_section["image_section"] ?? "";
+	$label_price = $hero_section["price_label_from"] ?? "";
+	$price = $hero_section["price_from"] ?? "";
 
 
 	?>
@@ -53,8 +55,11 @@ get_header();
 					src="<?php echo $logo_url; ?>"
 					alt="hero lofo" />
 				<div class="logo_description fade_in"><?php echo $title; ?></div>
+
 			</div>
+
 			<div class="content_block">
+
 				<div class="wrap_content_block">
 					<div class="col btn_block fade_in">
 						<a href="#" class="btn white" data-btn-open="pop_up">
@@ -73,6 +78,20 @@ get_header();
 						</a>
 						*/ ?>
 					</div>
+					<?php
+					if (!empty($price)) {
+					?>
+						<div class="price_block">
+							<div class="label">
+								<?php echo $label_price; ?>
+							</div>
+							<div class="price">
+								<?php echo $price; ?>
+							</div>
+						</div>
+					<?php
+					}
+					?>
 
 					<?php
 					if (!empty($qr_code)) {
@@ -93,6 +112,7 @@ get_header();
 					</div>
 				</div>
 			</div>
+
 			<div class="glass_line liquid-glass liquid-glass-fallback"></div>
 		</div>
 	</section>

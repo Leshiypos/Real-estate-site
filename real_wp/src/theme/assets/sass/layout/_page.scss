@@ -97,11 +97,51 @@ h5 {
     @include fz_25;
     color: #fff;
     @include fluid("gap", 35);
+
+    .logo_description {
+      @include fluid("width", 656);
+      font-weight: 500;
+      @include fz_25;
+      line-height: 145%;
+      text-align: center;
+      color: #fff;
+    }
     img {
       @include fluid("width", 597);
     }
     @include tablet {
       display: none;
+    }
+  }
+  .price_block {
+    position: absolute;
+    @include fluid("bottom", 172);
+    @include fluid("left", 53);
+    @include tablet {
+      position: static;
+    }
+
+    .label {
+      font-weight: 300;
+      @include fz_25;
+      line-height: 120%;
+      color: #fff;
+      @include tablet {
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+    .price {
+      font-weight: 500;
+      @include fz_36;
+      line-height: 120%;
+      color: #fff;
+      margin-top: 10px;
+      @include fluid("margin-top", 10);
+      @include tablet {
+        text-align: center;
+        font-size: 25px;
+      }
     }
   }
   .content_block {
@@ -139,10 +179,10 @@ h5 {
             width: 276px;
           }
           .logo_description {
-            font-family: var(--font-family);
             font-weight: 500;
             font-size: 16px;
             color: #fff;
+            text-align: center;
           }
         }
       }
