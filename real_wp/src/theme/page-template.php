@@ -515,6 +515,51 @@ get_header();
 		</div>
 	</section>
 
+	<!-- MARK: COMFORT SECTION -->
+	<?php
+	$comfort_section = get_field('comfort_section') ?? [];
+	$title_comfort = $comfort_section['title_section'] ?? "not defined";
+	$comfort_cards = $comfort_section['comfort_card'] ?? [];
+	?>
+
+
+	<?php
+	if (!empty($comfort_section)) {
+	?>
+		<section class="comfort_section">
+			<div class="wrap_section">
+				<div class="header_comfort_section">
+					<h2>
+						<?php echo $title_comfort; ?>
+					</h2>
+				</div>
+
+				<div class="content_block">
+					<?php
+					foreach ($comfort_cards as $card) {
+						$img_url = $card['image'] ?? "#";
+						$title_card = $card['title'] ?? "";
+					?>
+						<div class="card_comfort">
+							<div class="img_wrap">
+								<img
+									src="<?php echo esc_url($img_url); ?>"
+									alt="card image" />
+							</div>
+							<div class="description"><?php echo $title_card; ?></div>
+						</div>
+					<?php
+					}
+					?>
+
+				</div>
+			</div>
+		</section>
+	<?php
+	}
+	?>
+
+
 
 	<!-- MARK: MAP SECTION -->
 	<?php

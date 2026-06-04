@@ -587,6 +587,9 @@ h5 {
     justify-content: space-between;
     @include tablet {
       width: 90%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 50px;
     }
     h2 {
       font-family: var(--second-family);
@@ -600,12 +603,18 @@ h5 {
     }
     .col {
       &.col_filter-btns {
+        @include tablet {
+          margin-left: auto;
+        }
         ul {
           display: flex;
           flex-flow: row nowrap;
           align-items: center;
           justify-content: flex-end;
           @include fluid("gap", 10);
+          @include tablet {
+            flex-flow: row wrap;
+          }
         }
         button {
           background-color: transparent;
@@ -622,7 +631,9 @@ h5 {
           @include fluid("padding-bottom", 10);
           @include fluid("padding-right", 27);
           @include fluid("padding-left", 27);
-
+          @include tablet {
+            padding: 6px 20px;
+          }
           &:hover {
             background: $accent_color;
             color: white;
@@ -639,10 +650,15 @@ h5 {
             &:hover {
               background: $accent_color_hover;
             }
+            @include tablet {
+              font-size: 12px;
+            }
+          }
+          @include tablet {
+            font-size: 12px;
           }
         }
         @include tablet {
-          display: none;
         }
       }
     }
@@ -658,6 +674,7 @@ h5 {
     @include fluid("gap", 36);
     @include tablet {
       gap: 118px;
+      margin-top: 30px;
     }
 
     .content_card {
@@ -1110,6 +1127,93 @@ h5 {
       @include mobile {
         width: 100%;
         height: 419px;
+      }
+    }
+  }
+}
+
+.comfort_section {
+  @include fluid("margin-top", 190);
+  @include tablet {
+    margin-top: 120px;
+  }
+  .wrap_section {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    @include tablet {
+      width: 90%;
+    }
+  }
+
+  .header_comfort_section {
+    h2 {
+      font-family: var(--second-family);
+      font-weight: 300;
+      @include fz_90;
+      line-height: 120%;
+      color: #2b2c33;
+      @include fluid("width", 1490);
+      @include tablet {
+        width: 100%;
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .content_block {
+    @include fluid("margin-top", 87);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @include fluid("row-gap", 80);
+    @include fluid("column-gap", 40);
+    @include tablet {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      margin-top: 45px;
+      gap: 50px 30px;
+    }
+    .card_comfort {
+      .img_wrap {
+        width: 100%;
+        aspect-ratio: 1/1;
+        @include fluid("border-radius", 15);
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+        @include tablet {
+          border-radius: 10px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .description {
+        @include fluid("margin-top", 39);
+        font-family: var(--second-family);
+        font-weight: 300;
+        @include fz_38;
+        line-height: 120%;
+        text-align: center;
+        color: #2b2c33;
+        @include tablet {
+          font-size: 26px;
+          margin-top: 20px;
+          text-align: left;
+          padding-left: 15px;
+        }
       }
     }
   }
