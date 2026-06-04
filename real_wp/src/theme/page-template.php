@@ -334,11 +334,12 @@ get_header();
 				</div>
 			</div>
 			<?php if (!empty($apartaments)) {
+				$index_plan = 1;
 			?>
 				<div class="content_block fade_in">
 
 					<?php foreach ($apartaments as $apartament) {
-						$plan_id = $apartament["plan"];
+						$plan_ids = $apartament["plan"] ?? [];
 						$location = $apartament["location"];
 						$square_description = $apartament["square_description"];
 						$description_room = $apartament["description_room"];
@@ -355,13 +356,27 @@ get_header();
 						<div class="content_card" data-type="<?php echo $rooms_count; ?>">
 							<div class="col col_description">
 								<div class="wrap_img">
-									<a
-										href="<?php echo wp_get_attachment_image_url($plan_id, "full"); ?>"
-										alt="<?php echo $alt; ?>"
-										class=" glightbox"
-										data-gallery="plans">
-										<img src="<?php echo wp_get_attachment_image_url($plan_id, "floor-plan-gallery-thumb");  ?>" alt="plan" />
-									</a>
+									<div class="card_slider">
+										<div class="swiper-wrapper">
+											<?php
+											if (!empty($plan_ids)) {
+												foreach ($plan_ids as $plan_id) {
+											?>
+													<a
+														href="<?php echo wp_get_attachment_image_url($plan_id, "full"); ?>"
+														alt="<?php echo $alt; ?>"
+														class=" glightbox swiper-slide"
+														data-gallery="plans_<?php echo $index_plan; ?>">
+														<img src="<?php echo wp_get_attachment_image_url($plan_id, "floor-plan-gallery-thumb");  ?>" alt="plan" />
+													</a>
+
+											<?php
+												}
+											}
+											?>
+
+										</div>
+									</div>
 								</div>
 								<div class="info_block">
 									<div class="wrap_info_block">
@@ -392,6 +407,7 @@ get_header();
 							</div>
 						</div>
 					<?php
+						$index_plan++;
 					} ?>
 
 				</div>

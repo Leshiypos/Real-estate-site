@@ -1525,9 +1525,6 @@ h5 {
       @media screen and (max-width: 1000px) {
         .floor-plans_section .header_block h2 {
           font-size: 65px; } }
-    @media screen and (max-width: 1000px) {
-      .floor-plans_section .header_block .col.col_filter-btns {
-        margin-left: auto; } }
     .floor-plans_section .header_block .col.col_filter-btns ul {
       display: flex;
       flex-flow: row nowrap;
@@ -1542,7 +1539,9 @@ h5 {
           gap: 10px; } }
       @media screen and (max-width: 1000px) {
         .floor-plans_section .header_block .col.col_filter-btns ul {
-          flex-flow: row wrap; } }
+          flex-flow: row wrap;
+          justify-content: flex-start;
+          gap: 5px; } }
     .floor-plans_section .header_block .col.col_filter-btns button {
       background-color: transparent;
       border: 1px solid #2b2c33;
@@ -1583,7 +1582,7 @@ h5 {
           padding-left: 27px; } }
       @media screen and (max-width: 1000px) {
         .floor-plans_section .header_block .col.col_filter-btns button {
-          padding: 6px 20px; } }
+          padding: 6px 15px; } }
       .floor-plans_section .header_block .col.col_filter-btns button:hover {
         background: #00b0ae;
         color: white;
@@ -1694,7 +1693,9 @@ h5 {
             gap: 60px; } }
         .floor-plans_section .content_block .content_card .col.col_description .wrap_img {
           width: 427px;
-          height: 289px; }
+          height: 289px;
+          border-radius: 10px;
+          overflow: hidden; }
           @media screen and (min-width: 1001px) and (max-width: 1920px) {
             .floor-plans_section .content_block .content_card .col.col_description .wrap_img {
               width: calc(100vw * (427 / 1920)); } }
@@ -1707,6 +1708,11 @@ h5 {
           @media screen and (max-width: 1000px) {
             .floor-plans_section .content_block .content_card .col.col_description .wrap_img {
               height: 289px; } }
+          .floor-plans_section .content_block .content_card .col.col_description .wrap_img a,
+          .floor-plans_section .content_block .content_card .col.col_description .wrap_img .card_slider,
+          .floor-plans_section .content_block .content_card .col.col_description .wrap_img .swiper-wrapper {
+            width: 100%;
+            height: 100%; }
           .floor-plans_section .content_block .content_card .col.col_description .wrap_img img {
             width: 100%;
             height: 100%;
@@ -2319,7 +2325,6 @@ h5 {
       aspect-ratio: 1/1;
       border-radius: 15px;
       overflow: hidden;
-      cursor: pointer;
       transition: all 0.3s ease; }
       @media screen and (min-width: 1001px) and (max-width: 1920px) {
         .comfort_section .content_block .card_comfort .img_wrap {

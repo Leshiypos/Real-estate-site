@@ -603,9 +603,6 @@ h5 {
     }
     .col {
       &.col_filter-btns {
-        @include tablet {
-          margin-left: auto;
-        }
         ul {
           display: flex;
           flex-flow: row nowrap;
@@ -614,6 +611,8 @@ h5 {
           @include fluid("gap", 10);
           @include tablet {
             flex-flow: row wrap;
+            justify-content: flex-start;
+            gap: 5px;
           }
         }
         button {
@@ -632,7 +631,7 @@ h5 {
           @include fluid("padding-right", 27);
           @include fluid("padding-left", 27);
           @include tablet {
-            padding: 6px 20px;
+            padding: 6px 15px;
           }
           &:hover {
             background: $accent_color;
@@ -725,6 +724,15 @@ h5 {
           .wrap_img {
             @include fluid("width", 427);
             @include fluid("height", 289);
+            border-radius: 10px;
+            overflow: hidden;
+
+            a,
+            .card_slider,
+            .swiper-wrapper {
+              width: 100%;
+              height: 100%;
+            }
             img {
               width: 100%;
               height: 100%;
@@ -1180,7 +1188,7 @@ h5 {
         aspect-ratio: 1/1;
         @include fluid("border-radius", 15);
         overflow: hidden;
-        cursor: pointer;
+        // cursor: pointer;
         transition: all 0.3s ease;
 
         &:hover {
