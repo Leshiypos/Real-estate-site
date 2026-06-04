@@ -30,15 +30,20 @@
 				</ul>
 			</nav>
 			<ul class="language_block">
+
 				<?php
-				if (function_exists('pll_the_languages')) {
-					pll_the_languages([
-						'dropdown' => 0,
-						'show_flags' => 0,
-						'show_names' => 1,
-						'hide_current' => 0,
-						'display_names_as' => 'slug'
-					]);
+				if (function_exists('pll_the_languages') && function_exists('pll_get_post')) {
+					$post_id = get_the_ID();
+					if (pll_get_post($post_id, 'ru')) {
+						pll_the_languages([
+							'dropdown' => 0,
+							'show_flags' => 0,
+							'show_names' => 1,
+							'hide_current' => 0,
+							'display_names_as' => 'slug',
+							'hide_if_no_translation' => 1,
+						]);
+					}
 				}
 				?>
 			</ul>
