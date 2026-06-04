@@ -114,9 +114,9 @@ function initializationCardSlider() {
         slidesPerView: 1,
         spaceBetween: 10,
         loop: true,
-        // autoplay: {
-        //   delay: 6000,
-        // },
+        autoplay: {
+          delay: 6000,
+        },
       });
     });
   }
