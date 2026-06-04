@@ -474,6 +474,8 @@ get_header();
 	$description = $vitrual_tour_section['description'] ?? "";
 	$video_desktop = $vitrual_tour_section['video_desktop'] ?? "";
 	$video_mobile = $vitrual_tour_section['video_mobile'] ?? "";
+	$image_section_url = $vitrual_tour_section['image_section'] ?? get_template_directory_uri() . '/assets/images/virtual_img.avif';
+	$link_tour = $vitrual_tour_section['link_tour'] ?? "#";
 	?>
 	<section class="virtual_tour_section" id="tour">
 		<div class="wrap_section">
@@ -507,7 +509,7 @@ get_header();
 				<?php
 				} else {
 				?>
-					<img src="<?php echo get_template_directory_uri() ?>/assets/images/virtual_img.avif" alt="virtual image" />
+					<a href="<?php echo esc_url($link_tour); ?>"><img src="<?php echo esc_url($image_section_url); ?>" alt="virtual image" /></a>
 				<?php
 				} ?>
 
