@@ -6,6 +6,8 @@
 
   //   Initialization Galerry section slider
   initializationGalleryTwo();
+
+  initializationCardSlider();
 });
 
 function initialportfolioSwiper() {
@@ -98,4 +100,24 @@ function initializationGalleryTwo() {
     gallery.params.slidesOffsetAfter = offset;
     gallery.update();
   });
+}
+
+function initializationCardSlider() {
+  const sliders = document.querySelectorAll(
+    ".floor-plans_section .card_slider",
+  );
+  console.log(sliders);
+
+  if (sliders.length) {
+    sliders.forEach((slider) => {
+      new Swiper(slider, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+          delay: 6000,
+        },
+      });
+    });
+  }
 }

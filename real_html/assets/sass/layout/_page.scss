@@ -98,11 +98,51 @@ h5 {
     @include fz_25;
     color: #fff;
     @include fluid("gap", 35);
+
+    .logo_description {
+      @include fluid("width", 656);
+      font-weight: 500;
+      @include fz_25;
+      line-height: 145%;
+      text-align: center;
+      color: #fff;
+    }
     img {
       @include fluid("width", 597);
     }
     @include tablet {
       display: none;
+    }
+  }
+  .price_block {
+    position: absolute;
+    @include fluid("bottom", 172);
+    @include fluid("left", 53);
+    @include tablet {
+      position: static;
+    }
+
+    .label {
+      font-weight: 300;
+      @include fz_25;
+      line-height: 120%;
+      color: #fff;
+      @include tablet {
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+    .price {
+      font-weight: 500;
+      @include fz_36;
+      line-height: 120%;
+      color: #fff;
+      margin-top: 10px;
+      @include fluid("margin-top", 10);
+      @include tablet {
+        text-align: center;
+        font-size: 25px;
+      }
     }
   }
   .content_block {
@@ -140,10 +180,10 @@ h5 {
             width: 276px;
           }
           .logo_description {
-            font-family: var(--font-family);
             font-weight: 500;
             font-size: 16px;
             color: #fff;
+            text-align: center;
           }
         }
       }
@@ -167,8 +207,8 @@ h5 {
           @include fluid("width", 112);
           @include fluid("height", 112);
           @include tablet {
-            width: 159px;
-            height: 159px;
+            width: 110px;
+            height: 110px;
           }
         }
         @include tablet {
@@ -454,7 +494,8 @@ h5 {
         @include tablet {
           margin-top: 0;
           max-width: 180px;
-          margin-left: auto;
+          //   margin-left: auto;
+          margin-left: 5px;
           gap: 20px;
           h3 {
             font-size: 25px;
@@ -547,6 +588,9 @@ h5 {
     justify-content: space-between;
     @include tablet {
       width: 90%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 50px;
     }
     h2 {
       font-family: var(--second-family);
@@ -566,6 +610,11 @@ h5 {
           align-items: center;
           justify-content: flex-end;
           @include fluid("gap", 10);
+          @include tablet {
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            gap: 5px;
+          }
         }
         button {
           background-color: transparent;
@@ -582,7 +631,9 @@ h5 {
           @include fluid("padding-bottom", 10);
           @include fluid("padding-right", 27);
           @include fluid("padding-left", 27);
-
+          @include tablet {
+            padding: 6px 15px;
+          }
           &:hover {
             background: $accent_color;
             color: white;
@@ -599,10 +650,15 @@ h5 {
             &:hover {
               background: $accent_color_hover;
             }
+            @include tablet {
+              font-size: 12px;
+            }
+          }
+          @include tablet {
+            font-size: 12px;
           }
         }
         @include tablet {
-          display: none;
         }
       }
     }
@@ -618,6 +674,7 @@ h5 {
     @include fluid("gap", 36);
     @include tablet {
       gap: 118px;
+      margin-top: 30px;
     }
 
     .content_card {
@@ -672,6 +729,7 @@ h5 {
           .wrap_img {
             @include fluid("width", 427);
             @include fluid("height", 289);
+            overflow: hidden;
             img {
               width: 100%;
               height: 100%;
@@ -967,6 +1025,7 @@ h5 {
   }
 
   .wrap_section {
+    height: 100%;
     width: 97%;
     margin-left: auto;
     margin-right: auto;
@@ -1061,6 +1120,11 @@ h5 {
         height: 100%;
         object-fit: cover;
       }
+      .cover_bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
       @include tablet {
         width: 100%;
         height: 600px;
@@ -1068,6 +1132,93 @@ h5 {
       @include mobile {
         width: 100%;
         height: 419px;
+      }
+    }
+  }
+}
+
+.comfort_section {
+  @include fluid("margin-top", 190);
+  @include tablet {
+    margin-top: 120px;
+  }
+  .wrap_section {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    @include tablet {
+      width: 90%;
+    }
+  }
+
+  .header_comfort_section {
+    h2 {
+      font-family: var(--second-family);
+      font-weight: 300;
+      @include fz_90;
+      line-height: 120%;
+      color: #2b2c33;
+      @include fluid("width", 1490);
+      @include tablet {
+        width: 100%;
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .content_block {
+    @include fluid("margin-top", 87);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @include fluid("row-gap", 80);
+    @include fluid("column-gap", 40);
+    @include tablet {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      margin-top: 45px;
+      gap: 50px 30px;
+    }
+    .card_comfort {
+      .img_wrap {
+        width: 100%;
+        aspect-ratio: 1/1;
+        @include fluid("border-radius", 15);
+        overflow: hidden;
+        // cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+        @include tablet {
+          border-radius: 10px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .description {
+        @include fluid("margin-top", 39);
+        font-family: var(--second-family);
+        font-weight: 300;
+        @include fz_38;
+        line-height: 120%;
+        text-align: center;
+        color: #2b2c33;
+        @include tablet {
+          font-size: 26px;
+          margin-top: 20px;
+          text-align: left;
+          padding-left: 15px;
+        }
       }
     }
   }
@@ -1191,20 +1342,23 @@ footer {
       padding-bottom: 60px;
       border: none;
     }
-    h2 {
+    .footer_menu {
       font-family: var(--font-family);
       font-weight: 400;
       @include fz_75;
       line-height: 100%;
       color: #141414;
-      @include fluid("width", 280);
+      text-transform: lowercase;
+      a {
+        &:hover {
+          color: #545454;
+        }
+      }
       @include tablet {
         font-family: var(--font-family);
         font-weight: 400;
         font-size: 40px;
         line-height: 108%;
-        color: #141414;
-        width: 180px;
       }
     }
     .btn_block {
@@ -1415,95 +1569,6 @@ footer {
           display: block;
           width: 61px;
           height: 61px;
-        }
-      }
-    }
-  }
-}
-
-// MARK: COMFORT SECTION
-
-.comfort_section {
-  @include fluid("margin-top", 190);
-  @include tablet {
-    margin-top: 120px;
-  }
-  .wrap_section {
-    width: 97%;
-    margin-left: auto;
-    margin-right: auto;
-    @include tablet {
-      width: 90%;
-    }
-  }
-
-  .header_comfort_section {
-    h2 {
-      font-family: var(--second-family);
-      font-weight: 300;
-      @include fz_90;
-      line-height: 120%;
-      color: #2b2c33;
-      @include fluid("width", 1490);
-      @include tablet {
-        width: 100%;
-        br {
-          display: none;
-        }
-      }
-    }
-  }
-
-  .content_block {
-    @include fluid("margin-top", 87);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    @include fluid("row-gap", 80);
-    @include fluid("column-gap", 40);
-    @include tablet {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      margin-top: 45px;
-      gap: 50px 30px;
-    }
-    .card_comfort {
-      .img_wrap {
-        width: 100%;
-        aspect-ratio: 1/1;
-        @include fluid("border-radius", 15);
-        overflow: hidden;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:hover {
-          img {
-            transform: scale(1.1);
-          }
-        }
-        @include tablet {
-          border-radius: 10px;
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: all 0.3s ease;
-        }
-      }
-
-      .description {
-        @include fluid("margin-top", 39);
-        font-family: var(--second-family);
-        font-weight: 300;
-        @include fz_38;
-        line-height: 120%;
-        text-align: center;
-        color: #2b2c33;
-        @include tablet {
-          font-size: 26px;
-          margin-top: 20px;
-          text-align: left;
-          padding-left: 15px;
         }
       }
     }

@@ -118,6 +118,9 @@
 @mixin fz_35 {
   @include fluid-font(18, 35);
 }
+@mixin fz_36 {
+  @include fluid-font(18, 36);
+}
 @mixin fz_30 {
   @include fluid-font(15, 30);
 }
