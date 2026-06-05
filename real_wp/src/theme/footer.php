@@ -46,7 +46,7 @@
 
 			<div class="contact_block fade_in">
 				<div class="col col_btn">
-					<a href="#"><?php pll_e('Submit a request'); ?>
+					<a data-btn-open="pop_up"><?php pll_e('Submit a request'); ?>
 						<img
 							src="<?php echo get_template_directory_uri() ?>/assets/images/icons/request_arrow.svg"
 							alt=" arrow icon" /></a>
