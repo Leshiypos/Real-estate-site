@@ -11,7 +11,10 @@ add_action('init', function () {
 		'menu_about' => 'ABOUT BUILDING',
 		'menu_gallery' => 'GALLERY',
 		'menu_plans' => 'FLOORS PLANS',
-		'menu_tour' => 'VIRTUAL TOUR',
+		'menu_payment' => 'PAYMENT PLAN',
+		'menu_virtual' => 'VIRTUAL TOUR',
+		'menu_location' => 'LOCATION',
+		'menu_amenities' => 'AMENITIES',
 
 		// Buttons
 		'btn_leave_request' => 'Leave a request',

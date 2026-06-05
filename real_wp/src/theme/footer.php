@@ -31,6 +31,10 @@
 						<li><a href="#about"><?php pll_e('ABOUT BUILDING'); ?></a></li>
 						<li><a href="#gallery"><?php pll_e('GALLERY'); ?></a></li>
 						<li><a href="#plans"><?php pll_e('FLOORS PLANS'); ?></a></li>
+						<li><a href="#payment_plan"><?php pll_e('PAYMENT PLAN'); ?></a></li>
+						<li><a href="#virtual_tour"><?php pll_e('VIRTUAL TOUR'); ?></a></li>
+						<li><a href="#amenities"><?php pll_e('AMENITIES'); ?></a></li>
+						<li><a href="#location"><?php pll_e('LOCATION'); ?></a></li>
 					</ul>
 				</div>
 				<div class="btn_block">
@@ -170,6 +174,10 @@
 					<li><a href="#about"><?php pll_e('ABOUT BUILDING'); ?></a></li>
 					<li><a href="#gallery"><?php pll_e('GALLERY'); ?></a></li>
 					<li><a href="#plans"><?php pll_e('FLOORS PLANS'); ?></a></li>
+					<li><a href="#payment_plan"><?php pll_e('PAYMENT PLAN'); ?></a></li>
+					<li><a href="#virtual_tour"><?php pll_e('VIRTUAL TOUR'); ?></a></li>
+					<li><a href="#amenities"><?php pll_e('AMENITIES'); ?></a></li>
+					<li><a href="#location"><?php pll_e('LOCATION'); ?></a></li>
 				</ul>
 			</nav>
 			<?php

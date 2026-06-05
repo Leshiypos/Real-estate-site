@@ -423,7 +423,7 @@ get_header();
 	$description = $payment_plan_section["description"] ?? "";
 	$steps = $payment_plan_section["steps"] ?? "";
 	?>
-	<section class="payment_plan_section">
+	<section class="payment_plan_section" id="payment_plan">
 		<div class="wrap_section">
 			<div class="col col_header">
 				<h2 class="fade_in"><?php echo $title; ?></h2>
@@ -493,7 +493,7 @@ get_header();
 	$image_section_url = $vitrual_tour_section['image_section'] ?? get_template_directory_uri() . '/assets/images/virtual_img.avif';
 	$link_tour = $vitrual_tour_section['link_tour'] ?? "#";
 	?>
-	<section class="virtual_tour_section" id="tour">
+	<section class="virtual_tour_section" id="virtual_tour">
 		<div class="wrap_section">
 			<div class="col col_title">
 				<div class="pre_title fade_in"><?php echo $pre_title; ?></div>
@@ -544,7 +544,7 @@ get_header();
 	<?php
 	if (!empty($comfort_section)) {
 	?>
-		<section class="comfort_section">
+		<section class="comfort_section" id="amenities">
 			<div class="wrap_section">
 				<div class="header_comfort_section">
 					<h2>
@@ -586,7 +586,7 @@ get_header();
 
 	if (!empty($script)) {
 	?>
-		<section class="map_section fade_in">
+		<section class="map_section fade_in" id="location">
 			<div class="wrap_section">
 				<?php echo $script; ?>
 			</div>

@@ -44,7 +44,7 @@ header {
       flex-flow: row nowrap;
       align-items: center;
       justify-content: center;
-      @include fluid("gap", 65);
+      @include fluid("gap", 30);
       li {
         a {
           font-weight: 700;
