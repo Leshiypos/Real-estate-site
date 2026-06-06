@@ -1578,3 +1578,155 @@ footer {
     }
   }
 }
+
+// MARK: DEFAULT PAGE
+.default_page_section {
+  @include fluid("padding-top", 100);
+  @include fluid("padding-bottom", 100);
+
+  @include tablet {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+
+  .wrap_section {
+    @include fluid("width", 1200);
+    margin-left: auto;
+    margin-right: auto;
+
+    @include tablet {
+      width: 90%;
+    }
+  }
+
+  h1 {
+    font-family: var(--second-family);
+    font-weight: 300;
+    @include fz_120;
+    line-height: 90%;
+    color: #2b2c33;
+
+    @include fluid("margin-bottom", 40);
+
+    @include tablet {
+      font-size: 60px;
+      margin-bottom: 50px;
+    }
+  }
+
+  article {
+    @include fluid("margin-bottom", 80);
+
+    @include tablet {
+      margin-bottom: 50px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h2 {
+    font-family: var(--second-family);
+    font-weight: 300;
+    @include fz_50;
+    color: #2b2c33;
+
+    @include fluid("margin-bottom", 30);
+
+    @include tablet {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+  }
+
+  p,
+  li,
+  address {
+    font-family: var(--font-family);
+    font-weight: 500;
+    @include fz_16;
+    line-height: 180%;
+    color: rgba(43, 44, 51, 0.75);
+
+    @include tablet {
+      font-size: 14px;
+      line-height: 180%;
+    }
+  }
+
+  p {
+    @include fluid("margin-bottom", 20);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    @include fluid("gap", 16);
+
+    @include fluid("margin-top", 20);
+    @include fluid("margin-bottom", 20);
+
+    @include tablet {
+      gap: 12px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    li {
+      position: relative;
+
+      @include fluid("padding-left", 30);
+
+      @include tablet {
+        padding-left: 22px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+
+        @include fluid("width", 8);
+        @include fluid("height", 8);
+
+        border-radius: 50%;
+        background: $accent_color;
+
+        left: 0;
+        top: 12px;
+
+        @include tablet {
+          width: 6px;
+          height: 6px;
+          top: 10px;
+        }
+      }
+    }
+  }
+
+  strong {
+    font-weight: 700;
+    color: #2b2c33;
+  }
+
+  a {
+    color: $accent_color;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

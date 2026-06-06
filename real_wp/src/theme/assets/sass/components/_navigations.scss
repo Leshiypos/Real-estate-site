@@ -8,6 +8,26 @@ header {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  &.invert_header {
+    position: static;
+    background-color: rgb(0, 176, 174);
+    @include fluid("margin-bottom", 80);
+    .wrap_header {
+      @include fluid("height", 60);
+      .btn.accent {
+        background-color: white;
+        color: rgb(43, 44, 51);
+        transition: all 0.3s ease;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      @include tablet {
+        height: 70px;
+        width: 90%;
+      }
+    }
+  }
   .wrap_header {
     position: relative;
     display: flex;

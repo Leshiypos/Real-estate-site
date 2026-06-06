@@ -12,7 +12,11 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<header>
+	<header
+		<?php
+		if (is_page() && get_page_template_slug() === '') {
+			echo 'class="invert_header"';
+		} ?>>
 		<?php
 		$logo = get_field("site_logo", "option") ?? get_template_directory_uri() . "/assets/images/icons/logo.svg";
 		?>

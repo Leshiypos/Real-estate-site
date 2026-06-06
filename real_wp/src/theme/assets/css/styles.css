@@ -236,6 +236,34 @@ header {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center; }
+  header.invert_header {
+    position: static;
+    background-color: #00b0ae;
+    margin-bottom: 80px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      header.invert_header {
+        margin-bottom: calc(100vw * (80 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      header.invert_header {
+        margin-bottom: 80px; } }
+    header.invert_header .wrap_header {
+      height: 60px; }
+      @media screen and (min-width: 1001px) and (max-width: 1920px) {
+        header.invert_header .wrap_header {
+          height: calc(100vw * (60 / 1920)); } }
+      @media screen and (max-width: 1000px) {
+        header.invert_header .wrap_header {
+          height: 60px; } }
+      header.invert_header .wrap_header .btn.accent {
+        background-color: white;
+        color: #2b2c33;
+        transition: all 0.3s ease; }
+        header.invert_header .wrap_header .btn.accent:hover {
+          opacity: 0.7; }
+      @media screen and (max-width: 1000px) {
+        header.invert_header .wrap_header {
+          height: 70px;
+          width: 90%; } }
   header .wrap_header {
     position: relative;
     display: flex;
@@ -2821,5 +2849,188 @@ footer {
           display: block;
           width: 61px;
           height: 61px; } }
+
+.default_page_section {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+  @media screen and (min-width: 1001px) and (max-width: 1920px) {
+    .default_page_section {
+      padding-top: calc(100vw * (100 / 1920)); } }
+  @media screen and (max-width: 1000px) {
+    .default_page_section {
+      padding-top: 100px; } }
+  @media screen and (min-width: 1001px) and (max-width: 1920px) {
+    .default_page_section {
+      padding-bottom: calc(100vw * (100 / 1920)); } }
+  @media screen and (max-width: 1000px) {
+    .default_page_section {
+      padding-bottom: 100px; } }
+  @media screen and (max-width: 1000px) {
+    .default_page_section {
+      padding-top: 30px;
+      padding-bottom: 60px; } }
+  .default_page_section .wrap_section {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .default_page_section .wrap_section {
+        width: calc(100vw * (1200 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section .wrap_section {
+        width: 1200px; } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section .wrap_section {
+        width: 90%; } }
+  .default_page_section h1 {
+    font-family: var(--second-family);
+    font-weight: 300;
+    font-size: clamp(60px, calc( 60px + (120 - 60) * ((100vw - 1000px) / (1920 - 1000)) ), 120px);
+    line-height: 90%;
+    color: #2b2c33;
+    margin-bottom: 40px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .default_page_section h1 {
+        margin-bottom: calc(100vw * (40 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section h1 {
+        margin-bottom: 40px; } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section h1 {
+        font-size: 60px;
+        margin-bottom: 50px; } }
+  .default_page_section article {
+    margin-bottom: 80px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .default_page_section article {
+        margin-bottom: calc(100vw * (80 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section article {
+        margin-bottom: 80px; } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section article {
+        margin-bottom: 50px; } }
+    .default_page_section article:last-child {
+      margin-bottom: 0; }
+  .default_page_section h2 {
+    font-family: var(--second-family);
+    font-weight: 300;
+    font-size: clamp(25px, calc( 25px + (50 - 25) * ((100vw - 1000px) / (1920 - 1000)) ), 50px);
+    color: #2b2c33;
+    margin-bottom: 30px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .default_page_section h2 {
+        margin-bottom: calc(100vw * (30 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section h2 {
+        margin-bottom: 30px; } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section h2 {
+        font-size: 32px;
+        margin-bottom: 20px; } }
+  .default_page_section p,
+  .default_page_section li,
+  .default_page_section address {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: clamp(8px, calc( 8px + (16 - 8) * ((100vw - 1000px) / (1920 - 1000)) ), 16px);
+    line-height: 180%;
+    color: rgba(43, 44, 51, 0.75); }
+    @media screen and (max-width: 1000px) {
+      .default_page_section p,
+      .default_page_section li,
+      .default_page_section address {
+        font-size: 14px;
+        line-height: 180%; } }
+  .default_page_section p {
+    margin-bottom: 20px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .default_page_section p {
+        margin-bottom: calc(100vw * (20 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section p {
+        margin-bottom: 20px; } }
+    .default_page_section p:last-child {
+      margin-bottom: 0; }
+  .default_page_section ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .default_page_section ul {
+        gap: calc(100vw * (16 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section ul {
+        gap: 16px; } }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .default_page_section ul {
+        margin-top: calc(100vw * (20 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section ul {
+        margin-top: 20px; } }
+    @media screen and (min-width: 1001px) and (max-width: 1920px) {
+      .default_page_section ul {
+        margin-bottom: calc(100vw * (20 / 1920)); } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section ul {
+        margin-bottom: 20px; } }
+    @media screen and (max-width: 1000px) {
+      .default_page_section ul {
+        gap: 12px;
+        margin-top: 15px;
+        margin-bottom: 15px; } }
+    .default_page_section ul li {
+      position: relative;
+      padding-left: 30px; }
+      @media screen and (min-width: 1001px) and (max-width: 1920px) {
+        .default_page_section ul li {
+          padding-left: calc(100vw * (30 / 1920)); } }
+      @media screen and (max-width: 1000px) {
+        .default_page_section ul li {
+          padding-left: 30px; } }
+      @media screen and (max-width: 1000px) {
+        .default_page_section ul li {
+          padding-left: 22px; } }
+      .default_page_section ul li::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #00b0ae;
+        left: 0;
+        top: 12px; }
+        @media screen and (min-width: 1001px) and (max-width: 1920px) {
+          .default_page_section ul li::before {
+            width: calc(100vw * (8 / 1920)); } }
+        @media screen and (max-width: 1000px) {
+          .default_page_section ul li::before {
+            width: 8px; } }
+        @media screen and (min-width: 1001px) and (max-width: 1920px) {
+          .default_page_section ul li::before {
+            height: calc(100vw * (8 / 1920)); } }
+        @media screen and (max-width: 1000px) {
+          .default_page_section ul li::before {
+            height: 8px; } }
+        @media screen and (max-width: 1000px) {
+          .default_page_section ul li::before {
+            width: 6px;
+            height: 6px;
+            top: 10px; } }
+  .default_page_section strong {
+    font-weight: 700;
+    color: #2b2c33; }
+  .default_page_section a {
+    color: #00b0ae;
+    text-decoration: underline; }
+    .default_page_section a:hover {
+      text-decoration: none; }
+  .default_page_section address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; }
 
 /*# sourceMappingURL=styles.css.map */
