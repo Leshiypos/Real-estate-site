@@ -189,11 +189,7 @@ function openBlockInit() {
       return;
     }
     // Добавляем заголовок если есть куда
-    const titlePopUp = blockOpen.querySelector("[data-title-popup]");
-    if (titlePopUp) {
-      titlePopUp.textContent =
-        btnOpen.dataset?.titlePopup || "Получить консультацию";
-    }
+    setTitlesPopuUp(btnOpen, blockOpen);
 
     // Был ли этот блок ОТКРЫТ до клика?
     const wasOpen = blockOpen.classList.contains("active");
@@ -220,6 +216,26 @@ function openBlockInit() {
     // Если был закрыт — открываем его
     blockOpen.classList.add("active");
   });
+
+  function setTitlesPopuUp(btn, popup) {
+    const titleLineOne = popup.querySelector("[data-set-title-line-one]");
+    const titleLineTwo = popup.querySelector("[data-set-title-line-Two]");
+    const btnInput = popup.querySelector("[data-set-btn-label]");
+
+    const titleLineOneText = btn.dataset?.popupTitleLineOne || "undefined";
+    const titleLineTwoText = btn.dataset?.popupTitleLineTwo || "undefined";
+    const titleBtnLabelText = btn.dataset?.popupBtnLabel || "undefined";
+
+    if (titleLineOne) {
+      titleLineOne.textContent = titleLineOneText;
+    }
+    if (titleLineTwo) {
+      titleLineTwo.textContent = titleLineTwoText;
+    }
+    if (btnInput) {
+      btnInput.value = titleBtnLabelText;
+    }
+  }
 }
 // функция закрытия
 function closeBlockInit() {

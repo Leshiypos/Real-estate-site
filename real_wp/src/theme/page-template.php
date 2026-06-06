@@ -16,6 +16,13 @@ get_header();
 	$label_price = $hero_section["price_label_from"] ?? "";
 	$price = $hero_section["price_from"] ?? "";
 
+	$cta_button = $hero_section['cta_button'] ?? [];
+	$cta_btn_label = $cta_button['label'] ??  "";
+	$cta_title_popup_line_1 = $cta_button['title_popup_line_1'] ?? "";
+	$cta_title_popup_line_2 = $cta_button['title_popup_line_2'] ?? "";
+	$cta_btn_popup_label = $cta_button['button_popup_label'] ?? "";
+
+
 
 	?>
 	<section class="hero_section">
@@ -62,8 +69,13 @@ get_header();
 
 				<div class="wrap_content_block">
 					<div class="col btn_block fade_in">
-						<a href="#" class="btn white" data-btn-open="pop_up">
-							<div class="btn_wrap"><?php pll_e('Leave a request'); ?></div>
+						<a href="#" class="btn white"
+							data-btn-open="pop_up"
+							data-popup-title-line-one="<?php echo $cta_title_popup_line_1; ?>"
+							data-popup-title-line-two="<?php echo $cta_title_popup_line_2; ?>"
+							data-popup-btn-label="<?php echo $cta_btn_popup_label; ?>">
+							<div class="btn_wrap">
+								<?php echo $cta_btn_label; ?></div>
 						</a>
 						<?php /*
 

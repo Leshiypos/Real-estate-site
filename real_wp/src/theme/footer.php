@@ -230,8 +230,8 @@
 				</div>
 				<div class="row form_row">
 					<h2>
-						<?php pll_e('Get a presentation'); ?> <br />
-						<span><?php pll_e('of our properties'); ?></span>
+						<span class="line_one" data-set-title-line-one><?php pll_e('Get a presentation'); ?></span> <br />
+						<span class="line_two" data-set-title-line-two><?php pll_e('of our properties'); ?></span>
 					</h2>
 
 					<form action="" id="popUp_form" method="post" data-action="send_mail">
@@ -245,7 +245,7 @@
 								required />
 						</div>
 						<div class="message_send_status"></div>
-						<input type="submit" value="<?php pll_e('Get a presentation'); ?>" />
+						<input data-set-btn-label type="submit" value="<?php pll_e('Get a presentation'); ?>" />
 					</form>
 					<div class="pivacy_block">
 						<p>

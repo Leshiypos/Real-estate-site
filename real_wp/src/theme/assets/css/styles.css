@@ -572,7 +572,7 @@ header {
         @media screen and (max-width: 1000px) {
           .popUp .col_form .form_row h2 {
             margin-bottom: 81px; } }
-        .popUp .col_form .form_row h2 span {
+        .popUp .col_form .form_row h2 span.line_two {
           color: #aaafbb; }
         @media screen and (max-width: 1000px) {
           .popUp .col_form .form_row h2 {

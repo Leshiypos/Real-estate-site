@@ -105,7 +105,7 @@
         letter-spacing: -0.03em;
         color: #545454;
         @include fluid("margin-bottom", 81);
-        span {
+        span.line_two {
           color: #aaafbb;
         }
         @include tablet {
