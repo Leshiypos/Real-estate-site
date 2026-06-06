@@ -51,9 +51,20 @@
 				}
 				?>
 			</ul>
+			<?php
+			$header_option = get_field('header', 'option');
+			$cta_button = $header_option['cta_button'] ?? [];
+			$cta_btn_label = $cta_button['label'] ??  "";
+			$cta_title_popup_line_1 = $cta_button['title_popup_line_1'] ?? "";
+			$cta_title_popup_line_2 = $cta_button['title_popup_line_2'] ?? "";
+			$cta_btn_popup_label = $cta_button['button_popup_label'] ?? "";
+			?>
 			<div class="btn_block desktop">
-				<a href="#" class="btn accent" data-btn-open="pop_up">
-					<div class="btn_wrap"><?php pll_e('Book a viewing'); ?></div>
+				<a href="#" class="btn accent" data-btn-open="pop_up"
+					data-popup-title-line-one="<?php echo $cta_title_popup_line_1; ?>"
+					data-popup-title-line-two="<?php echo $cta_title_popup_line_2; ?>"
+					data-popup-btn-label="<?php echo $cta_btn_popup_label; ?>">
+					<div class="btn_wrap"><?php echo $cta_btn_label; ?></div>
 				</a>
 			</div>
 			<div class="burger_btn_block mobile">

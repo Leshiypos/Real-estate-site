@@ -16,6 +16,12 @@
 	$address = $contacts_footer['address'] ?? '';
 	$socials = $contacts_footer['socials'] ?? [];
 
+	$cta_button = $footer_option['cta_button'] ?? [];
+	$cta_btn_label = $cta_button['label'] ??  "";
+	$cta_title_popup_line_1 = $cta_button['title_popup_line_1'] ?? "";
+	$cta_title_popup_line_2 = $cta_button['title_popup_line_2'] ?? "";
+	$cta_btn_popup_label = $cta_button['button_popup_label'] ?? "";
+
 	?>
 	<footer>
 		<div class="wrap_footer">
@@ -46,7 +52,10 @@
 
 			<div class="contact_block fade_in">
 				<div class="col col_btn">
-					<a data-btn-open="pop_up"><?php pll_e('Submit a request'); ?>
+					<a data-btn-open="pop_up"
+						data-popup-title-line-one="<?php echo $cta_title_popup_line_1; ?>"
+						data-popup-title-line-two="<?php echo $cta_title_popup_line_2; ?>"
+						data-popup-btn-label="<?php echo $cta_btn_popup_label; ?>"><?php echo $cta_btn_label; ?>
 						<img
 							src="<?php echo get_template_directory_uri() ?>/assets/images/icons/request_arrow.svg"
 							alt=" arrow icon" /></a>

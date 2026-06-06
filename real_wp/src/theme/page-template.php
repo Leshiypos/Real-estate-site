@@ -137,6 +137,12 @@ get_header();
 	$gallery_about_section = $about_section["gallery"] ?? [];
 	$characteristics_about_section = $about_section["characteristics"] ?? [];
 
+	$cta_button = $about_section['cta_button'] ?? [];
+	$cta_btn_label = $cta_button['label'] ??  "";
+	$cta_title_popup_line_1 = $cta_button['title_popup_line_1'] ?? "";
+	$cta_title_popup_line_2 = $cta_button['title_popup_line_2'] ?? "";
+	$cta_btn_popup_label = $cta_button['button_popup_label'] ?? "";
+
 	?>
 	<section class="about_section" id="about">
 		<div class="wrap_section">
@@ -230,8 +236,12 @@ get_header();
 						<a
 							href="#"
 							class="btn accent whith_arrow"
-							data-btn-open="pop_up">
-							<p><?php pll_e('Get Offer'); ?></p>
+							data-btn-open="pop_up"
+							data-popup-title-line-one="<?php echo $cta_title_popup_line_1; ?>"
+							data-popup-title-line-two="<?php echo $cta_title_popup_line_2; ?>"
+							data-popup-btn-label="<?php echo $cta_btn_popup_label; ?>">
+
+							<p><?php echo $cta_btn_label; ?></p>
 							<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif" alt="arrow" />
 						</a>
 					</div>
@@ -359,6 +369,12 @@ get_header();
 						$description_price = $apartament["description_price"];
 						$rooms_count = $apartament["rooms_count"];
 
+						$cta_button = $apartament['cta_button'] ?? [];
+						$cta_btn_label = $cta_button['label'] ??  "";
+						$cta_title_popup_line_1 = $cta_button['title_popup_line_1'] ?? "";
+						$cta_title_popup_line_2 = $cta_button['title_popup_line_2'] ?? "";
+						$cta_btn_popup_label = $cta_button['button_popup_label'] ?? "";
+
 						$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 						if (!$alt) {
 							$alt = get_the_title($image_id);
@@ -408,8 +424,12 @@ get_header();
 										<a
 											href="#"
 											class="btn accent whith_arrow"
-											data-btn-open="pop_up">
-											<p><?php pll_e('Get Offer'); ?></p>
+											data-btn-open="pop_up"
+
+											data-popup-title-line-one="<?php echo $cta_title_popup_line_1; ?>"
+											data-popup-title-line-two="<?php echo $cta_title_popup_line_2; ?>"
+											data-popup-btn-label="<?php echo $cta_btn_popup_label; ?>">
+											<p><?php echo $cta_btn_label; ?></p>
 											<img
 												src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif"
 												alt="arrow" />
@@ -434,6 +454,12 @@ get_header();
 	$title = $payment_plan_section["title"] ?? "";
 	$description = $payment_plan_section["description"] ?? "";
 	$steps = $payment_plan_section["steps"] ?? "";
+
+	$cta_button = $payment_plan_section['cta_button'] ?? [];
+	$cta_btn_label = $cta_button['label'] ??  "";
+	$cta_title_popup_line_1 = $cta_button['title_popup_line_1'] ?? "";
+	$cta_title_popup_line_2 = $cta_button['title_popup_line_2'] ?? "";
+	$cta_btn_popup_label = $cta_button['button_popup_label'] ?? "";
 	?>
 	<section class="payment_plan_section" id="payment_plan">
 		<div class="wrap_section">
@@ -443,8 +469,11 @@ get_header();
 					<?php echo $description; ?>
 				</div>
 				<div class="btn_block fade_in">
-					<a href="#" class="btn accent whith_arrow" data-btn-open="pop_up">
-						<p><?php pll_e('Get Offer'); ?></p>
+					<a href="#" class="btn accent whith_arrow" data-btn-open="pop_up"
+						data-popup-title-line-one="<?php echo $cta_title_popup_line_1; ?>"
+						data-popup-title-line-two="<?php echo $cta_title_popup_line_2; ?>"
+						data-popup-btn-label="<?php echo $cta_btn_popup_label; ?>">
+						<p><?php echo $cta_btn_label; ?></p>
 						<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif" alt="arrow" />
 					</a>
 				</div>
@@ -486,8 +515,12 @@ get_header();
 
 			</div>
 			<div class="btn_block_mobile">
-				<a href="#" class="btn accent whith_arrow" data-btn-open="pop_up">
-					<p><?php pll_e('Get Offer'); ?></p>
+				<a href="#" class="btn accent whith_arrow" data-btn-open="pop_up"
+					data-popup-title-line-one="<?php echo $cta_title_popup_line_1; ?>"
+					data-popup-title-line-two="<?php echo $cta_title_popup_line_2; ?>"
+					data-popup-btn-label="<?php echo $cta_btn_popup_label; ?>">
+
+					<p><?php echo $cta_btn_label; ?></p>
 					<img src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag.avif" alt="arrow" />
 				</a>
 			</div>
@@ -504,6 +537,12 @@ get_header();
 	$video_mobile = $vitrual_tour_section['video_mobile'] ?? "";
 	$image_section_url = $vitrual_tour_section['image_section'] ?? get_template_directory_uri() . '/assets/images/virtual_img.avif';
 	$link_tour = $vitrual_tour_section['link_tour'] ?? "#";
+
+	$cta_button = $vitrual_tour_section['cta_button'] ?? [];
+	$cta_btn_label = $cta_button['label'] ??  "";
+	$cta_title_popup_line_1 = $cta_button['title_popup_line_1'] ?? "";
+	$cta_title_popup_line_2 = $cta_button['title_popup_line_2'] ?? "";
+	$cta_btn_popup_label = $cta_button['button_popup_label'] ?? "";
 	?>
 	<section class="virtual_tour_section" id="virtual_tour">
 		<div class="wrap_section">
@@ -514,8 +553,11 @@ get_header();
 					<?php echo $description; ?>
 				</div>
 				<div class="btn_block fade_in">
-					<a href="#" class="btn white whith_arrow" data-btn-open="pop_up">
-						<p>Get Offer</p>
+					<a href="#" class="btn white whith_arrow" data-btn-open="pop_up"
+						data-popup-title-line-one="<?php echo $cta_title_popup_line_1; ?>"
+						data-popup-title-line-two="<?php echo $cta_title_popup_line_2; ?>"
+						data-popup-btn-label="<?php echo $cta_btn_popup_label; ?>">
+						<p><?php echo $cta_btn_label; ?></p>
 						<img
 							src="<?php echo get_template_directory_uri() ?>/assets/images/icons/arrow_diag_accent.avif"
 							alt="arrow" />

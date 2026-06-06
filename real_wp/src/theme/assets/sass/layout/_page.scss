@@ -1394,6 +1394,7 @@ footer {
   .col {
     &.col_btn {
       a {
+        cursor: pointer;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;

@@ -138,6 +138,7 @@ a {
   text-decoration: none; }
 
 .btn {
+  cursor: pointer;
   font-weight: 500;
   font-size: clamp(8px, calc( 8px + (16 - 8) * ((100vw - 1000px) / (1920 - 1000)) ), 16px);
   letter-spacing: -0.03em;
@@ -2599,6 +2600,7 @@ footer {
       footer .contact_block {
         order: 3; } }
   footer .col.col_btn a {
+    cursor: pointer;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
